@@ -22,6 +22,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Upgrade to simplecov v1.0.pre
+- Upgrade to simplecov-cobertura v4.0.pre
+- Upgrade to version_gem v1.1.12
+
 ### Deprecated
 
 ### Removed

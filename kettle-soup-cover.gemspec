@@ -106,14 +106,19 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.require_paths = ["lib"]
 
   # Utilities
-  spec.add_dependency("simplecov", "~> 0.22", ">= 0.22.0") # Includes dependency on simplecov-html
-  spec.add_dependency("simplecov-cobertura", "~> 3.1", ">= 3.1.0") # Ruby >= 2.5, provides GitLab, Jenkins compatibility (XML)
+  # NOTES: Preparing for simplecov v1 release
+  # gem "simplecov-console" has loose dependency on simplecov
+  # gem "simplecov-html" has been folded into simplecov core
+  # gem "simplecov_json_formatter" does not specify a dependency on simplecov (or anything)
+  # gem "simplecov-lcov" still has hard requirement on v0, but simplecov_lcov_formatter is loose.
+  # gem "simplecov-rcov" has a loose dependency on simplecov
+  spec.add_dependency("simplecov", ">= 1.0.pre") # Ruby >= 3.2, Includes dependency on simplecov-html
+  spec.add_dependency("simplecov-cobertura", ">= 4.0.pre") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output
-  spec.add_dependency("simplecov-html", "~> 0.13", ">= 0.13.2") # GHA, Human compatibility! (HTML)
   spec.add_dependency("simplecov_json_formatter", "~> 0.1", ">= 0.1.4") # GHA, Jenkins X, CircleCI, Travis CI, BitBucket, CodeClimate compatibility (JSON)
-  spec.add_dependency("simplecov-lcov", "~> 0.9", ">= 0.9.0") # GHA, Jenkins X, CircleCI, Travis CI, TeamCity, GCOV compatibility
+  spec.add_dependency("simplecov_lcov_formatter", "~> 0.9", ">= 0.9.0") # GHA, Jenkins X, CircleCI, Travis CI, TeamCity, GCOV compatibility
   spec.add_dependency("simplecov-rcov", "~> 0.3", ">= 0.3.7") # Hudson compatibility
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.11")              # ruby >= 2.2.0
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.12")              # ruby >= 2.2.0
 
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
   #       visibility and discoverability.
