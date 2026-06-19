@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Fixed GitHub Actions release validation on `next` by allowing workflow push
+  triggers to run on the release branch.
+
 ### Security
 
 ## [3.0.0.rc1] - 2026-06-19
