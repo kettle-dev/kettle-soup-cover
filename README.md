@@ -654,7 +654,7 @@ For most applications, prefer the [Pessimistic Version Constraint][📌pvc] with
 For example:
 
 ```ruby
-spec.add_dependency("kettle-soup-cover", "~> 2.0")
+spec.add_dependency("kettle-soup-cover", "~> 3.0")
 ```
 
 <details markdown="1">
