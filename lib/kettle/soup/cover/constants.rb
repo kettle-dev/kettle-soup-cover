@@ -29,7 +29,7 @@ module Kettle
           lcov: {
             type: :lcov,
             klass: "LcovFormatter",
-            lib: "simplecov-lcov"
+            lib: "simplecov_lcov_formatter"
           },
           # JSON for CodeClimate
           json: {

@@ -32,6 +32,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Fixed LCOV formatter loading to require the maintained
+  `simplecov_lcov_formatter` dependency instead of the obsolete
+  `simplecov-lcov` library name.
+
 ### Security
 
 ## [2.0.2] - 2026-06-09
