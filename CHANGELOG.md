@@ -22,22 +22,33 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Upgrade to simplecov v1.0.pre
-- Upgrade to simplecov-cobertura v4.0.pre
-- Upgrade to version_gem v1.1.12
-- latest kettle-jem template
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Security
+
+## [3.0.0.rc1] - 2026-06-19
+
+- TAG: [v3.0.0.rc1][3.0.0.rc1t]
+- COVERAGE: 100.00% -- 247/247 lines in 11 files
+- BRANCH COVERAGE: 100.00% -- 68/68 branches in 11 files
+- 16.44% documented
+
+### Changed
+
+- Upgrade to simplecov v1.0.pre
+- Upgrade to simplecov-cobertura v4.0.pre
+- Upgrade to version_gem v1.1.12
+- latest kettle-jem template
+
+### Fixed
+
 - Fixed LCOV formatter loading to require the maintained
   `simplecov_lcov_formatter` dependency instead of the obsolete
   `simplecov-lcov` library name.
-
-### Security
 
 ## [2.0.2] - 2026-06-09
 
@@ -415,7 +426,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc1...HEAD
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
 [2.0.1]: https://github.com/kettle-rb/kettle-soup-cover/compare/v2.0.0...v2.0.1
