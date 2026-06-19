@@ -24,7 +24,6 @@ module Kettle
       OPEN_BIN: String
       USE_MERGING: bool?
       VERBOSE: bool
-      VERSION: String
 
       def delete_const: () -> void
 
