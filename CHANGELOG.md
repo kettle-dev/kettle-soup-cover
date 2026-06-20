@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.0.rc2] - 2026-06-20
+
+- TAG: [v3.0.0.rc2][3.0.0.rc2t]
+- COVERAGE: 100.00% -- 258/258 lines in 12 files
+- BRANCH COVERAGE: 100.00% -- 72/72 branches in 12 files
+- 16.44% documented
+
+### Added
+
 - Added support for JRuby 10.1 and TruffleRuby 34.0.
 
 ### Changed
@@ -28,16 +47,10 @@ Please file a bug if you notice a violation of semantic versioning.
 - Updated SimpleCov configuration to use the v1 `cover`, `skip`, and `merging`
   APIs and to start coverage from the test helper instead of `.simplecov`.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Fixed GitHub Actions release validation on `next` by allowing workflow push
   triggers to run on the release branch.
-
-### Security
 
 ## [3.0.0.rc1] - 2026-06-19
 
@@ -435,7 +448,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc1...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc2...HEAD
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
 [2.0.1]: https://github.com/kettle-rb/kettle-soup-cover/compare/v2.0.0...v2.0.1

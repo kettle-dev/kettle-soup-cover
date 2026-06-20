@@ -46,7 +46,7 @@ require "simplecov"
 SimpleCov.start if ENV.fetch("K_SOUP_COV_DO", "false").casecmp?("true")
 if defined?(Kettle::Soup::Cover)
   cover_module = Kettle::Soup::Cover
-  if cover_module.private_instance_methods(false).include?(:configure_formatters!)
+  if cover_module.private_method_defined?(:configure_formatters!, false)
     cover_module.send(:remove_method, :configure_formatters!)
   end
   singleton_class = cover_module.singleton_class

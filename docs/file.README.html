@@ -216,7 +216,7 @@ where this library is considered a package of [SOUP](https://en.wikipedia.org/wi
     <tr>
       <td>Source</td>
       <td>
-<a href="https://gitlab.com/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-0.247-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&amp;logo=Gitlab&amp;logoColor=orange" alt="Source on GitLab.com"></a> <a href="https://codeberg.org/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&amp;logo=CodeBerg&amp;logoColor=blue" alt="Source on CodeBerg.org"></a> <a href="https://github.com/kettle-dev/kettle-soup-cover"><img src="https://img.shields.io/badge/GitHub-238636?style=for-the-badge&amp;logo=Github&amp;logoColor=green" alt="Source on Github.com"></a> <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src="https://img.shields.io/badge/KLOC-0.258-FFDD67.svg?style=for-the-badge&amp;logo=YouTube&amp;logoColor=blue" alt="The best SHA: dQw4w9WgXcQ!"></a>
 </td>
     </tr>
     <tr>
@@ -518,9 +518,12 @@ add two lines of code:</p>
 <h3 id="with-ruby-32">With Ruby 3.2+</h3>
 
 <pre class="code language-ruby"><code class="language-ruby">require &quot;kettle-soup-cover&quot;
-require &quot;simplecov&quot; if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
-# IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
-# SimpleCov.external_at_exit = true
+if Kettle::Soup::Cover::DO_COV
+  require &quot;simplecov&quot;
+  SimpleCov.start
+  # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
+  # SimpleCov.external_at_exit = true
+end
 </code></pre>
 
 <h4 id="example-rails--rspec">Example: Rails &amp; RSpec</h4>
@@ -536,7 +539,10 @@ require &quot;spec_helper&quot;
 ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;
 
 # Last thing before loading the app-under-test is code coverage.
-require &quot;simplecov&quot; if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+if Kettle::Soup::Cover::DO_COV
+  require &quot;simplecov&quot;
+  SimpleCov.start
+end
 require File.expand_path(&quot;../config/environment&quot;, __dir__)
 </code></pre>
 
@@ -556,7 +562,8 @@ begin
   require &quot;kettle-soup-cover&quot;
 
   if Kettle::Soup::Cover::DO_COV
-    require &quot;simplecov&quot; # `.simplecov` is run here!
+    require &quot;simplecov&quot;
+    SimpleCov.start
 
     # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
     # SimpleCov.external_at_exit = true
@@ -569,11 +576,9 @@ end
 
 <h3 id="all-projects">All projects</h3>
 
-<p>In your <code>.simplecov</code> file, add 2 lines of code:</p>
+<p>In your <code>.simplecov</code> file, load the shared configuration:</p>
 
 <pre class="code language-ruby"><code class="language-ruby">require &quot;kettle/soup/cover/config&quot; # 12-factor, ENV-based configuration, with good defaults!
-# you could do this somewhere else, up to you, but you do have to do it somewhere
-SimpleCov.start
 </code></pre>
 
 <p>See <a href="#advanced-usage">Advanced Usage</a> below for more info,<br>
@@ -925,7 +930,7 @@ For most applications, prefer the <a href="http://guides.rubygems.org/patterns/#
 
 <p>For example:</p>
 
-<pre class="code language-ruby"><code class="language-ruby">spec.add_dependency(&quot;kettle-soup-cover&quot;, &quot;~&gt; 2.0&quot;)
+<pre class="code language-ruby"><code class="language-ruby">spec.add_dependency(&quot;kettle-soup-cover&quot;, &quot;~&gt; 3.0&quot;)
 </code></pre>
 
 <details>
@@ -1001,7 +1006,7 @@ Please consider sponsoring me or the project.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Jun 19 04:14:17 2026 by
+  Generated on Sat Jun 20 07:35:39 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
