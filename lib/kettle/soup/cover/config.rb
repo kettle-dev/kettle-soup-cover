@@ -9,6 +9,10 @@
 # In your `.simplecov` file:
 #
 #   require "kettle/soup/cover/config"
+#
+# In your `spec/spec_helper.rb`,
+# after requiring SimpleCov:
+#
 #   SimpleCov.start
 #
 
@@ -17,7 +21,7 @@ require_relative "loaders" unless defined?(Kettle::Soup::Cover::Loaders)
 require_relative "formatters" unless defined?(Kettle::Soup::Cover) && Kettle::Soup::Cover.respond_to?(:configure_formatters!)
 
 SimpleCov.configure do
-  track_files("lib/**/*.rb")
+  cover("lib/**/*.rb")
 
   command_name Kettle::Soup::Cover::Constants::COMMAND_NAME
 
@@ -25,7 +29,7 @@ SimpleCov.configure do
   primary_coverage :branch
 
   # Filters (skip these paths for coverage tracking)
-  add_filter Kettle::Soup::Cover::Constants::FILTER_DIRS
+  skip Kettle::Soup::Cover::Constants::FILTER_DIRS
 
   # Setup Coverage Dir
   coverage_dir(Kettle::Soup::Cover::Constants::COVERAGE_DIR)
@@ -36,7 +40,7 @@ SimpleCov.configure do
   # Use Merging (merges coverage from multiple test runs, e.g., RSpec + Cucumber Test Results)
   # This is essential for projects that split tests into multiple rake tasks
   # (e.g., FFI specs, integration specs, unit specs run separately)
-  use_merging(Kettle::Soup::Cover::Constants::USE_MERGING) unless Kettle::Soup::Cover::Constants::USE_MERGING.nil?
+  merging(Kettle::Soup::Cover::Constants::USE_MERGING) unless Kettle::Soup::Cover::Constants::USE_MERGING.nil?
   merge_timeout(Kettle::Soup::Cover::Constants::MERGE_TIMEOUT) if Kettle::Soup::Cover::Constants::MERGE_TIMEOUT.nonzero?
 
   # Fail build when missed coverage targets

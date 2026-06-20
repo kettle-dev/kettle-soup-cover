@@ -11,6 +11,10 @@
 # In your `.simplecov` file:
 #
 #   require "kettle/soup/cover/config"
+#
+# In your `spec/spec_helper.rb`,
+# after requiring SimpleCov:
+#
 #   SimpleCov.start
 #
 
@@ -101,7 +105,7 @@ module Kettle
           command_name("#{Constants::COMMAND_NAME} (turbo_tests2)")
           enable_coverage(:branch)
           primary_coverage(:branch)
-          add_filter(Constants::FILTER_DIRS)
+          skip(Constants::FILTER_DIRS)
           coverage_dir(File.expand_path(coverage_dir, project_root))
 
           Kettle::Soup::Cover.configure_formatters!

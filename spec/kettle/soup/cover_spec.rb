@@ -254,7 +254,7 @@ RSpec.describe Kettle::Soup::Cover do
         allow(SimpleCov).to receive(:command_name)
         allow(SimpleCov).to receive(:enable_coverage)
         allow(SimpleCov).to receive(:primary_coverage)
-        allow(SimpleCov).to receive(:add_filter)
+        allow(SimpleCov).to receive(:skip)
         allow(SimpleCov).to receive(:coverage_dir)
         allow(SimpleCov).to receive(:minimum_coverage)
       end
@@ -267,7 +267,7 @@ RSpec.describe Kettle::Soup::Cover do
         expect(SimpleCov).to have_received(:command_name).with("Specs (turbo_tests2)")
         expect(SimpleCov).to have_received(:enable_coverage).with(:branch)
         expect(SimpleCov).to have_received(:primary_coverage).with(:branch)
-        expect(SimpleCov).to have_received(:add_filter).with(["tmp"])
+        expect(SimpleCov).to have_received(:skip).with(["tmp"])
         expect(SimpleCov).to have_received(:coverage_dir).with(File.join(project_root, coverage_dir))
         expect(SimpleCov).to have_received(:minimum_coverage).with(branch: 76, line: 92)
         expect(Kettle::Soup::Cover::Loaders).to have_received(:load_formatters)

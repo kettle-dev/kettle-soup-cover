@@ -43,6 +43,18 @@ load File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb")
 # Our run-time code does not itself require simplecov,
 #   because that comes with side effects that must be delayed until coverage tracking should begin.
 require "simplecov"
+SimpleCov.start if ENV.fetch("K_SOUP_COV_DO", "false").casecmp?("true")
+if defined?(Kettle::Soup::Cover)
+  cover_module = Kettle::Soup::Cover
+  if cover_module.private_instance_methods(false).include?(:configure_formatters!)
+    cover_module.send(:remove_method, :configure_formatters!)
+  end
+  singleton_class = cover_module.singleton_class
+  if singleton_class.method_defined?(:configure_formatters!) || singleton_class.private_method_defined?(:configure_formatters!)
+    singleton_class.send(:remove_method, :configure_formatters!)
+  end
+end
+load File.join(path, "..", "lib", "kettle", "soup", "cover", "formatters.rb")
 
 # rubocop:disable RSpec/RemoveConst
 Kettle.send(:remove_const, :Change) if Kettle.const_defined?(:Change, false)

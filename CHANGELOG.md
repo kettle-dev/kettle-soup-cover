@@ -25,6 +25,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Changed
 
 - Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
+- Updated SimpleCov configuration to use the v1 `cover`, `skip`, and `merging`
+  APIs and to start coverage from the test helper instead of `.simplecov`.
 
 ### Deprecated
 

@@ -285,9 +285,12 @@ add two lines of code:
 
 ```ruby
 require "kettle-soup-cover"
-require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
-# IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
-# SimpleCov.external_at_exit = true
+if Kettle::Soup::Cover::DO_COV
+  require "simplecov"
+  SimpleCov.start
+  # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
+  # SimpleCov.external_at_exit = true
+end
 ```
 
 #### Example: Rails & RSpec
@@ -304,7 +307,10 @@ require "spec_helper"
 ENV["RAILS_ENV"] ||= "test"
 
 # Last thing before loading the app-under-test is code coverage.
-require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+if Kettle::Soup::Cover::DO_COV
+  require "simplecov"
+  SimpleCov.start
+end
 require File.expand_path("../config/environment", __dir__)
 ```
 
@@ -326,7 +332,8 @@ begin
   require "kettle-soup-cover"
 
   if Kettle::Soup::Cover::DO_COV
-    require "simplecov" # `.simplecov` is run here!
+    require "simplecov"
+    SimpleCov.start
 
     # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
     # SimpleCov.external_at_exit = true
@@ -339,12 +346,10 @@ end
 
 ### All projects
 
-In your `.simplecov` file, add 2 lines of code:
+In your `.simplecov` file, load the shared configuration:
 
 ```ruby
 require "kettle/soup/cover/config" # 12-factor, ENV-based configuration, with good defaults!
-# you could do this somewhere else, up to you, but you do have to do it somewhere
-SimpleCov.start
 ```
 
 See [Advanced Usage](#advanced-usage) below for more info,

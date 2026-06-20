@@ -8,6 +8,10 @@
 # In your `.simplecov` file:
 #
 #   require "kettle/soup/cover/config"
+#
+# In your `spec/spec_helper.rb`,
+# after requiring SimpleCov:
+#
 #   SimpleCov.start
 #
 
