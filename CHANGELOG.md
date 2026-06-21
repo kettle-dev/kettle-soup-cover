@@ -28,13 +28,22 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [3.0.0.rc3] - 2026-06-21
+
+- TAG: [v3.0.0.rc3][3.0.0.rc3t]
+- COVERAGE: 98.44% -- 253/257 lines in 12 files
+- BRANCH COVERAGE: 95.71% -- 67/70 branches in 12 files
+- 16.22% documented
+
+### Fixed
+
 - Corrected OpenCollective funding metadata to use the `kettle-dev` collective.
 - Aligned turbo_tests2 coverage workers with SimpleCov's shared resultset
   coordination by keeping worker resultsets under the canonical coverage root
   with unique worker command names, while preserving SimpleCov's final-worker
   formatter flow.
-
-### Security
 
 ## [3.0.0.rc2] - 2026-06-20
 
@@ -454,7 +463,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc2...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...HEAD
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
 [2.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.0...v2.0.1

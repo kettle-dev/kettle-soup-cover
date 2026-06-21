@@ -82,6 +82,14 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="fixed">Fixed</h3>
 
+<ul>
+  <li>Corrected OpenCollective funding metadata to use the <code>kettle-dev</code> collective.</li>
+  <li>Aligned turbo_tests2 coverage workers with SimpleCov’s shared resultset<br>
+coordination by keeping worker resultsets under the canonical coverage root<br>
+with unique worker command names, while preserving SimpleCov’s final-worker<br>
+formatter flow.</li>
+</ul>
+
 <h3 id="security">Security</h3>
 
 <h2 id="300rc2---2026-06-20">[3.0.0.rc2] - 2026-06-20</h2>
@@ -731,7 +739,7 @@ to normalize handling of this common logical need in other libraries.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Jun 20 07:35:39 2026 by
+  Generated on Sun Jun 21 09:58:02 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
