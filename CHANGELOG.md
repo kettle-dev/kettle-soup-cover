@@ -26,6 +26,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+### Fixed
+
+### Security
+
+## [3.0.0.rc4] - 2026-06-21
+
+- TAG: [v3.0.0.rc4][3.0.0.rc4t]
+- COVERAGE: 98.44% -- 253/257 lines in 12 files
+- BRANCH COVERAGE: 95.71% -- 67/70 branches in 12 files
+- 16.22% documented
+
+### Removed
+
 - Removed the `simplecov_json_formatter` dependency because SimpleCov v1
   includes `SimpleCov::Formatter::JSONFormatter`.
 
@@ -33,8 +46,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Avoided redefining SimpleCov's built-in JSON formatter when coverage uses the
   JSON output format.
-
-### Security
 
 ## [3.0.0.rc3] - 2026-06-21
 
@@ -469,7 +480,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc4...HEAD
+[3.0.0.rc4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...v3.0.0.rc4
+[3.0.0.rc4t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc4
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
 [2.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.0...v2.0.1
