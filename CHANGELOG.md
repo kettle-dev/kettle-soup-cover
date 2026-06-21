@@ -396,7 +396,7 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Added
 
 - Documentation
-- Mirror repo on GitHub: https://github.com/kettle-rb/kettle-soup-cover
+- Mirror repo on GitHub: https://github.com/kettle-dev/kettle-soup-cover
 - More tests
 
 ### Fixed
@@ -457,18 +457,18 @@ Please file a bug if you notice a violation of semantic versioning.
 [Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc2...HEAD
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
-[2.0.1]: https://github.com/kettle-rb/kettle-soup-cover/compare/v2.0.0...v2.0.1
-[2.0.1t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v2.0.1
-[2.0.0]: https://github.com/kettle-rb/kettle-soup-cover/compare/v1.1.3...v2.0.0
-[2.0.0t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v2.0.0
-[1.1.3]: https://github.com/kettle-rb/kettle-soup-cover/compare/v1.1.2...v1.1.3
-[1.1.3t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v1.1.3
-[1.1.2]: https://github.com/kettle-rb/kettle-soup-cover/compare/v1.1.1...v1.1.2
-[1.1.2t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v1.1.2
-[1.1.1]: https://github.com/kettle-rb/kettle-soup-cover/compare/v1.1.0...v1.1.1
-[1.1.1t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v1.1.1
-[1.1.0]: https://github.com/kettle-rb/kettle-soup-cover/compare/v1.0.10...v1.1.0
-[1.1.0t]: https://github.com/kettle-rb/kettle-soup-cover/releases/tag/v1.1.0
+[2.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.0...v2.0.1
+[2.0.1t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.1
+[2.0.0]: https://github.com/kettle-dev/kettle-soup-cover/compare/v1.1.3...v2.0.0
+[2.0.0t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.0
+[1.1.3]: https://github.com/kettle-dev/kettle-soup-cover/compare/v1.1.2...v1.1.3
+[1.1.3t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v1.1.3
+[1.1.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v1.1.1...v1.1.2
+[1.1.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v1.1.2
+[1.1.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v1.1.0...v1.1.1
+[1.1.1t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v1.1.1
+[1.1.0]: https://github.com/kettle-dev/kettle-soup-cover/compare/v1.0.10...v1.1.0
+[1.1.0t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v1.1.0
 [1.0.10]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.9...v1.0.10
 [1.0.9]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.8...v1.0.9
 [1.0.8]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.7...v1.0.8
@@ -480,4 +480,4 @@ Please file a bug if you notice a violation of semantic versioning.
 [1.0.2]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.1...v1.0.2
 [1.0.1]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.0...v1.0.1
 [1.0.0]: https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v0.1.0...v1.0.0
-[0.1.0]: https://github.com/kettle-rb/kettle-soup-cover/compare/97ddbbca309b87c7f6eed0137b08cad74ec81235...v0.1.0
+[0.1.0]: https://github.com/kettle-dev/kettle-soup-cover/compare/97ddbbca309b87c7f6eed0137b08cad74ec81235...v0.1.0
