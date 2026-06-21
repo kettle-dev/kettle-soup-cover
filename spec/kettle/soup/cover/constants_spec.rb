@@ -278,9 +278,10 @@ RSpec.describe Kettle::Soup::Cover::Constants do
     let(:turbo_tests) { "true" }
     let(:test_env_number) { "2" }
 
-    it "uses a worker-specific coverage directory" do
+    it "uses the shared SimpleCov coverage directory with a unique worker command name" do
       expect(described_class::COVERAGE_ROOT_DIR).to eq("coverage")
-      expect(described_class::COVERAGE_DIR).to eq("coverage/parallel/2")
+      expect(described_class::COVERAGE_DIR).to eq("coverage")
+      expect(described_class::SIMPLECOV_COMMAND_NAME).to eq("#{described_class::COMMAND_NAME} (turbo_tests2 worker 2)")
       expect(described_class::TURBO_TESTS_WORKER).to be(true)
       expect(described_class::CLEAN_RESULTSET).to be(false)
     end
@@ -313,6 +314,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
       it "keeps the root coverage directory" do
         expect(described_class::COVERAGE_DIR).to eq("coverage")
+        expect(described_class::SIMPLECOV_COMMAND_NAME).to eq(described_class::COMMAND_NAME)
         expect(described_class::TURBO_TESTS_WORKER).to be(false)
       end
     end

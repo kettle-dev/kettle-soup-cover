@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 namespace :turbo_tests do
-  desc "Prepare isolated coverage output for turbo_tests2 workers"
+  desc "Prepare shared SimpleCov coverage output for turbo_tests2 workers"
   task :setup do
     if Kettle::Soup::Cover.turbo_tests_coverage?
-      Kettle::Soup::Cover.clear_turbo_tests_coverage_dir!
+      Kettle::Soup::Cover.clear_coverage_dir!
     end
   end
 
@@ -15,7 +15,7 @@ namespace :turbo_tests do
 end
 
 namespace :turbo_tests2 do
-  desc "Prepare isolated coverage output for turbo_tests2 workers"
+  desc "Prepare shared SimpleCov coverage output for turbo_tests2 workers"
   task setup: "turbo_tests:setup"
 
   desc "Collate turbo_tests2 worker coverage reports"

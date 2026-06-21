@@ -29,6 +29,10 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - Corrected OpenCollective funding metadata to use the `kettle-dev` collective.
+- Aligned turbo_tests2 coverage workers with SimpleCov's shared resultset
+  coordination by keeping worker resultsets under the canonical coverage root
+  with unique worker command names, while preserving SimpleCov's final-worker
+  formatter flow.
 
 ### Security
 

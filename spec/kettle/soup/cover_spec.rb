@@ -163,12 +163,12 @@ RSpec.describe Kettle::Soup::Cover do
         stub_const("Kettle::Soup::Cover::Constants::MULTI_FORMATTERS", true)
       end
 
-      it "stores the worker resultset and skips report formatters" do
+      it "uses the configured formatter stack so SimpleCov can report from the final worker" do
         described_class.configure_formatters!
 
-        expect(SimpleCov).to have_received(:at_exit)
+        expect(Kettle::Soup::Cover::Loaders).to have_received(:load_formatters)
+        expect(SimpleCov).not_to have_received(:at_exit)
         expect(SimpleCov).not_to have_received(:formatter)
-        expect(Kettle::Soup::Cover::Loaders).not_to have_received(:load_formatters)
       end
     end
 
@@ -650,6 +650,10 @@ RSpec.describe Kettle::Soup::Cover do
 
   it "has constant COMMAND_NAME" do
     expect(described_class::COMMAND_NAME).to be_a(String)
+  end
+
+  it "has constant SIMPLECOV_COMMAND_NAME" do
+    expect(described_class::SIMPLECOV_COMMAND_NAME).to be_a(String)
   end
 
   it "has constant COVERAGE_DIR" do

@@ -86,13 +86,14 @@ module Kettle
         TURBO_TESTS = ENV_GET.call("TURBO_TESTS", Constants::TRUE).casecmp?(Constants::TRUE)
         TURBO_TESTS_DIR = ENV_GET.call("TURBO_TESTS_DIR", "turbo_tests")
         TURBO_TESTS_WORKER = TURBO_TESTS && !TEST_ENV_NUMBER.empty?
+        SIMPLECOV_COMMAND_NAME = if TURBO_TESTS_WORKER
+          "#{COMMAND_NAME} (turbo_tests2 worker #{TEST_ENV_NUMBER})"
+        else
+          COMMAND_NAME
+        end
         MIN_COVERAGE_HARD_REQUESTED = ENV_GET.call("MIN_HARD", CI).casecmp?(Constants::TRUE)
         MIN_COVERAGE_HARD = MIN_COVERAGE_HARD_REQUESTED && !TURBO_TESTS_WORKER
-        COVERAGE_DIR = if TURBO_TESTS_WORKER
-          File.join(COVERAGE_ROOT_DIR, TURBO_TESTS_DIR, TEST_ENV_NUMBER)
-        else
-          COVERAGE_ROOT_DIR
-        end
+        COVERAGE_DIR = COVERAGE_ROOT_DIR
         # A wild approximation, but will suffice for nearly all users
         is_mac = RbConfig::CONFIG["host_os"].include?("darwin")
         # Set to "" to prevent opening a browser with the coverage rake task
@@ -147,6 +148,7 @@ module Kettle
             MULTI_FORMATTERS
             OPEN_BIN
             PREFIX
+            SIMPLECOV_COMMAND_NAME
             TRUE
             TEST_ENV_NUMBER
             TURBO_TESTS

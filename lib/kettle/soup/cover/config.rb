@@ -23,7 +23,7 @@ require_relative "formatters" unless defined?(Kettle::Soup::Cover) && Kettle::So
 SimpleCov.configure do
   cover("lib/**/*.rb")
 
-  command_name Kettle::Soup::Cover::Constants::COMMAND_NAME
+  command_name Kettle::Soup::Cover::Constants::SIMPLECOV_COMMAND_NAME
 
   enable_coverage :branch
   primary_coverage :branch
