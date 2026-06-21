@@ -198,7 +198,7 @@ gem install kettle-soup-cover
 
 ### Merging
 
-Below is some part of the Rakefile pulled from the [tree_haver](https://github.com/kettle-rb/tree_haver) gem which merges the results of various discrete RSpec test suites that are impossible to run at the same time. The pattern should also work for minitest / test unit.
+Below is some part of the Rakefile pulled from the [tree_haver](https://github.com/kettle-dev/tree_haver) gem which merges the results of various discrete RSpec test suites that are impossible to run at the same time. The pattern should also work for minitest / test unit.
 
 ```ruby
 ### SPEC TASKS
@@ -912,5 +912,5 @@ Thanks for RTFM. ☺️
 | Homepage | https://github.com/kettle-dev/kettle-soup-cover |
 | Source | https://github.com/kettle-dev/kettle-soup-cover |
 | License | `AGPL-3.0-only` |
-| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-soup-cover, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-soup-cover, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
