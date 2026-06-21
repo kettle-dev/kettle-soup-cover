@@ -492,13 +492,13 @@ RSpec.describe Kettle::Soup::Cover do
     end
 
     it "leaves other paths unchanged" do
-      expect(described_class.display_path("/home/pboling/src/kettle-rb/demo/coverage/index.html"))
-        .to eq("/home/pboling/src/kettle-rb/demo/coverage/index.html")
+      expect(described_class.display_path("/home/pboling/src/my/demo/coverage/index.html"))
+        .to eq("/home/pboling/src/my/demo/coverage/index.html")
     end
 
     it "normalizes /var/home to /home for emitted report paths" do
-      expect(described_class.display_path("/var/home/pboling/src/kettle-rb/demo/coverage/index.html"))
-        .to eq("/home/pboling/src/kettle-rb/demo/coverage/index.html")
+      expect(described_class.display_path("/var/home/pboling/src/my/demo/coverage/index.html"))
+        .to eq("/home/pboling/src/my/demo/coverage/index.html")
     end
   end
 
