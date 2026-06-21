@@ -3,9 +3,9 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        124,
-        151,
-        158
+        127,
+        154,
+        161
       ]
     }
   ],
@@ -13,8 +13,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        152,
-        159
+        155,
+        162
       ]
     }
   ],
@@ -22,8 +22,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        111,
-        125
+        114,
+        128
       ]
     }
   ],
@@ -31,8 +31,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        107,
-        115
+        110,
+        118
       ]
     }
   ],
@@ -40,8 +40,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        135,
-        142
+        138,
+        145
       ]
     }
   ],
@@ -49,8 +49,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        136,
-        143
+        139,
+        146
       ]
     }
   ],
@@ -58,8 +58,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        137,
-        144
+        140,
+        147
       ]
     }
   ],

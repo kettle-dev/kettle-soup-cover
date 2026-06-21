@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/kettle-dev/simplecov.git
-  revision: c353741460adce5c930a47db3894340cef1b047b
-  branch: fix-generic-parallel-opt-out
+  remote: https://github.com/simplecov-ruby/simplecov.git
+  revision: ef56ee06a5c5c8be88fa998dde33b3183776aa51
+  branch: main
   specs:
     simplecov (1.0.0.rc3)
 
@@ -390,7 +390,7 @@ DEPENDENCIES
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.2)
   irb (~> 1.17)
-  kettle-dev (~> 2.2, >= 2.2.13)
+  kettle-dev (~> 2.2, >= 2.2.14)
   kettle-soup-cover!
   kettle-test (~> 2.0, >= 2.0.5)
   kramdown (~> 2.5, >= 2.5.1)

@@ -127,7 +127,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 2.2", ">= 2.2.13")     # ruby >= 3.2.0
+  spec.add_development_dependency("kettle-dev", "~> 2.2", ">= 2.2.14")     # ruby >= 3.2.0
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
