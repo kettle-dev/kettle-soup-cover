@@ -26,7 +26,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Removed
 
+- Removed the `simplecov_json_formatter` dependency because SimpleCov v1
+  includes `SimpleCov::Formatter::JSONFormatter`.
+
 ### Fixed
+
+- Avoided redefining SimpleCov's built-in JSON formatter when coverage uses the
+  JSON output format.
 
 ### Security
 

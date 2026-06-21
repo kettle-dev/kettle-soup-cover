@@ -638,7 +638,7 @@ RSpec.describe Kettle::Soup::Cover do
             {klass: "LcovFormatter", lib: "simplecov_lcov_formatter", type: :lcov},
             {
               klass: "JSONFormatter",
-              lib: "simplecov_json_formatter",
+              lib: "simplecov/formatter/json_formatter",
               type: :json
             },
             {klass: "Console", lib: "simplecov-console", type: :tty}

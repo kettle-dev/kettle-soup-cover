@@ -4,8 +4,6 @@
 # kettle-soup-cover will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-require "kettle/soup/cover/config"
-
 # In other gems we would simply check if Kettle::Soup::Cover::DO_COV
 #   but because this is that library, and we can't load it before we start SimpleCov,
 #   it isn't available here, so we fall back to the raw ENV variable check.

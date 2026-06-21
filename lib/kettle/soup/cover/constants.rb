@@ -35,7 +35,7 @@ module Kettle
           json: {
             type: :json,
             klass: "JSONFormatter",
-            lib: "simplecov_json_formatter"
+            lib: "simplecov/formatter/json_formatter"
           },
           # TTY / Console output
           tty: {

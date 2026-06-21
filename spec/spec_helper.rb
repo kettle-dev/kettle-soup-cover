@@ -43,7 +43,10 @@ load File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb")
 # Our run-time code does not itself require simplecov,
 #   because that comes with side effects that must be delayed until coverage tracking should begin.
 require "simplecov"
-SimpleCov.start if ENV.fetch("K_SOUP_COV_DO", "false").casecmp?("true")
+if ENV.fetch("K_SOUP_COV_DO", "false").casecmp?("true")
+  require "kettle/soup/cover/config"
+  SimpleCov.start
+end
 if defined?(Kettle::Soup::Cover)
   cover_module = Kettle::Soup::Cover
   if cover_module.private_method_defined?(:configure_formatters!, false)
