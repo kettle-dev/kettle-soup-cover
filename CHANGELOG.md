@@ -30,6 +30,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Security
 
+## [3.0.0.rc5] - 2026-06-24
+
+- TAG: [v3.0.0.rc5][3.0.0.rc5t]
+- COVERAGE: 100.00% -- 257/257 lines in 12 files
+- BRANCH COVERAGE: 100.00% -- 70/70 branches in 12 files
+- 16.22% documented
+
+### Changed
+
+- Updated to latest kettle-jem template
+  - Updated GHA SHA pins
+  - Updated dependencies
+
 ## [3.0.0.rc4] - 2026-06-21
 
 - TAG: [v3.0.0.rc4][3.0.0.rc4t]
@@ -480,7 +493,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc4...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc5...HEAD
+[3.0.0.rc5]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc4...v3.0.0.rc5
+[3.0.0.rc5t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc5
 [3.0.0.rc4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...v3.0.0.rc4
 [3.0.0.rc4t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc4
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
