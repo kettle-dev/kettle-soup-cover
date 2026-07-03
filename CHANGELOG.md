@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Package configured license files in gem release file lists.
-
 ### Security
+
+## [3.0.0.rc6] - 2026-07-03
+
+- TAG: [v3.0.0.rc6][3.0.0.rc6t]
+- COVERAGE: 100.00% -- 257/257 lines in 12 files
+- BRANCH COVERAGE: 98.57% -- 69/70 branches in 12 files
+- 16.22% documented
+
+### Fixed
+
+- Package configured license files in gem release file lists.
 
 ## [3.0.0.rc5] - 2026-06-24
 
@@ -495,7 +504,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc5...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc6...HEAD
+[3.0.0.rc6]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc5...v3.0.0.rc6
+[3.0.0.rc6t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc6
 [3.0.0.rc5]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc4...v3.0.0.rc5
 [3.0.0.rc5t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc5
 [3.0.0.rc4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...v3.0.0.rc4
