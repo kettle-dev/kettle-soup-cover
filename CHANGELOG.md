@@ -22,6 +22,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- `require "kettle/soup/cover"` no longer loads `version_gem` by default;
+  require `kettle/soup/cover/version_gem` for the optional
+  `VersionGem::Basic` extension.
+
 ### Deprecated
 
 ### Removed

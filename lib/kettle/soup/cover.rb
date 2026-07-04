@@ -23,9 +23,6 @@ require "fileutils"
 require "json"
 require "rbconfig"
 
-# External gems
-require "version_gem"
-
 # This gem
 require_relative "../change"
 require_relative "cover/version"
@@ -213,8 +210,4 @@ module Kettle
       end
     end
   end
-end
-
-Kettle::Soup::Cover::Version.class_eval do
-  extend VersionGem::Basic
 end
