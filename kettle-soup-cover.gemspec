@@ -108,8 +108,8 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.require_paths = ["lib"]
 
   # Utilities
-  spec.add_dependency("simplecov", ">= 1.0.pre") # Ruby >= 3.2, Includes dependency on simplecov-html
-  spec.add_dependency("simplecov-cobertura", ">= 4.0.pre") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
+  spec.add_dependency("simplecov", ">= 1.0") # Ruby >= 3.2, Includes dependency on simplecov-html
+  spec.add_dependency("simplecov-cobertura", ">= 4.0") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output
   spec.add_dependency("simplecov_lcov_formatter", "~> 0.9", ">= 0.9.0") # GHA, Jenkins X, CircleCI, Travis CI, TeamCity, GCOV compatibility
   spec.add_dependency("simplecov-rcov", "~> 0.3", ">= 0.3.7") # Hudson compatibility
