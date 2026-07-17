@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "🥘 kettle-rb OOTB SimpleCov config supporting every CI platform & coverage tool"
+  spec.summary = "🥘 kettle-dev OOTB SimpleCov config supporting every CI platform & coverage tool"
   spec.description = "🥘 A Covered Kettle of Test Coverage SOUP (Software of Unknown Provenance)
 Four-line SimpleCov config, w/ curated, opinionated, pre-configured, dependencies
 for every CI platform, batteries included.
