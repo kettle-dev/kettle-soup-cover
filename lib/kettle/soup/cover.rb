@@ -43,6 +43,9 @@ module Kettle
       module_function
 
       VAR_HOME_PREFIX = %r{\A/var/home(?=/|\z)}
+      CHANGE_PATH = File.expand_path("../change.rb", __dir__)
+      CONSTANTS_PATH = File.expand_path("cover/constants.rb", __dir__)
+      LOADERS_PATH = File.expand_path("cover/loaders.rb", __dir__)
 
       def display_path(path)
         return path if path.nil?
@@ -51,7 +54,17 @@ module Kettle
       end
 
       def reset_const(&block)
-        Constants.reset_const(&block)
+        if const_defined?(:Constants, false)
+          Constants.reset_const(&block)
+        else
+          block&.call
+          load(CHANGE_PATH) unless Kettle.const_defined?(:Change, false)
+          load(CONSTANTS_PATH)
+          include Constants
+
+          load(LOADERS_PATH) unless const_defined?(:Loaders, false)
+          extend Loaders
+        end
       end
 
       def delete_const(&block)

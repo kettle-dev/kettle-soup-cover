@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "open3"
 require "stringio"
 
 RSpec.describe Kettle::Soup::Cover do
@@ -14,6 +15,42 @@ RSpec.describe Kettle::Soup::Cover do
 
     it "has output" do
       expect { reset_const }.to output("CONSTANTS ARE RESET\n").to_stdout
+    end
+
+    it "restores constants after they have been deleted" do
+      Kettle.send(:remove_const, :Change) # rubocop:disable RSpec/RemoveConst
+      described_class.send(:remove_const, :Constants) # rubocop:disable RSpec/RemoveConst
+      described_class.send(:remove_const, :Loaders) # rubocop:disable RSpec/RemoveConst
+
+      expect(Kettle.const_defined?(:Change, false)).to be(false)
+      expect(described_class.const_defined?(:Constants, false)).to be(false)
+      expect(described_class.const_defined?(:Loaders, false)).to be(false)
+
+      expect { described_class.reset_const }.not_to raise_error
+      expect(Kettle.const_defined?(:Change, false)).to be(true)
+      expect(described_class.const_defined?(:Constants, false)).to be(true)
+      expect(described_class.const_defined?(:Loaders, false)).to be(true)
+    end
+  end
+
+  describe "SimpleCov config" do
+    it "leaves turbo_tests2 worker merge finalization to parent collation" do
+      env = {
+        "K_SOUP_COV_FORMATTERS" => "unknown",
+        "K_SOUP_COV_TURBO_TESTS" => "true",
+        "TEST_ENV_NUMBER" => "2"
+      }
+      script = <<~RUBY
+        require "simplecov"
+        require "kettle-soup-cover"
+        require "kettle/soup/cover/config"
+        puts SimpleCov.finalize_merge?
+      RUBY
+
+      stdout, stderr, status = Open3.capture3(env, RbConfig.ruby, "-Ilib", "-e", script)
+
+      expect(status).to be_success, stderr
+      expect(stdout).to eq("false\n")
     end
   end
 
@@ -163,7 +200,7 @@ RSpec.describe Kettle::Soup::Cover do
         stub_const("Kettle::Soup::Cover::Constants::MULTI_FORMATTERS", true)
       end
 
-      it "uses the configured formatter stack so SimpleCov can report from the final worker" do
+      it "uses the configured formatter stack in the worker coverage directory" do
         described_class.configure_formatters!
 
         expect(Kettle::Soup::Cover::Loaders).to have_received(:load_formatters)
