@@ -28,6 +28,14 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- turbo_tests2 workers now write SimpleCov reports under isolated
+  `coverage/turbo_tests/<worker>` directories so only the parent collation step
+  publishes root coverage reports such as `coverage/coverage.json`.
+- turbo_tests2 workers now explicitly disable SimpleCov merge finalization so
+  parent-owned collation remains the only final coverage report writer.
+- turbo_tests2 rake hooks now restore coverage constants before setup or
+  cleanup, preventing post-suite collation failures after specs reload constants.
+
 ### Security
 
 ## [3.0.0] - 2026-07-13

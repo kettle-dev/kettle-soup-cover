@@ -93,7 +93,11 @@ module Kettle
         end
         MIN_COVERAGE_HARD_REQUESTED = ENV_GET.call("MIN_HARD", CI).casecmp?(Constants::TRUE)
         MIN_COVERAGE_HARD = MIN_COVERAGE_HARD_REQUESTED && !TURBO_TESTS_WORKER
-        COVERAGE_DIR = COVERAGE_ROOT_DIR
+        COVERAGE_DIR = if TURBO_TESTS_WORKER
+          File.join(COVERAGE_ROOT_DIR, TURBO_TESTS_DIR, TEST_ENV_NUMBER)
+        else
+          COVERAGE_ROOT_DIR
+        end
         # A wild approximation, but will suffice for nearly all users
         is_mac = RbConfig::CONFIG["host_os"].include?("darwin")
         # Set to "" to prevent opening a browser with the coverage rake task

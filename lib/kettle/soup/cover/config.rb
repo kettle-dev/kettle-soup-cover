@@ -33,6 +33,7 @@ SimpleCov.configure do
 
   # Setup Coverage Dir
   coverage_dir(Kettle::Soup::Cover::Constants::COVERAGE_DIR)
+  finalize_merge(false) if Kettle::Soup::Cover::Constants::TURBO_TESTS_WORKER
 
   # Formatters
   Kettle::Soup::Cover.configure_formatters!
