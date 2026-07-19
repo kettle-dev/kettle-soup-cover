@@ -95,7 +95,8 @@ parallel worker output into one final report.</p>
   <li>Require <code>kettle-soup-cover</code> before loading the app or library under test.</li>
   <li>Require <code>simplecov</code> and call <code>SimpleCov.start</code> only when<br>
 <code>Kettle::Soup::Cover::DO_COV</code> is true.</li>
-  <li>Put <code>require "kettle/soup/cover/config"</code> in <code>.simplecov</code>.</li>
+  <li>Require <code>kettle/soup/cover/config</code> after <code>simplecov</code> and before<br>
+<code>SimpleCov.start</code>.</li>
 </ol>
 
 <p>That configuration works for RSpec, Minitest, and other Ruby test runners. In CI,<br>
@@ -540,12 +541,16 @@ end
 <h3 id="rspec-minitest-or-another-ruby-test-runner">RSpec, Minitest, or another Ruby test runner</h3>
 
 <p>In your test helper, require <code>kettle-soup-cover</code> before loading the library or<br>
-application under test. Start SimpleCov only when <code>DO_COV</code> is true:</p>
+application under test. Start SimpleCov only when <code>DO_COV</code> is true. Requiring<br>
+<code>simplecov</code> loads the project-local <code>.simplecov</code>, so limit that file to<br>
+project-local <code>SimpleCov.configure</code> rules and load <code>kettle/soup/cover/config</code><br>
+in the helper:</p>
 
 <pre class="code language-ruby"><code class="language-ruby">require &quot;kettle-soup-cover&quot;
 
 if Kettle::Soup::Cover::DO_COV
   require &quot;simplecov&quot;
+  require &quot;kettle/soup/cover/config&quot;
   # Minitest users that rely on SimpleCov&#39;s external at_exit handling should set:
   # SimpleCov.external_at_exit = true
   SimpleCov.start
@@ -555,9 +560,12 @@ end
 require &quot;my_gem&quot;
 </code></pre>
 
-<p>Put the shared SimpleCov configuration in <code>.simplecov</code>:</p>
+<p>Use <code>.simplecov</code> only for project-local SimpleCov rules, such as the files this<br>
+project should cover:</p>
 
-<pre class="code language-ruby"><code class="language-ruby">require &quot;kettle/soup/cover/config&quot;
+<pre class="code language-ruby"><code class="language-ruby">SimpleCov.configure do
+  cover &quot;lib/**/*.rb&quot;, &quot;lib/**/*.rake&quot;, &quot;exe/*.rb&quot;
+end
 </code></pre>
 
 <h3 id="rails-and-rspec">Rails and RSpec</h3>
@@ -571,6 +579,7 @@ ENV[&quot;RAILS_ENV&quot;] ||= &quot;test&quot;
 
 if Kettle::Soup::Cover::DO_COV
   require &quot;simplecov&quot;
+  require &quot;kettle/soup/cover/config&quot;
   SimpleCov.start
 end
 

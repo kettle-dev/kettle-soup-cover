@@ -32,7 +32,8 @@ The normal setup is intentionally small:
 2. Require `kettle-soup-cover` before loading the app or library under test.
 3. Require `simplecov` and call `SimpleCov.start` only when
    `Kettle::Soup::Cover::DO_COV` is true.
-4. Put `require "kettle/soup/cover/config"` in `.simplecov`.
+4. Require `kettle/soup/cover/config` after `simplecov` and before
+   `SimpleCov.start`.
 
 That configuration works for RSpec, Minitest, and other Ruby test runners. In CI,
 coverage is enabled by default from `CI=true`; locally it stays off unless
@@ -219,13 +220,17 @@ end
 ### RSpec, Minitest, or another Ruby test runner
 
 In your test helper, require `kettle-soup-cover` before loading the library or
-application under test. Start SimpleCov only when `DO_COV` is true:
+application under test. Start SimpleCov only when `DO_COV` is true. Requiring
+`simplecov` loads the project-local `.simplecov`, so limit that file to
+project-local `SimpleCov.configure` rules and load `kettle/soup/cover/config`
+in the helper:
 
 ```ruby
 require "kettle-soup-cover"
 
 if Kettle::Soup::Cover::DO_COV
   require "simplecov"
+  require "kettle/soup/cover/config"
   # Minitest users that rely on SimpleCov's external at_exit handling should set:
   # SimpleCov.external_at_exit = true
   SimpleCov.start
@@ -235,10 +240,13 @@ end
 require "my_gem"
 ```
 
-Put the shared SimpleCov configuration in `.simplecov`:
+Use `.simplecov` only for project-local SimpleCov rules, such as the files this
+project should cover:
 
 ```ruby
-require "kettle/soup/cover/config"
+SimpleCov.configure do
+  cover "lib/**/*.rb", "lib/**/*.rake", "exe/*.rb"
+end
 ```
 
 ### Rails and RSpec
@@ -253,6 +261,7 @@ ENV["RAILS_ENV"] ||= "test"
 
 if Kettle::Soup::Cover::DO_COV
   require "simplecov"
+  require "kettle/soup/cover/config"
   SimpleCov.start
 end
 
