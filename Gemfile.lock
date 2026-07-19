@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kettle-soup-cover (3.0.1)
+    kettle-soup-cover (3.0.2)
       simplecov (>= 1.0)
       simplecov-cobertura (>= 4.0)
       simplecov-console (~> 0.9, >= 0.9.5)
@@ -453,7 +453,7 @@ CHECKSUMS
   json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
   kettle-dev (2.3.7) sha256=eb370113cd030d03cbe2d33b31c99858951017e5ad21a17e9ed89dc3770028ee
   kettle-rb (0.1.4) sha256=9cef7ce4f7021666b7222292f29051e51eaf042e8a5db11f3f4dd72f74243fc1
-  kettle-soup-cover (3.0.1)
+  kettle-soup-cover (3.0.2)
   kettle-test (2.0.11) sha256=c710c90f7ab79d51f9452f0c09f5f90657e7a893f63583855c164d0b1b107ab2
   kettle-wash (0.1.0) sha256=5c04b3900d0957339e7c7d9997bbd804599b68bde002e6f47f4e28a0eea22ea7
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa

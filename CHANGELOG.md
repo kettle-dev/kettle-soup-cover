@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.2] - 2026-07-19
+
+- TAG: [v3.0.2][3.0.2t]
+- COVERAGE: 100.00% -- 254/254 lines in 12 files
+- BRANCH COVERAGE: 91.25% -- 73/80 branches in 12 files
+- 15.28% documented
+
+### Added
+
 - Added `Kettle::Soup::Cover::Constants::WASHED_CONSTANTS` as the contract used
   by the spec harness to validate constant reload behavior.
 
@@ -32,14 +51,6 @@ Please file a bug if you notice a violation of semantic versioning.
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
 - kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
   repository-only files by default to reduce downstream distro packaging churn.
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [3.0.1] - 2026-07-18
 
@@ -545,7 +556,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.2...HEAD
+[3.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...v3.0.2
+[3.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.2
 [3.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...v3.0.1
 [3.0.1t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.1
 [3.0.0]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc6...v3.0.0
