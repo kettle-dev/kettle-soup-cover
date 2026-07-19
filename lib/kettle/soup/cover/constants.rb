@@ -1,5 +1,3 @@
-require "kettle/wash"
-
 module Kettle
   module Soup
     module Cover
@@ -129,7 +127,7 @@ module Kettle
         MERGE_TIMEOUT = ENV_GET.call("MERGE_TIMEOUT", "3600").to_i
         VERBOSE = ENV_GET.call("VERBOSE", Constants::FALSE).casecmp?(Constants::TRUE)
 
-        include Kettle::Wash::Change.new(
+        WASHED_CONSTANTS = {
           constants: %w[
             CI
             CLEAN_RESULTSET
@@ -162,9 +160,10 @@ module Kettle
             TURBO_TESTS_WORKER
             USE_MERGING
             VERBOSE
+            WASHED_CONSTANTS
           ],
-          path: "kettle/soup/cover/constants.rb"
-        )
+          path: File.expand_path(__FILE__)
+        }.freeze
       end
     end
   end

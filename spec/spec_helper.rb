@@ -25,7 +25,6 @@ require "stringio"
 # External gems
 require "version_gem/rspec"
 require "rake"
-require "kettle/wash"
 
 # RSpec Configs
 require "config/rspec/rspec_core"
@@ -34,8 +33,8 @@ require "config/rspec/silent_stream"
 # Force load the cover module, so we can use it while testing it, and get accurate coverage.
 # It will be reloaded again after simplecov begins tracking.
 path = File.expand_path(__dir__)
-load File.join(path, "..", "lib", "kettle", "soup", "cover", "constants.rb")
-load File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb")
+load File.join(path, "..", "lib", "kettle", "soup", "cover", "constants.rb") unless defined?(Kettle::Soup::Cover::Constants)
+load File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb") unless defined?(Kettle::Soup::Cover::Loaders)
 
 # SimpleCov
 # Normally we would only load simple cov if checking test coverage,
@@ -47,6 +46,7 @@ if ENV.fetch("K_SOUP_COV_DO", "false").casecmp?("true")
   require "kettle/soup/cover/config"
   SimpleCov.start
 end
+require "kettle/wash"
 if defined?(Kettle::Soup::Cover)
   cover_module = Kettle::Soup::Cover
   if cover_module.private_method_defined?(:configure_formatters!, false)
@@ -68,6 +68,9 @@ end
 
 # This gem
 require "kettle-soup-cover"
+Kettle::Soup::Cover.reset_const unless Kettle::Soup::Cover.const_defined?(:Constants, false)
+Kettle::Wash.validate!(Kettle::Soup::Cover::Constants, Kettle::Soup::Cover::Constants::WASHED_CONSTANTS)
+Kettle::Wash.install(Kettle::Soup::Cover::Constants, Kettle::Soup::Cover::Constants::WASHED_CONSTANTS)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

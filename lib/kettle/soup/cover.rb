@@ -23,9 +23,6 @@ require "fileutils"
 require "json"
 require "rbconfig"
 
-# External gems
-require "kettle/wash"
-
 # This gem
 require_relative "cover/version"
 
@@ -55,8 +52,13 @@ module Kettle
       end
 
       def reset_const(&block)
-        if const_defined?(:Constants, false)
-          Constants.reset_const(&block)
+        if const_defined?(:Constants, false) && Constants.const_defined?(:WASHED_CONSTANTS, false)
+          constants_config = Constants::WASHED_CONSTANTS
+          constants_config.fetch(:constants).each do |constant_name|
+            Constants.send(:remove_const, constant_name) if Constants.const_defined?(constant_name, false)
+          end
+          block&.call
+          load(constants_config.fetch(:path))
         else
           block&.call
           load(CONSTANTS_PATH)
@@ -68,7 +70,13 @@ module Kettle
       end
 
       def delete_const(&block)
-        Constants.delete_const(&block)
+        if const_defined?(:Constants, false) && Constants.const_defined?(:WASHED_CONSTANTS, false)
+          Constants::WASHED_CONSTANTS.fetch(:constants).each do |constant_name|
+            Constants.send(:remove_const, constant_name) if Constants.const_defined?(constant_name, false)
+          end
+        end
+        block&.call
+        nil
       end
 
       # Deletes coverage/.resultset.json (if it exists) so that stale entries

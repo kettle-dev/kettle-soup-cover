@@ -24,6 +24,7 @@ module Kettle
       OPEN_BIN: String
       USE_MERGING: bool?
       VERBOSE: bool
+      WASHED_CONSTANTS: Hash[Symbol, untyped]
       def delete_const: () -> void
       def install_tasks: () -> void
       def load_filters: () -> void

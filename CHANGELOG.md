@@ -20,9 +20,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- Added `Kettle::Soup::Cover::Constants::WASHED_CONSTANTS` as the contract used
+  by the spec harness to validate constant reload behavior.
+
 ### Changed
 
-- Constant reset/delete management is now provided by `kettle-wash`.
+- `kettle-wash` is now a development dependency used by the test harness instead
+  of a runtime dependency loaded during coverage bootstrap.
 
 - kettle-jem-template-20260716-001 - Shim gemspec manifests now include
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
