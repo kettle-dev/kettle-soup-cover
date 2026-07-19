@@ -6,7 +6,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
   describe "CI" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => ci)
         stub_env("K_SOUP_COV_MULTI_FORMATTERS" => multi_formatters)
         stub_env("TEST_ENV_NUMBER" => "")
@@ -42,7 +42,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
   describe "FORMATTERS" do
     context "when CI=true and formatter names are defaulted" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "true")
           stub_env("K_SOUP_COV_FORMATTERS" => nil)
           stub_env("K_SOUP_COV_MULTI_FORMATTERS" => nil)
@@ -60,7 +60,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
     context "when MAX_ROWS is set but not zero" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "false")
           stub_env("K_SOUP_COV_FORMATTERS" => "html,tty")
           stub_env("MAX_ROWS" => "5")
@@ -75,7 +75,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
     context "when no configured formatter names are recognized" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "false")
           stub_env("K_SOUP_COV_FORMATTERS" => "unknown")
           stub_env("K_SOUP_COV_MULTI_FORMATTERS" => nil)
@@ -96,7 +96,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
   describe "MULTI_FORMATTERS_DEFAULT" do
     context "when CI=true" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "true")
           stub_env("K_SOUP_COV_FORMATTERS" => nil)
           stub_env("K_SOUP_COV_MULTI_FORMATTERS" => nil)
@@ -111,7 +111,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
     context "when no formatters are configured outside CI" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "false")
           stub_env("K_SOUP_COV_FORMATTERS" => "unknown")
           stub_env("K_SOUP_COV_MULTI_FORMATTERS" => nil)
@@ -127,7 +127,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
   describe "MIN_COVERAGE_HARD" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => ci)
         stub_env("K_SOUP_COV_MULTI_FORMATTERS" => "false")
         stub_env("TEST_ENV_NUMBER" => "")
@@ -199,7 +199,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
   describe "CLEAN_RESULTSET" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => ci)
         stub_env("K_SOUP_COV_MULTI_FORMATTERS" => "false")
         stub_env("TEST_ENV_NUMBER" => "")
@@ -251,7 +251,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
   describe "OPEN_BIN" do
     context "when host OS is macOS and no override is set" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           allow(RbConfig::CONFIG).to receive(:[]).with("host_os").and_return("darwin")
           stub_env("K_SOUP_COV_OPEN_BIN" => nil)
         end
@@ -265,7 +265,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
   describe "turbo_tests2 coverage" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => "false")
         stub_env("K_SOUP_COV_DIR" => "coverage")
         stub_env("K_SOUP_COV_MIN_HARD" => "false")
@@ -293,7 +293,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
     context "when hard minimums are requested" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env("CI" => "true")
           stub_env("K_SOUP_COV_DIR" => "coverage")
           stub_env("K_SOUP_COV_MIN_HARD" => "true")

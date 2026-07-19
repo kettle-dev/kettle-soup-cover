@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Specs now reset coverage constants through `kettle-wash` instead of the old
+  `Kettle::Soup::Cover.reset_const` helper.
+
 ### Security
 
 ## [3.0.2] - 2026-07-19

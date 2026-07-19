@@ -68,9 +68,34 @@ end
 
 # This gem
 require "kettle-soup-cover"
-Kettle::Soup::Cover.reset_const unless Kettle::Soup::Cover.const_defined?(:Constants, false)
+KETTLE_SOUP_COVER_CONSTANTS_PATH = File.join(path, "..", "lib", "kettle", "soup", "cover", "constants.rb")
+KETTLE_SOUP_COVER_LOADERS_PATH = File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb")
+
+def ensure_soup_cover_modules!
+  load KETTLE_SOUP_COVER_CONSTANTS_PATH unless Kettle::Soup::Cover.const_defined?(:Constants, false)
+  Kettle::Soup::Cover.include(Kettle::Soup::Cover::Constants) unless Kettle::Soup::Cover.ancestors.include?(Kettle::Soup::Cover::Constants)
+
+  load KETTLE_SOUP_COVER_LOADERS_PATH unless Kettle::Soup::Cover.const_defined?(:Loaders, false)
+  Kettle::Soup::Cover.extend(Kettle::Soup::Cover::Loaders)
+end
+
+ensure_soup_cover_modules!
 Kettle::Wash.validate!(Kettle::Soup::Cover::Constants, Kettle::Soup::Cover::Constants::WASHED_CONSTANTS)
-Kettle::Wash.install(Kettle::Soup::Cover::Constants, Kettle::Soup::Cover::Constants::WASHED_CONSTANTS)
+KETTLE_SOUP_COVER_WASHED_CONSTANTS = Kettle::Soup::Cover::Constants::WASHED_CONSTANTS
+
+def reset_soup_cover_constants(&block)
+  ensure_soup_cover_modules!
+  block&.call
+  Kettle::Wash.reset_constants(owner: Kettle::Soup::Cover::Constants, **KETTLE_SOUP_COVER_WASHED_CONSTANTS)
+  ensure_soup_cover_modules!
+end
+
+def delete_soup_cover_constants(&block)
+  ensure_soup_cover_modules!
+  Kettle::Wash.delete_constants(Kettle::Soup::Cover::Constants, KETTLE_SOUP_COVER_WASHED_CONSTANTS.fetch(:constants))
+  block&.call
+  nil
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -110,26 +135,26 @@ RSpec.configure do |config|
       load File.expand_path("../lib/kettle/soup/cover/rakelib/turbo_tests.rake", __dir__)
 
       ENV["K_SOUP_COV_TURBO_TESTS"] = "true"
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
       Rake.application["turbo_tests:setup"].invoke
 
       ENV["K_SOUP_COV_TURBO_TESTS"] = "false"
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
       Rake.application["turbo_tests:setup"].reenable
       Rake.application["turbo_tests:setup"].invoke
       ENV["K_SOUP_COV_TURBO_TESTS"] = "true"
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
       Rake.application["turbo_tests:cleanup"].invoke
 
       ENV["CI"] = "true"
       ENV["MAX_ROWS"] = "0"
       ENV["TEST_ENV_NUMBER"] = ""
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
       ENV["CI"] = "false"
       ENV.delete("MAX_ROWS")
       ENV["K_SOUP_COV_TURBO_TESTS"] = "false"
-      Kettle::Soup::Cover.reset_const
-      Kettle::Soup::Cover.delete_const {}
+      reset_soup_cover_constants
+      delete_soup_cover_constants {}
 
       Rake.application = Rake::Application.new
       load File.expand_path("config/mocks/test_task.rake", __dir__)
@@ -137,14 +162,14 @@ RSpec.configure do |config|
 
       ["", "blah", "blah --bad", "true --ignored"].each do |open_bin|
         ENV["K_SOUP_COV_OPEN_BIN"] = open_bin
-        Kettle::Soup::Cover.reset_const
+        reset_soup_cover_constants
         Rake.application["coverage"].reenable
         Rake.application["test"].reenable
         Rake.application["coverage"].invoke
       end
       FileUtils.rm_f(html_report)
       ENV["K_SOUP_COV_OPEN_BIN"] = "false --ignored"
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
       Rake.application["coverage"].reenable
       Rake.application["test"].reenable
       Rake.application["coverage"].invoke
@@ -170,7 +195,7 @@ RSpec.configure do |config|
         ENV["K_SOUP_COV_TURBO_TESTS"] = "true"
         ENV["TEST_ENV_NUMBER"] = original_test_env_number unless original_test_env_number.nil?
       end
-      Kettle::Soup::Cover.reset_const
+      reset_soup_cover_constants
     ensure
       Rake.application = original_application
       $stdout = original_stdout

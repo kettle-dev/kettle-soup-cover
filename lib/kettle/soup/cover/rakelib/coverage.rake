@@ -1,15 +1,20 @@
 # NOTE: This is not for CI, only for local development.
+require "kettle/wash"
 require "shellwords"
+
+constants_path = File.expand_path("../constants.rb", __dir__)
+load constants_path unless Kettle::Soup::Cover::Constants.const_defined?(:WASHED_CONSTANTS, false)
+washed_constants = Kettle::Soup::Cover::Constants::WASHED_CONSTANTS
 
 desc "Run specs w/ coverage and open results in browser"
 task :coverage do
-  Kettle::Soup::Cover.reset_const do
-    ENV["K_SOUP_COV_PREFIX"] = "K_SOUP_COV_"
-    ENV["K_SOUP_COV_DO"] = "true"
-    ENV["K_SOUP_COV_MULTI_FORMATTERS"] = "true"
-    ENV["K_SOUP_COV_FORMATTERS"] ||= "html"
-    ENV["K_SOUP_COV_DIR"] ||= "coverage"
-  end
+  ENV["K_SOUP_COV_PREFIX"] = "K_SOUP_COV_"
+  ENV["K_SOUP_COV_DO"] = "true"
+  ENV["K_SOUP_COV_MULTI_FORMATTERS"] = "true"
+  ENV["K_SOUP_COV_FORMATTERS"] ||= "html"
+  ENV["K_SOUP_COV_DIR"] ||= "coverage"
+  Kettle::Wash.reset_constants(owner: Kettle::Soup::Cover::Constants, **washed_constants)
+
   Rake::Task["test"].invoke
   html_report = "#{Kettle::Soup::Cover::COVERAGE_DIR}/index.html"
   if Kettle::Soup::Cover::OPEN_BIN.empty?

@@ -42,41 +42,11 @@ module Kettle
       module_function
 
       VAR_HOME_PREFIX = %r{\A/var/home(?=/|\z)}
-      CONSTANTS_PATH = File.expand_path("cover/constants.rb", __dir__)
-      LOADERS_PATH = File.expand_path("cover/loaders.rb", __dir__)
 
       def display_path(path)
         return path if path.nil?
 
         path.to_s.sub(VAR_HOME_PREFIX, "/home")
-      end
-
-      def reset_const(&block)
-        if const_defined?(:Constants, false) && Constants.const_defined?(:WASHED_CONSTANTS, false)
-          constants_config = Constants::WASHED_CONSTANTS
-          constants_config.fetch(:constants).each do |constant_name|
-            Constants.send(:remove_const, constant_name) if Constants.const_defined?(constant_name, false)
-          end
-          block&.call
-          load(constants_config.fetch(:path))
-        else
-          block&.call
-          load(CONSTANTS_PATH)
-          include Constants
-
-          load(LOADERS_PATH) unless const_defined?(:Loaders, false)
-          extend Loaders
-        end
-      end
-
-      def delete_const(&block)
-        if const_defined?(:Constants, false) && Constants.const_defined?(:WASHED_CONSTANTS, false)
-          Constants::WASHED_CONSTANTS.fetch(:constants).each do |constant_name|
-            Constants.send(:remove_const, constant_name) if Constants.const_defined?(constant_name, false)
-          end
-        end
-        block&.call
-        nil
       end
 
       # Deletes coverage/.resultset.json (if it exists) so that stale entries

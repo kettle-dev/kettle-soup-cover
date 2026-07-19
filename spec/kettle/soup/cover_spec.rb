@@ -6,30 +6,6 @@ require "stringio"
 RSpec.describe Kettle::Soup::Cover do
   include_context "with stubbed env"
 
-  describe "::reset_const" do
-    subject(:reset_const) do
-      described_class.reset_const do
-        puts "CONSTANTS ARE RESET" # rubocop:disable RSpec/Output
-      end
-    end
-
-    it "has output" do
-      expect { reset_const }.to output("CONSTANTS ARE RESET\n").to_stdout
-    end
-
-    it "restores constants after they have been deleted" do
-      described_class.send(:remove_const, :Constants) # rubocop:disable RSpec/RemoveConst
-      described_class.send(:remove_const, :Loaders) # rubocop:disable RSpec/RemoveConst
-
-      expect(described_class.const_defined?(:Constants, false)).to be(false)
-      expect(described_class.const_defined?(:Loaders, false)).to be(false)
-
-      expect { described_class.reset_const }.not_to raise_error
-      expect(described_class.const_defined?(:Constants, false)).to be(true)
-      expect(described_class.const_defined?(:Loaders, false)).to be(true)
-    end
-  end
-
   describe "SimpleCov config" do
     it "leaves turbo_tests2 worker merge finalization to parent collation" do
       env = {
@@ -554,7 +530,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when CI=true" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => "true")
         stub_env("K_SOUP_COV_FORMATTERS" => nil)
         stub_env("MAX_ROWS" => nil)
@@ -581,7 +557,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when CI=false" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("CI" => "false")
         stub_env("K_SOUP_COV_FORMATTERS" => nil)
         stub_env("MAX_ROWS" => nil)
@@ -603,7 +579,7 @@ RSpec.describe Kettle::Soup::Cover do
 
     context "when MAX_ROWS is '0'" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env(
             "CI" => "false",
             "K_SOUP_COV_FORMATTERS" => nil,
@@ -626,7 +602,7 @@ RSpec.describe Kettle::Soup::Cover do
 
     context "when K_SOUP_COV_MULTI_FORMATTERS empty" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env(
             "CI" => "false",
             "K_SOUP_COV_MULTI_FORMATTERS" => ""
@@ -641,7 +617,7 @@ RSpec.describe Kettle::Soup::Cover do
 
     context "when K_SOUP_COV_MULTI_FORMATTERS malformed with extra spaces" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           stub_env(
             "CI" => "false",
             "K_SOUP_COV_MULTI_FORMATTERS" => "true",
@@ -696,7 +672,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when debugging" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("K_SOUP_COV_DEBUG" => "true")
       end
     end
@@ -708,7 +684,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when not debugging" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("K_SOUP_COV_DEBUG" => "false")
       end
     end
@@ -720,7 +696,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when K_SOUP_COV_OPEN_BIN=''" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("K_SOUP_COV_OPEN_BIN" => "")
       end
     end
@@ -732,7 +708,7 @@ RSpec.describe Kettle::Soup::Cover do
 
   context "when K_SOUP_COV_OPEN_BIN='xdg-open'" do
     before do
-      described_class.reset_const do
+      reset_soup_cover_constants do
         stub_env("K_SOUP_COV_OPEN_BIN" => "xdg-open")
       end
     end
@@ -745,7 +721,7 @@ RSpec.describe Kettle::Soup::Cover do
   context "when K_SOUP_COV_OPEN_BIN is not set or nil" do
     context "when macOS" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           allow(RbConfig::CONFIG).to receive(:[]).with("host_os").and_return("darwin")
           stub_env("K_SOUP_COV_OPEN_BIN" => nil)
         end
@@ -758,7 +734,7 @@ RSpec.describe Kettle::Soup::Cover do
 
     context "when not macOS" do
       before do
-        described_class.reset_const do
+        reset_soup_cover_constants do
           allow(RbConfig::CONFIG).to receive(:[]).with("host_os").and_return("banana")
           stub_env("K_SOUP_COV_OPEN_BIN" => nil)
         end
