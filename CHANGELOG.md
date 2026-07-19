@@ -22,9 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Restored `kettle-wash` as a runtime dependency because the shipped
-  `coverage` rake task uses it to reload coverage constants after setting ENV.
-
 ### Deprecated
 
 ### Removed
@@ -32,6 +29,18 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 ### Security
+
+## [3.0.3] - 2026-07-19
+
+- TAG: [v3.0.3][3.0.3t]
+- COVERAGE: 100.00% -- 243/243 lines in 12 files
+- BRANCH COVERAGE: 94.12% -- 64/68 branches in 12 files
+- 16.18% documented
+
+### Changed
+
+- Restored `kettle-wash` as a runtime dependency because the shipped
+  `coverage` rake task uses it to reload coverage constants after setting ENV.
 
 ## [3.0.2] - 2026-07-19
 
@@ -567,7 +576,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.2...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.3...HEAD
+[3.0.3]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.2...v3.0.3
+[3.0.3t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.3
 [3.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...v3.0.2
 [3.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.2
 [3.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...v3.0.1
