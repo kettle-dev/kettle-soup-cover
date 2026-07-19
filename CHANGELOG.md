@@ -28,17 +28,14 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Specs now reset coverage constants through `kettle-wash` instead of the old
-  `Kettle::Soup::Cover.reset_const` helper.
-
 ### Security
 
 ## [3.0.2] - 2026-07-19
 
 - TAG: [v3.0.2][3.0.2t]
-- COVERAGE: 100.00% -- 254/254 lines in 12 files
-- BRANCH COVERAGE: 91.25% -- 73/80 branches in 12 files
-- 15.28% documented
+- COVERAGE: 100.00% -- 243/243 lines in 12 files
+- BRANCH COVERAGE: 94.12% -- 64/68 branches in 12 files
+- 16.18% documented
 
 ### Added
 
@@ -54,6 +51,11 @@ Please file a bug if you notice a violation of semantic versioning.
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
 - kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
   repository-only files by default to reduce downstream distro packaging churn.
+
+### Fixed
+
+- Specs now reset coverage constants through `kettle-wash` instead of the old
+  `Kettle::Soup::Cover.reset_const` helper.
 
 ## [3.0.1] - 2026-07-18
 
