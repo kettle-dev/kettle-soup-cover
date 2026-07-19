@@ -22,9 +22,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- Updated the README coverage setup, environment variable reference, and
-  turbo_tests2 usage notes to match the current implementation.
-
 ### Deprecated
 
 ### Removed
@@ -54,6 +51,9 @@ Please file a bug if you notice a violation of semantic versioning.
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
 - kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
   repository-only files by default to reduce downstream distro packaging churn.
+
+- Updated the README coverage setup, environment variable reference, and
+  turbo_tests2 usage notes to match the current implementation.
 
 ### Fixed
 
