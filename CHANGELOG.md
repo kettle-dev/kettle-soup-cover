@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Restored `kettle-wash` as a runtime dependency because the shipped
+  `coverage` rake task uses it to reload coverage constants after setting ENV.
+
 ### Deprecated
 
 ### Removed

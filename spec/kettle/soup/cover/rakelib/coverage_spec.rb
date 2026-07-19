@@ -38,6 +38,18 @@ RSpec.describe "rake coverage" do
   context "when defined" do
     subject(:definition) { rake_task }
 
+    it "has kettle-wash available for shipped constant reload support" do
+      expect(Kettle::Wash).to respond_to(:reset_constants)
+    end
+
+    it "declares kettle-wash as a runtime dependency" do
+      spec = Gem::Specification.load(File.join(gem_root, "kettle-soup-cover.gemspec"))
+      dependency = spec.dependencies.find { |candidate| candidate.name == "kettle-wash" }
+
+      expect(dependency).not_to be_nil
+      expect(dependency.type).to eq(:runtime)
+    end
+
     it "does not raise error" do
       block_is_expected.not_to raise_error
     end

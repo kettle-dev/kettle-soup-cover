@@ -95,6 +95,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.require_paths = ["lib"]
 
   # Utilities
+  spec.add_dependency("kettle-wash", "~> 0.1", ">= 0.1.0") # Runtime constant reload support for shipped rake tasks
   spec.add_dependency("simplecov", ">= 1.0") # Ruby >= 3.2, Includes dependency on simplecov-html
   spec.add_dependency("simplecov-cobertura", ">= 4.0") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output
@@ -129,7 +130,6 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   # Testing
   spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
   spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.11")            # ruby >= 3.2.0
-  spec.add_development_dependency("kettle-wash", "~> 0.1", ">= 0.1.0")             # ruby >= 3.2.0
   spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.0")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing

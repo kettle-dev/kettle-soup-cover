@@ -3,9 +3,9 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        127,
         154,
-        161
+        181,
+        188
       ]
     }
   ],
@@ -13,34 +13,25 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        155,
-        162
+        182,
+        189
       ]
     }
   ],
-  "ENV[\"K_SOUP_COV_TURBO_TESTS\"] = \"false\"\nKettle::Soup::Cover.reset_const": [
+  "ENV[\"K_SOUP_COV_TURBO_TESTS\"] = \"false\"\nreset_soup_cover_constants": [
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        114,
-        128
+        141,
+        155
       ]
     }
   ],
-  "ENV[\"K_SOUP_COV_TURBO_TESTS\"] = \"true\"\nKettle::Soup::Cover.reset_const": [
+  "ENV[\"K_SOUP_COV_TURBO_TESTS\"] = \"true\"\nreset_soup_cover_constants": [
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        110,
-        118
-      ]
-    }
-  ],
-  "Kettle::Soup::Cover.reset_const\nRake.application[\"coverage\"].reenable": [
-    {
-      "file": "spec/spec_helper.rb",
-      "lines": [
-        138,
+        137,
         145
       ]
     }
@@ -49,8 +40,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        139,
-        146
+        166,
+        173
       ]
     }
   ],
@@ -58,8 +49,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        140,
-        147
+        167,
+        174
       ]
     }
   ],
@@ -69,7 +60,7 @@
       "lines": [
         44,
         105,
-        154
+        159
       ]
     }
   ],
@@ -90,6 +81,15 @@
         44,
         105,
         163
+      ]
+    }
+  ],
+  "reset_soup_cover_constants\nRake.application[\"coverage\"].reenable": [
+    {
+      "file": "spec/spec_helper.rb",
+      "lines": [
+        165,
+        172
       ]
     }
   ]

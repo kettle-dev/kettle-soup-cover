@@ -27,9 +27,9 @@ end
 Kernel.send(:gem, "nomono", *nomono_activation_requirements)
 require "nomono/bundler"
 
-local_gems = %w[kettle-dev kettle-test kettle-soup-cover kettle-drift kettle-wash]
+local_gems = %w[kettle-dev kettle-test kettle-soup-cover kettle-drift]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
-local_gems_to_eval = (local_gems - %w[kettle-soup-cover] - declared_gems) | %w[kettle-wash]
+local_gems_to_eval = local_gems - %w[kettle-soup-cover] - declared_gems
 
 # export KETTLE_DEV_DEV=/path/to/my
 platform :mri do
