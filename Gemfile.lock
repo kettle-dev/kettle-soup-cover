@@ -14,14 +14,14 @@ GEM
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     ansi (1.6.0)
-    appraisal2 (3.1.4)
+    appraisal2 (3.2.0)
       bundler (>= 1.17.3)
       rake (>= 10)
       thor (>= 0.14)
-    appraisal2-rubocop (0.2.3)
+    appraisal2-rubocop (1.0.0)
       appraisal2 (>= 3.1.4)
       rubocop (>= 1.0)
-      version_gem (~> 1.1, >= 1.1.13)
+      version_gem (~> 1.1, >= 1.1.14)
     ast (2.4.3)
     backports (3.25.3)
     benchmark (0.5.0)
@@ -31,7 +31,7 @@ GEM
       thor (~> 1.0)
     cgi (0.5.2)
     cmdparse (3.0.7)
-    concurrent-ruby (1.3.7)
+    concurrent-ruby (1.3.8)
     date (3.5.1)
     debug (1.11.1)
       irb (~> 1.10)
@@ -324,7 +324,7 @@ GEM
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
     tsort (0.2.0)
-    turbo_tests2 (3.1.14)
+    turbo_tests2 (3.2.0)
       parallel_tests (>= 3.3.0, < 6)
       rspec (>= 3.10)
       version_gem (~> 1.1, >= 1.1.14)
@@ -350,7 +350,7 @@ GEM
       yard
     yard-relative_markdown_links (0.6.0)
       nokogiri (>= 1.14.3, < 2)
-    yard-timekeeper (0.2.3)
+    yard-timekeeper (0.2.4)
       version_gem (~> 1.1, >= 1.1.13)
     yard-yaml (0.2.3)
       version_gem (~> 1.1, >= 1.1.13)
@@ -371,20 +371,20 @@ PLATFORMS
 
 DEPENDENCIES
   addressable (>= 2.8, < 3)
-  appraisal2 (~> 3.1, >= 3.1.4)
-  appraisal2-rubocop (~> 0.2, >= 0.2.3)
+  appraisal2 (~> 3.2, >= 3.2.0)
+  appraisal2-rubocop (~> 1.0, >= 1.0.0)
   benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
   debug (>= 1.1)
-  erb (~> 6.0, >= 6.0.4)
+  erb (~> 6.0, >= 6.0.5)
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.4)
   irb (~> 1.17)
-  kettle-dev (~> 2.3, >= 2.3.2)
+  kettle-dev (~> 2.3, >= 2.3.7)
   kettle-soup-cover!
-  kettle-test (~> 2.0, >= 2.0.10)
-  kramdown (~> 2.5, >= 2.5.1)
+  kettle-test (~> 2.0, >= 2.0.11)
+  kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
   nomono (~> 1.0, >= 1.0.8)
@@ -395,30 +395,30 @@ DEPENDENCIES
   require_bench (~> 1.0, >= 1.0.4)
   rubocop-gradual (~> 0.4, >= 0.4.0)
   rubocop-lts (~> 24.2, >= 24.2.1)
-  rubocop-lts-rspec (~> 1.0, >= 1.0.4)
-  rubocop-minitest (~> 0.38, >= 0.38.1)
+  rubocop-lts-rspec (~> 1.0, >= 1.0.5)
+  rubocop-minitest (~> 0.39, >= 0.39.1)
   rubocop-on-rbs (~> 2.0, >= 2.0.0)
   rubocop-packaging (~> 0.6, >= 0.6.0)
   rubocop-ruby3_2 (~> 3.0, >= 3.0.6)
   ruby-progressbar (~> 1.13)
-  standard (~> 1.54, >= 1.54.0)
+  standard (~> 1.56, >= 1.56.0)
   stone_checksums (~> 1.0, >= 1.0.6)
   stringio (>= 3.0)
-  turbo_tests2 (~> 3.1, >= 3.1.7)
+  turbo_tests2 (~> 3.2, >= 3.2.0)
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.3)
-  yard (~> 0.9, >= 0.9.44)
+  yard (~> 0.9, >= 0.9.45)
   yard-fence (~> 0.9, >= 0.9.6)
   yard-junk (~> 0.1, >= 0.1.0)
   yard-relative_markdown_links (~> 0.6)
-  yard-timekeeper (~> 0.2, >= 0.2.3)
+  yard-timekeeper (~> 0.2, >= 0.2.4)
   yard-yaml (~> 0.2, >= 0.2.3)
 
 CHECKSUMS
   addressable (2.9.0) sha256=7fdf6ac3660f7f4e867a0838be3f6cf722ace541dd97767fa42bc6cfa980c7af
   ansi (1.6.0) sha256=ac9ea0c0ea8d32fb4e271348e609963ac78882f34b73836c2a02b3622e666658
-  appraisal2 (3.1.4) sha256=f88c27e600adf4bd5bf06c0ab0afd1de6ce4361497760ce35e86e782036286f4
-  appraisal2-rubocop (0.2.3) sha256=06fd36e7d4e88742193e38d48c196b8d96cff37168bf789405c08a7d771abc2c
+  appraisal2 (3.2.0) sha256=ccd0b767ac4060cd7af6d16747459b6990f49c39c7b4fb1f7d1146b1e97c492f
+  appraisal2-rubocop (1.0.0) sha256=b71410fbb014befda5340605a605b7f6f3f012739baf0acc5b4351b592c3258d
   ast (2.4.3) sha256=954615157c1d6a382bc27d690d973195e79db7f55e9765ac7c481c60bdb4d383
   backports (3.25.3) sha256=94298d32dc3c40ca15633b54e282780b49e2db0c045f602ea1907e4f63a17235
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
@@ -426,7 +426,7 @@ CHECKSUMS
   bundler-audit (0.9.3) sha256=81c8766c71e47d0d28a0f98c7eed028539f21a6ea3cd8f685eb6f42333c9b4e9
   cgi (0.5.2) sha256=61ca30298171190fd4fa0d8018e57ada456eae9b7a2b78526debf7f0a0e6f8bb
   cmdparse (3.0.7) sha256=f7c5cace10bec6abf853370ae095e4b97a84ed9d847b3fb38f41cc4fbc950739
-  concurrent-ruby (1.3.7) sha256=4412caec3a5ea2e5fdc52076724c071a81f2c0593d83b2ac8cbb8ca63b3151b0
+  concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
   date (3.5.1) sha256=750d06384d7b9c15d562c76291407d89e368dda4d4fff957eb94962d325a0dc0
   debug (1.11.1) sha256=2e0b0ac6119f2207a6f8ac7d4a73ca8eb4e440f64da0a3136c30343146e952b6
   delegate (0.6.1) sha256=54cf946cacfe05b1c23114edd8fbd8d54e9cea7abf36b95130ab53cc88b8f7e4
@@ -534,7 +534,7 @@ CHECKSUMS
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
-  turbo_tests2 (3.1.14) sha256=cc29d5b36bdbba67a83eee09a9546880d0926edfbbe50d99633fc0b5763ee94c
+  turbo_tests2 (3.2.0) sha256=8b35421548399d1923567b177970f42671c65695b93cdd134d78fbcbab85dff0
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
   unicode-emoji (4.2.0) sha256=519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f
   version_gem (1.1.14) sha256=6b7306c7e9416d06067561981ab3444e2cecb844f26cc325ae3c27b44cf85613
@@ -544,7 +544,7 @@ CHECKSUMS
   yard-fence (0.9.6) sha256=3d1dbf4e3df462ac78b8bd2e01cf740a2de20168387c929aca31a0bcee490659
   yard-junk (0.1.0) sha256=e85fe2ec1afa47313decd333447b53458cb1ed49b510b70015fdc3041a94bcdd
   yard-relative_markdown_links (0.6.0) sha256=3e5ffa85cbad9bac70bee5421774b190fb25d3bdf489323a5b3534f647d1a70e
-  yard-timekeeper (0.2.3) sha256=849a3e74a0484b1e0b5209cf86823e418b3091e21f4f143c141d38e1cc262034
+  yard-timekeeper (0.2.4) sha256=62f8d001d737c6e2ac688e7b37386f958dceb0f6aff9c909575e1bec8d20775a
   yard-yaml (0.2.3) sha256=fe5fef18819e1cbd05bb8f1b9e1baad6bf70c28125eb75b57bbf6397b0831812
   zeitwerk (2.8.2) sha256=7212a61311083c604184b1ea2574b9aa05cd14f855a0841c06985cabe9181d12
   zlib (3.2.3) sha256=5bd316698b32f31a64ab910a8b6c282442ca1626a81bbd6a1674e8522e319c20

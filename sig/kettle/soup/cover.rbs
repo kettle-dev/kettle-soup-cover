@@ -24,16 +24,15 @@ module Kettle
       OPEN_BIN: String
       USE_MERGING: bool?
       VERBOSE: bool
-
       def delete_const: () -> void
-
       def install_tasks: () -> void
-
       def load_filters: () -> void
-
       def load_formatters: () -> void
-
       def reset_const: () -> void
+      module Version
+        VERSION: String
+      end
+      VERSION: String
     end
   end
 end
