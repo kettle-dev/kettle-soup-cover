@@ -6,7 +6,7 @@
 <title>
   Module: Kettle::Soup::Cover
   
-    &mdash; Documentation by YARD 0.9.44
+    &mdash; Documentation by YARD 0.9.45
   
 </title>
 
@@ -123,6 +123,21 @@
           
         </dt>
         <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>\A/var/home(?=/|\z)</span><span class='regexp_end'>}</span></span></pre></dd>
+      
+        <dt id="CHANGE_PATH-constant" class="">CHANGE_PATH =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>../change.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid___dir__'>__dir__</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="CONSTANTS_PATH-constant" class="">CONSTANTS_PATH =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cover/constants.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid___dir__'>__dir__</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="LOADERS_PATH-constant" class="">LOADERS_PATH =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cover/loaders.rb</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid___dir__'>__dir__</span><span class='rparen'>)</span></pre></dd>
       
         <dt id="VERSION-constant" class="">VERSION =
           <div class="docstring">
@@ -678,13 +693,13 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-64
-65
-66
-67</pre>
+77
+78
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clean_resultset!'>clean_resultset!</span>
   <span class='id identifier rubyid_resultset_path'>resultset_path</span> <span class='op'>=</span> <span class='const'>SimpleCov</span><span class='op'>::</span><span class='const'>ResultMerger</span><span class='period'>.</span><span class='id identifier rubyid_resultset_path'>resultset_path</span>
@@ -710,12 +725,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-69
-70
-71</pre>
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear_coverage_dir!'>clear_coverage_dir!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_DIR (constant)">COVERAGE_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -740,12 +755,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-81
-82
-83</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 81</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clear_turbo_tests_coverage_dir!'>clear_turbo_tests_coverage_dir!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_rm_rf'>rm_rf</span><span class='lparen'>(</span><span class='id identifier rubyid_turbo_tests_coverage_dir'>turbo_tests_coverage_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -770,19 +785,6 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
 106
 107
 108
@@ -798,10 +800,23 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
 118
 119
 120
-121</pre>
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 106</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_collate_turbo_tests_coverage!'>collate_turbo_tests_coverage!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='symbol'>:disabled</span> <span class='kw'>unless</span> <span class='id identifier rubyid_turbo_tests_coverage?'>turbo_tests_coverage?</span>
@@ -892,22 +907,22 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193</pre>
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 181</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 194</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_coverage_task_env'>coverage_task_env</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_DIR (constant)">COVERAGE_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_resolved_coverage_dir'>resolved_coverage_dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span>
@@ -942,12 +957,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-57
-58
-59</pre>
+70
+71
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 57</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 70</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_delete_const'>delete_const</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='period'>.</span><span class='id identifier rubyid_delete_const'>delete_const</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -972,14 +987,14 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-47
-48
-49
 50
-51</pre>
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_path'>display_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_path'>path</span> <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1006,13 +1021,13 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-157
-158
-159
-160</pre>
+170
+171
+172
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 157</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 170</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_branch_coverage'>merge_branch_coverage</span><span class='lparen'>(</span><span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_length'>length</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_left'>left</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
@@ -1038,18 +1053,18 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-162
-163
-164
-165
-166
-167
-168
-169
-170</pre>
+175
+176
+177
+178
+179
+180
+181
+182
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 162</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_branch_entry'>merge_branch_entry</span><span class='lparen'>(</span><span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_right'>right</span> <span class='kw'>unless</span> <span class='id identifier rubyid_left'>left</span>
@@ -1080,17 +1095,17 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-172
-173
-174
-175
-176
-177
-178
-179</pre>
+185
+186
+187
+188
+189
+190
+191
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_coverage_value'>merge_coverage_value</span><span class='lparen'>(</span><span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_left'>left</span> <span class='op'>+</span> <span class='id identifier rubyid_right'>right</span> <span class='kw'>if</span> <span class='id identifier rubyid_left'>left</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_right'>right</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
@@ -1120,17 +1135,17 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-143
-144
-145
-146
-147
-148
-149
-150</pre>
+156
+157
+158
+159
+160
+161
+162
+163</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 143</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_json_coverage!'>merge_json_coverage!</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span class='id identifier rubyid_source'>source</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_source'>source</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_coverage'>coverage</span><span class='op'>|</span>
@@ -1160,13 +1175,13 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-152
-153
-154
-155</pre>
+165
+166
+167
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_merge_line_coverage'>merge_line_coverage</span><span class='lparen'>(</span><span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_length'>length</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_left'>left</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_max'>max</span>
@@ -1192,28 +1207,28 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
 136
 137
 138
 139
 140
-141</pre>
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_publish_turbo_tests_json_coverage!'>publish_turbo_tests_json_coverage!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_paths'>paths</span> <span class='op'>=</span> <span class='id identifier rubyid_turbo_tests_json_paths'>turbo_tests_json_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span>
@@ -1277,25 +1292,25 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207
 208
 209
-210</pre>
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_refresh_coverage_data!'>refresh_coverage_data!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_DIR (constant)">COVERAGE_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='comma'>,</span> <span class='label'>out:</span> <span class='gvar'>$stdout</span><span class='comma'>,</span> <span class='label'>err:</span> <span class='gvar'>$stderr</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_clear_coverage_dir!'>clear_coverage_dir!</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span>
@@ -1333,15 +1348,35 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-53
-54
-55</pre>
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 56</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_const'>reset_const</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
-  <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='period'>.</span><span class='id identifier rubyid_reset_const'>reset_const</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:Constants</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='period'>.</span><span class='id identifier rubyid_reset_const'>reset_const</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_block'>block</span><span class='op'>&amp;.</span><span class='id identifier rubyid_call'>call</span>
+    <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#CHANGE_PATH-constant" title="Kettle::Soup::Cover::CHANGE_PATH (constant)">CHANGE_PATH</a></span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:Change</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#CONSTANTS_PATH-constant" title="Kettle::Soup::Cover::CONSTANTS_PATH (constant)">CONSTANTS_PATH</a></span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_include'>include</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span>
+
+    <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#LOADERS_PATH-constant" title="Kettle::Soup::Cover::LOADERS_PATH (constant)">LOADERS_PATH</a></span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='symbol'>:Loaders</span><span class='comma'>,</span> <span class='kw'>false</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="Cover/Loaders.html" title="Kettle::Soup::Cover::Loaders (module)">Loaders</a></span></span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1386,12 +1421,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-77
-78
-79</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_turbo_tests_coverage?'>turbo_tests_coverage?</span>
   <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#DO_COV-constant" title="Kettle::Soup::Cover::Constants::DO_COV (constant)">DO_COV</a></span></span> <span class='op'>&amp;&amp;</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#TURBO_TESTS-constant" title="Kettle::Soup::Cover::Constants::TURBO_TESTS (constant)">TURBO_TESTS</a></span></span>
@@ -1416,12 +1451,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-73
-74
-75</pre>
+86
+87
+88</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_turbo_tests_coverage_dir'>turbo_tests_coverage_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#TURBO_TESTS_DIR-constant" title="Kettle::Soup::Cover::Constants::TURBO_TESTS_DIR (constant)">TURBO_TESTS_DIR</a></span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span>
@@ -1446,12 +1481,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-89
-90
-91</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_turbo_tests_json_paths'>turbo_tests_json_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='const'>Dir</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_turbo_tests_coverage_dir'>turbo_tests_coverage_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>coverage.json</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -1476,12 +1511,12 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
       <pre class="lines">
 
 
-85
-86
-87</pre>
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/soup/cover.rb', line 98</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_turbo_tests_resultset_paths'>turbo_tests_resultset_paths</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Cover/Constants.html" title="Kettle::Soup::Cover::Constants (module)">Constants</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Cover/Constants.html#COVERAGE_ROOT_DIR-constant" title="Kettle::Soup::Cover::Constants::COVERAGE_ROOT_DIR (constant)">COVERAGE_ROOT_DIR</a></span></span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='rparen'>)</span>
   <span class='const'>Dir</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_turbo_tests_coverage_dir'>turbo_tests_coverage_dir</span><span class='lparen'>(</span><span class='id identifier rubyid_coverage_dir'>coverage_dir</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.resultset.json</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -1496,9 +1531,9 @@ Called automatically from config.rb when CLEAN_RESULTSET is true.</p>
 </div>
 
       <div id="footer">
-  Generated on Mon Jul 13 21:25:43 2026 by
+  Generated on Sat Jul 18 18:21:02 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.44 (ruby-4.0.5).
+  0.9.45 (ruby-4.0.6).
 </div>
 
     </div>

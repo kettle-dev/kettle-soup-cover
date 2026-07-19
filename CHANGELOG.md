@@ -28,6 +28,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [3.0.1] - 2026-07-18
+
+- TAG: [v3.0.1][3.0.1t]
+- COVERAGE: 100.00% -- 272/272 lines in 13 files
+- BRANCH COVERAGE: 94.05% -- 79/84 branches in 13 files
+- 15.58% documented
+
+### Fixed
+
 - turbo_tests2 workers now write SimpleCov reports under isolated
   `coverage/turbo_tests/<worker>` directories so only the parent collation step
   publishes root coverage reports such as `coverage/coverage.json`.
@@ -35,8 +46,6 @@ Please file a bug if you notice a violation of semantic versioning.
   parent-owned collation remains the only final coverage report writer.
 - turbo_tests2 rake hooks now restore coverage constants before setup or
   cleanup, preventing post-suite collation failures after specs reload constants.
-
-### Security
 
 ## [3.0.0] - 2026-07-13
 
@@ -525,7 +534,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...v3.0.1
+[3.0.1t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.1
 [3.0.0]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc6...v3.0.0
 [3.0.0t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0
 [3.0.0.rc6]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc5...v3.0.0.rc6

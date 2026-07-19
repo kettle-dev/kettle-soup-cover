@@ -6,7 +6,7 @@
 <title>
   File: CHANGELOG
   
-    &mdash; Documentation by YARD 0.9.44
+    &mdash; Documentation by YARD 0.9.45
   
 </title>
 
@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -83,6 +83,29 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 <h3 id="fixed">Fixed</h3>
 
 <h3 id="security">Security</h3>
+
+<h2 id="301---2026-07-18">
+<a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0...v3.0.1">3.0.1</a> - 2026-07-18</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.1">v3.0.1</a>
+</li>
+  <li>COVERAGE: 100.00% – 272/272 lines in 13 files</li>
+  <li>BRANCH COVERAGE: 94.05% – 79/84 branches in 13 files</li>
+  <li>15.58% documented</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>turbo_tests2 workers now write SimpleCov reports under isolated<br>
+<code>coverage/turbo_tests/&lt;worker&gt;</code> directories so only the parent collation step<br>
+publishes root coverage reports such as <code>coverage/coverage.json</code>.</li>
+  <li>turbo_tests2 workers now explicitly disable SimpleCov merge finalization so<br>
+parent-owned collation remains the only final coverage report writer.</li>
+  <li>turbo_tests2 rake hooks now restore coverage constants before setup or<br>
+cleanup, preventing post-suite collation failures after specs reload constants.</li>
+</ul>
 
 <h2 id="300---2026-07-13">
 <a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc6...v3.0.0">3.0.0</a> - 2026-07-13</h2>
@@ -115,7 +138,7 @@ require <code>kettle/soup/cover/version_gem</code> for the optional<br>
   <li>16.22% documented</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Package configured license files in gem release file lists.</li>
@@ -161,7 +184,7 @@ require <code>kettle/soup/cover/version_gem</code> for the optional<br>
 includes <code>SimpleCov::Formatter::JSONFormatter</code>.</li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Avoided redefining SimpleCov’s built-in JSON formatter when coverage uses the<br>
@@ -177,7 +200,7 @@ JSON output format.</li>
   <li>16.22% documented</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Corrected OpenCollective funding metadata to use the <code>kettle-dev</code> collective.</li>
@@ -210,7 +233,7 @@ formatter flow.</li>
 APIs and to start coverage from the test helper instead of <code>.simplecov</code>.</li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>Fixed GitHub Actions release validation on <code>next</code> by allowing workflow push<br>
@@ -235,7 +258,7 @@ triggers to run on the release branch.</li>
   <li>latest kettle-jem template</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 
 <ul>
   <li>Fixed LCOV formatter loading to require the maintained<br>
@@ -260,7 +283,7 @@ triggers to run on the release branch.</li>
   <li>Retemplated development tooling for <code>kettle-dev</code> 2.2.3.</li>
 </ul>
 
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 
 <ul>
   <li>Updated generated project metadata links to use the migrated <code>kettle-dev</code><br>
@@ -279,7 +302,7 @@ GitHub organization.</li>
   <li>16.44% documented</li>
 </ul>
 
-<h3 id="fixed-7">Fixed</h3>
+<h3 id="fixed-8">Fixed</h3>
 
 <ul>
   <li>Added <code>turbo_tests2:setup</code> and <code>turbo_tests2:cleanup</code> rake hook aliases so<br>
@@ -308,7 +331,7 @@ to their latest released compatible versions.</li>
   <li>Raised the minimum supported Ruby version from 2.7 to 3.2.</li>
 </ul>
 
-<h3 id="fixed-8">Fixed</h3>
+<h3 id="fixed-9">Fixed</h3>
 
 <ul>
   <li>Restored full CI coverage for the self-tested <code>coverage</code> rake task opener<br>
@@ -326,7 +349,7 @@ branches after re-templating.</li>
   <li>16.67% documented</li>
 </ul>
 
-<h3 id="fixed-9">Fixed</h3>
+<h3 id="fixed-10">Fixed</h3>
 
 <ul>
   <li>Removed duplicate-load warnings in the spec bootstrap while preserving coverage<br>
@@ -395,7 +418,7 @@ hook can collate the resultsets.</li>
   </li>
 </ul>
 
-<h3 id="fixed-10">Fixed</h3>
+<h3 id="fixed-11">Fixed</h3>
 
 <ul>
   <li>Deferred hard coverage minimum enforcement for <code>turbo_tests2</code> workers to the<br>
@@ -420,7 +443,7 @@ not fail before merged coverage is available.</li>
   <li>Added regression tests for <code>MIN_COVERAGE_HARD</code> behavior</li>
 </ul>
 
-<h3 id="fixed-11">Fixed</h3>
+<h3 id="fixed-12">Fixed</h3>
 
 <ul>
   <li>
@@ -495,7 +518,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="1010---2025-07-15">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.9...v1.0.10">1.0.10</a> - 2025-07-15</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.9...v1.0.10">1.0.10</a> - 2025-07-15</h2>
 
 <ul>
   <li>COVERAGE: 93.43% – 128/137 lines in 10 files</li>
@@ -534,7 +557,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="109---2025-05-20">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.8...v1.0.9">1.0.9</a> - 2025-05-20</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.8...v1.0.9">1.0.9</a> - 2025-05-20</h2>
 
 <ul>
   <li>COVERAGE: 93.43% – 128/137 lines in 10 files</li>
@@ -560,7 +583,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="108---2025-05-20">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.7...v1.0.8">1.0.8</a> - 2025-05-20</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.7...v1.0.8">1.0.8</a> - 2025-05-20</h2>
 
 <ul>
   <li>COVERAGE: 93.43% – 128/137 lines in 10 files</li>
@@ -581,7 +604,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="107---2025-05-20">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.6...v1.0.7">1.0.7</a> - 2025-05-20</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.6...v1.0.7">1.0.7</a> - 2025-05-20</h2>
 
 <ul>
   <li>COVERAGE: 93.43% – 128/137 lines in 10 files</li>
@@ -612,7 +635,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="106---2025-05-04">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.5...v1.0.6">1.0.6</a> - 2025-05-04</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.5...v1.0.6">1.0.6</a> - 2025-05-04</h2>
 
 <ul>
   <li>COVERAGE: 93.43% – 128/137 lines in 10 files</li>
@@ -651,7 +674,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Going forward all releases will be signed by my key that expires 2045-04-29</li>
 </ul>
 
-<h3 id="fixed-12">Fixed</h3>
+<h3 id="fixed-13">Fixed</h3>
 
 <ul>
   <li>require hooks such that both work equally well:
@@ -668,7 +691,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="105---2025-04-03">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.4...v1.0.5">1.0.5</a> - 2025-04-03</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.4...v1.0.5">1.0.5</a> - 2025-04-03</h2>
 
 <h3 id="added-10">Added</h3>
 
@@ -687,7 +710,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Checksums are now created by <code>stone_checksums</code> gem</li>
 </ul>
 
-<h3 id="fixed-13">Fixed</h3>
+<h3 id="fixed-14">Fixed</h3>
 
 <ul>
   <li>Incorrect documentation of ENV variables that control gem behavior</li>
@@ -699,7 +722,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="104---2024-06-11">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.3...v1.0.4">1.0.4</a> - 2024-06-11</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.3...v1.0.4">1.0.4</a> - 2024-06-11</h2>
 
 <h3 id="added-11">Added</h3>
 
@@ -715,7 +738,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="103---2024-05-23">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.2...v1.0.3">1.0.3</a> - 2024-05-23</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.2...v1.0.3">1.0.3</a> - 2024-05-23</h2>
 
 <h3 id="added-12">Added</h3>
 
@@ -725,16 +748,16 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>More tests</li>
 </ul>
 
-<h3 id="fixed-14">Fixed</h3>
+<h3 id="fixed-15">Fixed</h3>
 
 <ul>
   <li>Incorrect URLs for homepage, etc</li>
 </ul>
 
 <h2 id="102---2023-10-19">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.1...v1.0.2">1.0.2</a> - 2023-10-19</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.1...v1.0.2">1.0.2</a> - 2023-10-19</h2>
 
-<h3 id="fixed-15">Fixed</h3>
+<h3 id="fixed-16">Fixed</h3>
 
 <ul>
   <li>Include new <code>coverage</code> rake task in the built gem
@@ -746,16 +769,16 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 </ul>
 
 <h2 id="101---2023-10-19">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v1.0.0...v1.0.1">1.0.1</a> - 2023-10-19</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.0...v1.0.1">1.0.1</a> - 2023-10-19</h2>
 
-<h3 id="fixed-16">Fixed</h3>
+<h3 id="fixed-17">Fixed</h3>
 
 <ul>
   <li>Include new <code>coverage</code> rake task in the built gem</li>
 </ul>
 
 <h2 id="100---2023-10-19">
-<a href="https://gitlab.com/kettle-rb/kettle-soup-cover/-/compare/v0.1.0...v1.0.0">1.0.0</a> - 2023-10-19</h2>
+<a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v0.1.0...v1.0.0">1.0.0</a> - 2023-10-19</h2>
 
 <h3 id="added-13">Added</h3>
 
@@ -814,7 +837,7 @@ to normalize handling of this common logical need in other libraries.</li>
   </li>
 </ul>
 
-<h3 id="fixed-17">Fixed</h3>
+<h3 id="fixed-18">Fixed</h3>
 
 <ul>
   <li>All ENV vars now begin with a uniform prefix for this gem:
@@ -834,9 +857,9 @@ to normalize handling of this common logical need in other libraries.</li>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Jul 13 21:25:43 2026 by
+  Generated on Sat Jul 18 18:21:02 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.44 (ruby-4.0.5).
+  0.9.45 (ruby-4.0.6).
 </div>
 
     </div>
