@@ -95,6 +95,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.require_paths = ["lib"]
 
   # Utilities
+  spec.add_dependency("kettle-wash", "~> 0.1", ">= 0.1.0") # ruby >= 3.2.0
   spec.add_dependency("simplecov", ">= 1.0") # Ruby >= 3.2, Includes dependency on simplecov-html
   spec.add_dependency("simplecov-cobertura", ">= 4.0") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output

@@ -23,8 +23,10 @@ require "fileutils"
 require "json"
 require "rbconfig"
 
+# External gems
+require "kettle/wash"
+
 # This gem
-require_relative "../change"
 require_relative "cover/version"
 
 require_relative "cover/constants"
@@ -43,7 +45,6 @@ module Kettle
       module_function
 
       VAR_HOME_PREFIX = %r{\A/var/home(?=/|\z)}
-      CHANGE_PATH = File.expand_path("../change.rb", __dir__)
       CONSTANTS_PATH = File.expand_path("cover/constants.rb", __dir__)
       LOADERS_PATH = File.expand_path("cover/loaders.rb", __dir__)
 
@@ -58,7 +59,6 @@ module Kettle
           Constants.reset_const(&block)
         else
           block&.call
-          load(CHANGE_PATH) unless Kettle.const_defined?(:Change, false)
           load(CONSTANTS_PATH)
           include Constants
 

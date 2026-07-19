@@ -18,16 +18,13 @@ RSpec.describe Kettle::Soup::Cover do
     end
 
     it "restores constants after they have been deleted" do
-      Kettle.send(:remove_const, :Change) # rubocop:disable RSpec/RemoveConst
       described_class.send(:remove_const, :Constants) # rubocop:disable RSpec/RemoveConst
       described_class.send(:remove_const, :Loaders) # rubocop:disable RSpec/RemoveConst
 
-      expect(Kettle.const_defined?(:Change, false)).to be(false)
       expect(described_class.const_defined?(:Constants, false)).to be(false)
       expect(described_class.const_defined?(:Loaders, false)).to be(false)
 
       expect { described_class.reset_const }.not_to raise_error
-      expect(Kettle.const_defined?(:Change, false)).to be(true)
       expect(described_class.const_defined?(:Constants, false)).to be(true)
       expect(described_class.const_defined?(:Loaders, false)).to be(true)
     end

@@ -24,13 +24,11 @@ RSpec.describe "rake turbo_tests:cleanup" do
 
   it "restores constants before cleanup when a prior spec removed them" do
     allow(Kettle::Soup::Cover).to receive(:collate_turbo_tests_coverage!).and_return(:collated)
-    Kettle.send(:remove_const, :Change) # rubocop:disable RSpec/RemoveConst
     Kettle::Soup::Cover.send(:remove_const, :Constants) # rubocop:disable RSpec/RemoveConst
     Kettle::Soup::Cover.send(:remove_const, :Loaders) # rubocop:disable RSpec/RemoveConst
 
     rake["turbo_tests:cleanup"].invoke
 
-    expect(Kettle.const_defined?(:Change, false)).to be(true)
     expect(Kettle::Soup::Cover.const_defined?(:Constants, false)).to be(true)
     expect(Kettle::Soup::Cover.const_defined?(:Loaders, false)).to be(true)
     expect(Kettle::Soup::Cover).to have_received(:collate_turbo_tests_coverage!)

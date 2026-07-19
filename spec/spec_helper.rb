@@ -25,6 +25,7 @@ require "stringio"
 # External gems
 require "version_gem/rspec"
 require "rake"
+require "kettle/wash"
 
 # RSpec Configs
 require "config/rspec/rspec_core"
@@ -33,7 +34,6 @@ require "config/rspec/silent_stream"
 # Force load the cover module, so we can use it while testing it, and get accurate coverage.
 # It will be reloaded again after simplecov begins tracking.
 path = File.expand_path(__dir__)
-load File.join(path, "..", "lib", "kettle", "change.rb")
 load File.join(path, "..", "lib", "kettle", "soup", "cover", "constants.rb")
 load File.join(path, "..", "lib", "kettle", "soup", "cover", "loaders.rb")
 
@@ -60,7 +60,6 @@ end
 load File.join(path, "..", "lib", "kettle", "soup", "cover", "formatters.rb")
 
 # rubocop:disable RSpec/RemoveConst
-Kettle.send(:remove_const, :Change) if Kettle.const_defined?(:Change, false)
 if Kettle.const_defined?(:Soup, false) && Kettle::Soup.const_defined?(:Cover, false)
   Kettle::Soup::Cover.send(:remove_const, :Constants) if Kettle::Soup::Cover.const_defined?(:Constants, false)
   Kettle::Soup::Cover.send(:remove_const, :Loaders) if Kettle::Soup::Cover.const_defined?(:Loaders, false)

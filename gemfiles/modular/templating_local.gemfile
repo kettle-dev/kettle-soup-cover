@@ -62,7 +62,7 @@ structuredmerge_local_gems = %w[
 ]
 
 kettle_dev_local_gems = %w[
-  kettle-dev kettle-test kettle-soup-cover kettle-drift
+  kettle-dev kettle-test kettle-soup-cover kettle-drift kettle-wash
 ]
 declared_gems = instance_variable_get(:@dependencies).to_a.map(&:name)
 structuredmerge_local_gems_to_eval = structuredmerge_local_gems - %w[kettle-soup-cover] - declared_gems

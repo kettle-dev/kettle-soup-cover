@@ -1,3 +1,5 @@
+require "kettle/wash"
+
 module Kettle
   module Soup
     module Cover
@@ -127,7 +129,7 @@ module Kettle
         MERGE_TIMEOUT = ENV_GET.call("MERGE_TIMEOUT", "3600").to_i
         VERBOSE = ENV_GET.call("VERBOSE", Constants::FALSE).casecmp?(Constants::TRUE)
 
-        include Kettle::Change.new(
+        include Kettle::Wash::Change.new(
           constants: %w[
             CI
             CLEAN_RESULTSET
