@@ -22,6 +22,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- Updated the README coverage setup, environment variable reference, and
+  turbo_tests2 usage notes to match the current implementation.
+
 ### Deprecated
 
 ### Removed

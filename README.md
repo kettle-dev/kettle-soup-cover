@@ -21,56 +21,32 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
-Four lines of code to get a configured, curated, opinionated, set of dependencies for Test Coverage, and that's *including* the two lines for `require "simplecov"`, and `SimpleCov.start`.
+`kettle-soup-cover` is a 12-factor SimpleCov harness for Ruby projects. It keeps
+coverage policy in environment variables, configures branch coverage, loads a
+curated formatter stack, isolates `turbo_tests2` worker reports, and can collate
+parallel worker output into one final report.
 
-Configured for what?  To work out of the box on every CI*.  Batteries included.
-For apps and libraries.  Any test framework.  Many code coverage related GitHub Actions (example configs [1](#marocchinosticky-pull-request-comment), [2](#irongutcodecoveragesummary)).
+The normal setup is intentionally small:
 
-| Test Framework | Helper                      | Config                        |
-|----------------|-----------------------------|-------------------------------|
-| MiniTest       | [test helper][mini-helper]  | [.simplecov][mini-simplecov]  |
-| RSpec          | [spec helper][rpsec-helper] | [.simplecov][rspec-simplecov] |
+1. Add the gem to your `:development, :test` bundle with `require: false`.
+2. Require `kettle-soup-cover` before loading the app or library under test.
+3. Require `simplecov` and call `SimpleCov.start` only when
+   `Kettle::Soup::Cover::DO_COV` is true.
+4. Put `require "kettle/soup/cover/config"` in `.simplecov`.
 
-[mini-helper]: https://github.com/pboling/kettle-soup-cover/blob/master/tests/test_kettle-soup-cover.rb
-[mini-simplecov]: https://github.com/pboling/kettle-soup-cover/blob/master/.simplecov
-[rpsec-helper]: https://github.com/oauth-xx/oauth2/blob/main/spec/spec_helper.rb
-[rspec-simplecov]: https://github.com/oauth-xx/oauth2/blob/main/.simplecov
+That configuration works for RSpec, Minitest, and other Ruby test runners. In CI,
+coverage is enabled by default from `CI=true`; locally it stays off unless
+`K_SOUP_COV_DO=true` is set. When `turbo_tests2` sets `TEST_ENV_NUMBER`, worker
+coverage is written under `coverage/turbo_tests/<worker>` and hard minimum
+enforcement is deferred until the parent collation step.
 
-### 📔 DO YOU LIKE PATTERNS?!? 📔
-
-This library's local dev / testing / CI dependency structure serves as an example of a "modular gemfile" pattern
-enabling a discrete gemfile for each CI workflow.
-
-<details>
-  <summary>What is a modular gemfile?</summary>
-
-This modular pattern has the following benefits:
-
-- All dependencies are DRY, never repeated.
-- All modular gemfiles are shared between the main `Gemfile`, and the workflow `gemfiles/*.gemfile`s that need them.
-- All gemfiles source from the `gemspec`.
-
-If you like this idea, there is an even better alternative.
-
-I've codified it for reuse in my [appraisal2](https://github.com/appraisal-rb/appraisal2/) gem,
-which is a hard fork of the venerable `appraisal` gem due to that gem's lack of support for modular gemfiles.
-
-</details>
-
-📔 ME TOO! 📔
-
-### 12-factor
-
-One of the major benefits of using this library is not having to figure
-out how to get multiple coverage output formats working.  I did that for you,
-and I got all of them working, at the same time together, or al la carte. Kum-ba-ya.
-
-A quick shot of 12-factor coverage power, straight to your brain:
+A quick shot of 12-factor coverage power:
 
 ```console
 export K_SOUP_COV_COMMAND_NAME="RSpec (COVERAGE)" # Display name for the coverage run
+export K_SOUP_COV_CLEAN_RESULTSET=true # Delete stale .resultset.json before SimpleCov.start
 export K_SOUP_COV_DEBUG=false # Enable debug output for configuration (true/false)
-export K_SOUP_COV_DIR=coverage # Directory where coverage reports are written
+export K_SOUP_COV_DIR=coverage # Root directory where coverage reports are written
 export K_SOUP_COV_DO=true # Enable coverage collection (true/false)
 export K_SOUP_COV_FILTER_DIRS="bin,docs,vendor" # Comma-separated dirs to filter out of coverage
 export K_SOUP_COV_FORMATTERS="html,tty" # Comma-separated list: html,xml,rcov,lcov,json,tty
@@ -81,7 +57,9 @@ export K_SOUP_COV_MIN_LINE=69 # Minimum required line coverage percentage (integ
 export K_SOUP_COV_MULTI_FORMATTERS=true # Enable multiple SimpleCov formatters (true/false)
 export K_SOUP_COV_PREFIX="K_SOUP_COV_" # Prefix used for the envvars (useful for namespacing)
 export K_SOUP_COV_OPEN_BIN=xdg-open # Command to open HTML report in `coverage` rake task (or empty to disable)
-export K_SOUP_COV_USE_MERGING=false # Enable merging of results for parallel/test matrix runs (true/false)
+export K_SOUP_COV_TURBO_TESTS=true # Isolate turbo_tests2 worker coverage when TEST_ENV_NUMBER is set
+export K_SOUP_COV_TURBO_TESTS_DIR=turbo_tests # Worker coverage subdirectory below K_SOUP_COV_DIR
+export K_SOUP_COV_USE_MERGING=true # Enable merging of results for parallel/test matrix runs (true/false)
 export K_SOUP_COV_VERBOSE=false # Enable verbose logging (true/false)
 export MAX_ROWS=5 # simplecov-console setting: limits tty output to the worst N rows of uncovered files
 ```
@@ -196,169 +174,128 @@ gem install kettle-soup-cover
 
 ## ⚙️ Configuration
 
-### Merging
+Configure this gem with environment variables. Variable names use
+`K_SOUP_COV_PREFIX`, which defaults to `K_SOUP_COV_`; for example the `DIR`
+setting is read from `K_SOUP_COV_DIR`.
 
-Below is some part of the Rakefile pulled from the [tree_haver](https://github.com/kettle-dev/tree_haver) gem which merges the results of various discrete RSpec test suites that are impossible to run at the same time. The pattern should also work for minitest / test unit.
-
-```ruby
-### SPEC TASKS
-# Run FFI specs first (before the collision of MRI+FFI backends pollutes the environment),
-# then run remaining specs. This ensures FFI tests get a clean environment
-# while still validating that BackendConflict protection works.
-#
-# For coverage aggregation with SimpleCov merging:
-# - Each task uses a unique K_SOUP_COV_COMMAND_NAME so SimpleCov tracks them separately
-# - K_SOUP_COV_USE_MERGING=true must be set in .envrc for results to merge
-# - K_SOUP_COV_MERGE_TIMEOUT should be set long enough for all tasks to complete
-begin
-  require "rspec/core/rake_task"
-
-  # FFI specs run first in a clean environment
-  desc("Run FFI backend specs first (before MRI loads)")
-  RSpec::Core::RakeTask.new(:ffi_specs) do |t|
-    t.pattern = "./spec/**/*_spec.rb"
-    t.rspec_opts = "--tag ffi"
-  end
-  # Set unique command name at execution time for SimpleCov merging
-  desc("Set SimpleCov command name for FFI specs")
-  task(:set_ffi_command_name) do
-    ENV["K_SOUP_COV_COMMAND_NAME"] = "FFI Specs"
-  end
-  Rake::Task[:ffi_specs].enhance([:set_ffi_command_name])
-
-  # Matrix checks will run in between FFI and MRI
-  desc("Run Backend Matrix Specs")
-  RSpec::Core::RakeTask.new(:backend_matrix_specs) do |t|
-    t.pattern = "./spec_matrix/**/*_spec.rb"
-  end
-  desc("Set SimpleCov command name for backend matrix specs")
-  task(:set_matrix_command_name) do
-    ENV["K_SOUP_COV_COMMAND_NAME"] = "Backend Matrix Specs"
-  end
-  Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
-
-  # All other specs run after FFI specs
-  desc("Run non-FFI specs (after FFI specs have run)")
-  RSpec::Core::RakeTask.new(:remaining_specs) do |t|
-    t.pattern = "./spec/**/*_spec.rb"
-    t.rspec_opts = "--tag ~ffi"
-  end
-  desc("Set SimpleCov command name for remaining specs")
-  task(:set_remaining_command_name) do
-    ENV["K_SOUP_COV_COMMAND_NAME"] = "Remaining Specs"
-  end
-  Rake::Task[:remaining_specs].enhance([:set_remaining_command_name])
-
-  # Final task to run all specs (for spec task, runs in single process for final coverage merge)
-  desc("Run all specs in one process (no FFI isolation)")
-  RSpec::Core::RakeTask.new(:all_specs) do |t|
-    t.pattern = "spec/**{,/*/**}/*_spec.rb"
-  end
-  desc("Set SimpleCov command name for all specs")
-  task(:set_all_command_name) do
-    ENV["K_SOUP_COV_COMMAND_NAME"] = "All Specs"
-  end
-  Rake::Task[:all_specs].enhance([:set_all_command_name])
-
-  # Override the default spec task to run in sequence
-  # NOTE: We do NOT include :all_specs here because ffi_specs + remaining_specs already
-  # cover all specs. Including all_specs would cause duplicated test runs.
-  Rake::Task[:spec].clear if Rake::Task.task_defined?(:spec)
-  desc("Run specs with FFI tests first, then backend matrix, then remaining tests")
-  task(spec: [:ffi_specs, :backend_matrix_specs, :remaining_specs]) # rubocop:disable Rake/DuplicateTask
-rescue LoadError
-  desc("(stub) spec is unavailable")
-  task(:spec) do # rubocop:disable Rake/DuplicateTask
-    warn("NOTE: rspec isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
-  end
-end
-```
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `CI` | `false` | Standard CI flag. Used as the default for `DO` and `MIN_HARD`. |
+| `K_SOUP_COV_CLEAN_RESULTSET` | `true` locally, `false` on CI and in turbo workers | Deletes stale `.resultset.json` before `SimpleCov.start`. Set `false` for spawned subprocess coverage so one process does not wipe another process' resultset. |
+| `K_SOUP_COV_COMMAND_NAME` | `RSpec (COVERAGE)` | SimpleCov command name. Workers become `COMMAND_NAME (turbo_tests2 worker N)`. |
+| `K_SOUP_COV_DEBUG` | `false` | Enables debug-oriented constants. |
+| `K_SOUP_COV_DIR` | `coverage` | Root coverage directory. Workers use `DIR/TURBO_TESTS_DIR/TEST_ENV_NUMBER`. |
+| `K_SOUP_COV_DO` | `CI` | Enables the caller's `require "simplecov"` / `SimpleCov.start` block. |
+| `K_SOUP_COV_FILTER_DIRS` | `bin,certs,checksums,config,coverage,docs,features,gemfiles,pkg,results,sig,spec,src,test,test-results,vendor` | Comma-separated root directories skipped by SimpleCov. |
+| `K_SOUP_COV_FORMATTERS` | `html,xml,rcov,lcov,json,tty` on CI; `html,tty` locally | Formatter list. Supported values are `html`, `xml`, `rcov`, `lcov`, `json`, and `tty`. |
+| `K_SOUP_COV_MERGE_TIMEOUT` | `3600` | SimpleCov merge timeout in seconds when merging is enabled. |
+| `K_SOUP_COV_MIN_BRANCH` | `80` | Branch coverage minimum. |
+| `K_SOUP_COV_MIN_HARD` | `CI` | Fails the run when minimums are missed. Worker processes always defer hard enforcement to collation. |
+| `K_SOUP_COV_MIN_LINE` | `80` | Line coverage minimum. |
+| `K_SOUP_COV_MULTI_FORMATTERS` | `true` on CI; otherwise `true` when any formatter is configured | Uses SimpleCov's multi-formatter support. |
+| `K_SOUP_COV_OPEN_BIN` | `open` on macOS, `xdg-open` elsewhere | Browser-opening command for `rake coverage`. Set empty to only print the report path. |
+| `K_SOUP_COV_PREFIX` | `K_SOUP_COV_` | Alternate namespace for all `K_SOUP_COV_*` variables. |
+| `K_SOUP_COV_TURBO_TESTS` | `true` | Enables turbo_tests2 worker coverage isolation when `TEST_ENV_NUMBER` is present. |
+| `K_SOUP_COV_TURBO_TESTS_DIR` | `turbo_tests` | Subdirectory for worker coverage under `K_SOUP_COV_DIR`. |
+| `K_SOUP_COV_USE_MERGING` | `true` | Enables SimpleCov result merging. |
+| `K_SOUP_COV_VERBOSE` | `false` | Enables verbose-oriented constants. |
+| `MAX_ROWS` | formatter-defined | Passed through to `simplecov-console`; `MAX_ROWS=0` removes the `tty` formatter. |
+| `TEST_ENV_NUMBER` | empty | Set by parallel test tools. Non-empty values mark a turbo_tests2 worker. |
 
 ## 🔧 Basic Usage
 
-### RSpec or MiniTest
+### Gemfile
 
-In your `spec/spec_helper.rb` or `tests/test_helper.rb`, just before loading the library under test,
-add two lines of code:
-
-### With Ruby 3.2+
-
-```ruby
-require "kettle-soup-cover"
-if Kettle::Soup::Cover::DO_COV
-  require "simplecov"
-  SimpleCov.start
-  # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
-  # SimpleCov.external_at_exit = true
-end
-```
-
-#### Example: Rails & RSpec
-
-In your `spec/rails_helper.rb`
-
-```ruby
-# External gems
-require "kettle-soup-cover"
-
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-# We provide a preconfigured version compatible with Rails 8
-require "spec_helper"
-ENV["RAILS_ENV"] ||= "test"
-
-# Last thing before loading the app-under-test is code coverage.
-if Kettle::Soup::Cover::DO_COV
-  require "simplecov"
-  SimpleCov.start
-end
-require File.expand_path("../config/environment", __dir__)
-```
-
-P.S. Ensure that you have `require: false` on the gem in the Gemfile,
-and that it is in both `:development` and `:test` groups, since it ships a `coverage` rake task:
+Use `require: false` so coverage starts exactly where your test helper starts it.
+Keep the gem in both `:development` and `:test` if you want the bundled
+`coverage` rake task locally.
 
 ```ruby
 group :development, :test do
-  gem "kettle-soup-cover", "~> 1.0", ">= 1.0.10", require: false
+  gem "kettle-soup-cover", "~> 3.0", require: false
 end
 ```
 
-### Projects that run tests against older Ruby versions, e.g. with Appraisals
+### RSpec, Minitest, or another Ruby test runner
+
+In your test helper, require `kettle-soup-cover` before loading the library or
+application under test. Start SimpleCov only when `DO_COV` is true:
 
 ```ruby
-# NOTE: Gemfiles for older rubies won't have kettle-soup-cover.
-#       The rescue LoadError handles that scenario.
-begin
-  require "kettle-soup-cover"
+require "kettle-soup-cover"
 
-  if Kettle::Soup::Cover::DO_COV
-    require "simplecov"
-    SimpleCov.start
-
-    # IMPORTANT: If you are using MiniTest instead of RSpec, also do this (and not in .simplecov):
-    # SimpleCov.external_at_exit = true
-  end
-rescue LoadError => error
-  # check the error message, if you are so inclined, and re-raise if not what is expected
-  raise error unless error.message.include?("kettle")
+if Kettle::Soup::Cover::DO_COV
+  require "simplecov"
+  # Minitest users that rely on SimpleCov's external at_exit handling should set:
+  # SimpleCov.external_at_exit = true
+  SimpleCov.start
 end
+
+# Now load your app or library under test.
+require "my_gem"
 ```
 
-### All projects
-
-In your `.simplecov` file, load the shared configuration:
+Put the shared SimpleCov configuration in `.simplecov`:
 
 ```ruby
-require "kettle/soup/cover/config" # 12-factor, ENV-based configuration, with good defaults!
+require "kettle/soup/cover/config"
 ```
 
-See [Advanced Usage](#advanced-usage) below for more info,
-but the simplest thing is to run all the coverage things,
-which is configured by default on CI.  To replicate that locally you could:
+### Rails and RSpec
 
-```console
-CI=true bundle exec rake test # or whatever command you run for tests.
+In Rails, start coverage after `spec_helper` is loaded and before Rails boots:
+
+```ruby
+require "kettle-soup-cover"
+require "spec_helper"
+
+ENV["RAILS_ENV"] ||= "test"
+
+if Kettle::Soup::Cover::DO_COV
+  require "simplecov"
+  SimpleCov.start
+end
+
+require File.expand_path("../config/environment", __dir__)
 ```
+
+### Rake tasks
+
+Define a `test` task, then install this gem's local `coverage` task:
+
+```ruby
+require "kettle-soup-cover"
+Kettle::Soup::Cover.install_tasks
+
+desc "Run specs through the test task expected by kettle-soup-cover"
+task test: :spec
+```
+
+`rake coverage` forces coverage on, resets coverage constants through
+`kettle-wash`, invokes `test`, and opens `K_SOUP_COV_DIR/index.html` unless
+`K_SOUP_COV_OPEN_BIN` is empty.
+
+### turbo_tests2 coverage
+
+When `K_SOUP_COV_TURBO_TESTS=true` and `TEST_ENV_NUMBER` is non-empty,
+`kettle-soup-cover` treats the process as a worker:
+
+- `K_SOUP_COV_DIR` remains the root coverage directory.
+- worker output goes to `K_SOUP_COV_DIR/K_SOUP_COV_TURBO_TESTS_DIR/TEST_ENV_NUMBER`;
+- worker command names include the worker number;
+- `SimpleCov.finalize_merge(false)` is applied in workers;
+- hard coverage minimums are disabled in workers and enforced during parent collation.
+
+The installed tasks provide both `turbo_tests:*` and `turbo_tests2:*` names:
+
+```ruby
+Kettle::Soup::Cover.install_tasks
+```
+
+Use `turbo_tests:setup` before workers and `turbo_tests:cleanup` after workers
+when your runner does not invoke those hooks automatically.
+
+### Coverage JSON analyzer
 
 To inspect the current local coverage report, use the bundled analyzer:
 
@@ -374,31 +311,6 @@ pass it explicitly:
 ```console
 bin/kettle-soup-cover -p coverage/coverage.json
 ```
-
-That's it!
-
-### Rakefile
-
-You'll need to have your `test` task defined.
-If you use `spec` instead, you can make it a pre-requisite of the `test` task with:
-
-```ruby
-desc "run spec task with test task"
-task test: :spec
-```
-
-This gem provides a `coverage` task.
-It runs the `test` task (see just above about that),
-and opens the coverage results in a browser.
-
-```ruby
-require "kettle-soup-cover"
-Kettle::Soup::Cover.install_tasks
-```
-
-### kettle-soup-cover (exe/kettle-soup-cover)
-
-This gem ships a small helper binary `kettle-soup-cover` under `exe/kettle-soup-cover`. It consumes a SimpleCov JSON output (coverage/coverage.json) and prints a readable, summarized report of lines and branches. The script will, by default, look for `coverage/coverage.json` in the directory configured by `K_SOUP_COV_DIR` (defaults to `coverage`).
 
 Usage examples:
 
@@ -418,7 +330,8 @@ Notes:
 
 ### Filters
 
-There are two built-in SimpleCov filters which can be loaded via `Kettle::Soup::Cover.load_filters`.
+There are two built-in SimpleCov filters which can be loaded via
+`Kettle::Soup::Cover.load_filters`.
 
 You could use them like this:
 
@@ -429,7 +342,7 @@ SimpleCov.add_group("Too Long", Kettle::Soup::Cover::Filters::GtLineFilter.new(1
 ### Advanced Usage
 
 There are a number of ENV variables that control things within this gem.
-All of them can be found, along with their default values, in [lib/kettle/soup/cover.rb][env-constants].
+All of them can be found, along with their default values, in [lib/kettle/soup/cover/constants.rb][env-constants].
 
 #### Handy List of ENV Variables
 
@@ -454,7 +367,7 @@ Below is a reference for the environment variables used by this gem. Each sectio
 #### K_SOUP_COV_DIR
 
 - Default: `coverage`
-- What it controls: Directory where SimpleCov writes coverage reports. The `exe/kettle-soup-cover` script and rake tasks will look here for artefacts like `coverage.json` or `index.html`.
+- What it controls: Root directory where SimpleCov writes coverage reports. Turbo worker processes write under `K_SOUP_COV_DIR/K_SOUP_COV_TURBO_TESTS_DIR/TEST_ENV_NUMBER`. The `exe/kettle-soup-cover` script and rake tasks look here for artifacts like `coverage.json` or `index.html`.
 - Example: `export K_SOUP_COV_DIR=my-coverage`
 
 #### K_SOUP_COV_DO
@@ -479,7 +392,7 @@ Note: the `exe/kettle-soup-cover` script requires that the `json` formatter be e
 
 #### K_SOUP_COV_CLEAN_RESULTSET
 
-- Default: `false` on CI; `true` locally.
+- Default: `false` on CI and in turbo worker processes; `true` locally.
 - What it controls: When true, deletes `coverage/.resultset.json` before SimpleCov starts. This prevents stale entries from prior runs (e.g., after a refactor that shifts line/branch numbers) from polluting the current run's coverage report. In CI each job starts from a clean workspace so this is unnecessary; locally developers re-run tests frequently and stale entries accumulate.
 - Example: `export K_SOUP_COV_CLEAN_RESULTSET=false`
 
@@ -487,7 +400,7 @@ Note: the `exe/kettle-soup-cover` script requires that the `json` formatter be e
 
 #### K_SOUP_COV_MERGE_TIMEOUT
 
-- Default: `nil`
+- Default: `3600`
 - What it controls: When using merging (`K_SOUP_COV_USE_MERGING=true`), this sets a numeric timeout in seconds for the merge operation.
 - Example: `export K_SOUP_COV_MERGE_TIMEOUT=3600`
 
@@ -499,8 +412,8 @@ Note: the `exe/kettle-soup-cover` script requires that the `json` formatter be e
 
 #### K_SOUP_COV_MIN_HARD
 
-- Default: Uses `CI` if unset (`CI=false` default). When true the build will fail if thresholds are not met.
-- What it controls: Whether failing coverage thresholds should fail the run (hard failure) or only warn.
+- Default: Uses `CI` if unset (`CI=false` default). Worker processes always use `false`.
+- What it controls: Whether failing coverage thresholds should fail the run (hard failure) or only warn. In turbo_tests2 worker processes, hard enforcement is deferred to the parent collation process.
 - Example: `export K_SOUP_COV_MIN_HARD=true`
 
 #### K_SOUP_COV_MIN_LINE
@@ -527,9 +440,21 @@ Note: the `exe/kettle-soup-cover` script requires that the `json` formatter be e
 - What it controls: Command used by the Rake `coverage` task to open the HTML report. Set to an empty value to disable auto-opening and just print report locations.
 - Example: `export K_SOUP_COV_OPEN_BIN=xdg-open` or `export K_SOUP_COV_OPEN_BIN=` (to only print the path)
 
+#### K_SOUP_COV_TURBO_TESTS
+
+- Default: `true`
+- What it controls: Enables turbo_tests2 worker isolation when `TEST_ENV_NUMBER` is non-empty.
+- Example: `export K_SOUP_COV_TURBO_TESTS=true`
+
+#### K_SOUP_COV_TURBO_TESTS_DIR
+
+- Default: `turbo_tests`
+- What it controls: Subdirectory under `K_SOUP_COV_DIR` for worker coverage output.
+- Example: `export K_SOUP_COV_TURBO_TESTS_DIR=parallel`
+
 #### K_SOUP_COV_USE_MERGING
 
-- Default: `nil` (disabled)
+- Default: `true`
 - What it controls: When true, enables result merging semantics for multiple test runs (works with merge timeout and other behaviors).
 - Example: `export K_SOUP_COV_USE_MERGING=true`
 
@@ -544,7 +469,7 @@ Note: Some third-party formatters may also read their own environment variables.
 Additionally, some of the included gems, like [`simplecov-console`][simplecov-console],
 have their own complete suite of ENV variables you can configure.
 
-[env-constants]: /lib/kettle/soup/cover.rb
+[env-constants]: /lib/kettle/soup/cover/constants.rb
 [simplecov-console]: https://github.com/chetan/simplecov-console#options
 
 #### Compatible with GitHub Actions for Code Coverage feedback in pull requests
