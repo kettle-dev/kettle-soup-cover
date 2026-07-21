@@ -58,9 +58,9 @@
     {
       "file": ".github/workflows/dep-heads.yml",
       "lines": [
-        44,
-        105,
-        159
+        43,
+        104,
+        158
       ]
     }
   ],

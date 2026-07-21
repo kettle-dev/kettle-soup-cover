@@ -22,6 +22,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- kettle-jem-template-20260720-001 - Generated READMEs can now render
+  template-managed corporate sponsor logos from project or family config.
+- kettle-jem-template-20260720-002 - Generated development Gemfiles now use the
+  released `tree_sitter_language_pack` gem 1.13.3 or newer by default.
+- kettle-jem-template-20260720-003 - Generated StructuredMerge Git diff driver
+  config now uses the installed `smorg-rb` Ruby driver name.
+- kettle-jem-template-20260720-004 - Generated multi-engine workflow files now
+  omit JRuby and TruffleRuby jobs when project config declares MRI-only engines.
+- kettle-jem-template-20260720-005 - Generated README Support & Community rows
+  now include a RubyForum help badge.
+
 ### Deprecated
 
 ### Removed

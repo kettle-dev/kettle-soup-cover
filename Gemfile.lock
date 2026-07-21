@@ -82,7 +82,7 @@ GEM
       dry-logic (~> 1.4)
       zeitwerk (~> 2.6)
     emoji_regex (15.0.0)
-    erb (6.0.5)
+    erb (6.0.6)
     gem_bench (2.0.5)
       bundler (>= 1.14)
       version_gem (~> 1.1, >= 1.1.4)
@@ -242,7 +242,7 @@ GEM
     rubocop-md (2.0.4)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
-    rubocop-minitest (0.39.1)
+    rubocop-minitest (0.40.0)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
@@ -301,6 +301,7 @@ GEM
       simplecov (>= 0.4.1)
     simplecov_lcov_formatter (0.9.0)
       simplecov (>= 0.18)
+    sorbet-runtime (0.6.13347)
     standard (1.56.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -336,6 +337,12 @@ GEM
       delegate (~> 0.1)
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
+    tree_sitter_language_pack (1.13.3-aarch64-linux)
+      sorbet-runtime (~> 0.5)
+    tree_sitter_language_pack (1.13.3-arm64-darwin)
+      sorbet-runtime (~> 0.5)
+    tree_sitter_language_pack (1.13.3-x86_64-linux)
+      sorbet-runtime (~> 0.5)
     tsort (0.2.0)
     turbo_tests2 (3.2.0)
       parallel_tests (>= 3.3.0, < 6)
@@ -376,10 +383,22 @@ PLATFORMS
   aarch64-linux-gnu
   aarch64-linux-gnu
   aarch64-linux-gnu
+  aarch64-linux-gnu
+  aarch64-linux-gnu
+  aarch64-linux-gnu
+  aarch64-linux-gnu
   aarch64-linux-musl
   aarch64-linux-musl
   aarch64-linux-musl
   aarch64-linux-musl
+  aarch64-linux-musl
+  aarch64-linux-musl
+  aarch64-linux-musl
+  aarch64-linux-musl
+  arm64-darwin
+  arm64-darwin
+  arm64-darwin
+  arm64-darwin
   arm64-darwin
   arm64-darwin
   arm64-darwin
@@ -425,6 +444,7 @@ DEPENDENCIES
   standard (~> 1.56, >= 1.56.0)
   stone_checksums (~> 1.0, >= 1.0.6)
   stringio (>= 3.0)
+  tree_sitter_language_pack (~> 1.13, >= 1.13.3)
   turbo_tests2 (~> 3.2, >= 3.2.0)
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.3)
@@ -461,7 +481,7 @@ CHECKSUMS
   dry-schema (1.16.0) sha256=cd3aaeabc0f1af66ec82a29096d4c4fb92a0a58b9dae29a22b1bbceb78985727
   dry-types (1.9.1) sha256=baebeecdb9f8395d6c9d227b62011279440943e3ef2468fe8ccc1ba11467f178
   emoji_regex (15.0.0) sha256=a508b2c0bee561169564e0aec96085020c900520d335e5533fd8e78e59493829
-  erb (6.0.5) sha256=858e63488cb796c9daba8b6e9ff4b3879c395022049be9a66a8e00980e612eac
+  erb (6.0.6) sha256=a9b24986700f5bf127c4f297c5403c3ca41b83b0a316c0cd09a096b56e644ae5
   gem_bench (2.0.5) sha256=0dc0fb44a5a5eb7b2f5c1c68a5b0164d72007132822c012bac3abe976b199ead
   geom2d (0.4.1) sha256=ea0998ea90c4f2752e24fe13d85a4f89bee689d151316140ebcc6369bf634ed9
   gitmoji-regex (2.0.4) sha256=01410d3217940bd0e7b2299ec805245afe8d0f06a5d6d38f623d63a63c0ac34f
@@ -525,7 +545,7 @@ CHECKSUMS
   rubocop-lts (24.2.2) sha256=be6c745e1bb61daebd6af3cc3227c60f95be9f642a080773cad7df14c5f9f174
   rubocop-lts-rspec (1.0.5) sha256=439552fd27440802cc499889e013bffa28aadc41adae5d4dfff3d984a2a809b4
   rubocop-md (2.0.4) sha256=0d076b6b5e99dea2ddc928c4bd702497decb9a8400da7808091e02ebcafcfb93
-  rubocop-minitest (0.39.1) sha256=998398d6da4026d297f0f9bf709a1eac5f2b6947c24431f94af08138510cf7ed
+  rubocop-minitest (0.40.0) sha256=353c698199115f12151144cf0b5a96f69bb9d77b660cf6536df2c4250c672a9d
   rubocop-on-rbs (2.0.0) sha256=ce74d1b3d5daead19f4b611623656c185821dfc9aed9c7079bb1e5d7d7c464be
   rubocop-packaging (0.6.0) sha256=fb92bd0fb48e6f8cdb1648d2249b0cd51c2497dcc87340132d22f01edbf558a7
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
@@ -544,6 +564,7 @@ CHECKSUMS
   simplecov-console (0.9.5) sha256=b1108bcfff5f210143e2b8301698c367b01586f20d25a73e95475a5df6fc6ff6
   simplecov-rcov (0.3.7) sha256=372f50bf6df6b6350b7d0c840f2f8bdabe021861a43c26877b747c9ac96139fc
   simplecov_lcov_formatter (0.9.0) sha256=4c1839bb31dcf7a8f7a6474c94ed228aa03b994e9dd5e1965e58b4121b049bed
+  sorbet-runtime (0.6.13347) sha256=54e7221d9f4b63f58aec79f3043752a9ba7810347c6ae0d903531591cc2d5f01
   standard (1.56.0) sha256=ae2af4d9669589162ac69ed5ef59dcf9f346d4afc81f7e62b84339310dfcb787
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
@@ -556,6 +577,9 @@ CHECKSUMS
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
+  tree_sitter_language_pack (1.13.3-aarch64-linux) sha256=55ffc7c87868cb45658338363d9eba51b4a8b0259aa88e4de368d2bd1d52fea4
+  tree_sitter_language_pack (1.13.3-arm64-darwin) sha256=bc2498db605f212a1dbd2465ed3f65190d7da786f6ed5d30fcf958121aeb4a5c
+  tree_sitter_language_pack (1.13.3-x86_64-linux) sha256=1ffd045bd236ea54f58c5872ee66121d01033359c1f28f375b7fd4a4b5620cf9
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo_tests2 (3.2.0) sha256=8b35421548399d1923567b177970f42671c65695b93cdd134d78fbcbab85dff0
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
