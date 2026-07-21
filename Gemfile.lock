@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kettle-soup-cover (3.0.3)
+    kettle-soup-cover (3.0.4)
       kettle-wash (~> 0.1, >= 0.1.0)
       simplecov (>= 1.0)
       simplecov-cobertura (>= 4.0)
@@ -12,13 +12,13 @@ PATH
 PATH
   remote: /var/home/pboling/src/my/kettle-dev/kettle-drift
   specs:
-    kettle-drift (1.0.5)
+    kettle-drift (1.0.6)
       version_gem (~> 1.1, >= 1.1.14)
 
 PATH
   remote: /var/home/pboling/src/my/kettle-dev/kettle-wash
   specs:
-    kettle-wash (0.1.0)
+    kettle-wash (0.1.1)
       version_gem (~> 1.1, >= 1.1.14)
 
 GEM
@@ -101,13 +101,13 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.1)
-    kettle-dev (2.3.7)
+    kettle-dev (2.3.8)
       emoji_regex (>= 15.0)
       kettle-rb (~> 0.1, >= 0.1.2)
       kettle-test (~> 2.0, >= 2.0.4)
       ruby-progressbar (~> 1.13)
-    kettle-rb (0.1.4)
-    kettle-test (2.0.11)
+    kettle-rb (0.1.5)
+    kettle-test (2.0.12)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
       rspec (~> 3.0)
@@ -136,7 +136,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
-    nomono (1.0.8)
+    nomono (1.0.9)
     openssl (4.0.2)
     ostruct (0.6.3)
     parallel (1.28.0)
@@ -583,14 +583,14 @@ DEPENDENCIES
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
   debug (>= 1.1)
-  erb (~> 6.0, >= 6.0.5)
+  erb (~> 6.0, >= 6.0.6)
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.4)
   irb (~> 1.17)
   kettle-dev (~> 2.3, >= 2.3.7)
   kettle-drift!
   kettle-soup-cover!
-  kettle-test (~> 2.0, >= 2.0.11)
+  kettle-test (~> 2.0, >= 2.0.12)
   kettle-wash!
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
@@ -604,7 +604,7 @@ DEPENDENCIES
   rubocop-gradual (~> 0.4, >= 0.4.0)
   rubocop-lts (~> 24.2, >= 24.2.1)
   rubocop-lts-rspec (~> 1.0, >= 1.0.5)
-  rubocop-minitest (~> 0.39, >= 0.39.1)
+  rubocop-minitest (~> 0.40, >= 0.40.0)
   rubocop-on-rbs (~> 2.0, >= 2.0.0)
   rubocop-packaging (~> 0.6, >= 0.6.0)
   rubocop-ruby3_2 (~> 3.0, >= 3.0.6)
@@ -657,12 +657,12 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
-  kettle-dev (2.3.7) sha256=eb370113cd030d03cbe2d33b31c99858951017e5ad21a17e9ed89dc3770028ee
-  kettle-drift (1.0.5)
-  kettle-rb (0.1.4) sha256=9cef7ce4f7021666b7222292f29051e51eaf042e8a5db11f3f4dd72f74243fc1
-  kettle-soup-cover (3.0.3)
-  kettle-test (2.0.11) sha256=c710c90f7ab79d51f9452f0c09f5f90657e7a893f63583855c164d0b1b107ab2
-  kettle-wash (0.1.0)
+  kettle-dev (2.3.8) sha256=9d716ff21c660a730cb4e8d41e2e2f0630a28167a354b6e2924e242102aef72c
+  kettle-drift (1.0.6)
+  kettle-rb (0.1.5) sha256=0322a569860c86e70f90d5ebe72353b8720b7054c7efa9f9044857f5c972d29f
+  kettle-soup-cover (3.0.4)
+  kettle-test (2.0.12) sha256=3a8e5c5f38db03a6f0a8896da6f3576d24e36f53796578c19aafaa2ba5a8ea52
+  kettle-wash (0.1.1)
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
@@ -674,7 +674,7 @@ CHECKSUMS
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
-  nomono (1.0.8) sha256=bf4b9b426cbf216ab17b70db474f691b8ae1f1e29de8db4b0ecd405e6e7e1c80
+  nomono (1.0.9)
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970

@@ -129,7 +129,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
 
   # Testing
   spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.0")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.11")            # ruby >= 3.2.0
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.12")            # ruby >= 3.2.0
   spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.0")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
