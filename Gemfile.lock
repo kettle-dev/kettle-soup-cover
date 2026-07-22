@@ -9,18 +9,6 @@ PATH
       simplecov-rcov (~> 0.3, >= 0.3.7)
       simplecov_lcov_formatter (~> 0.9, >= 0.9.0)
 
-PATH
-  remote: /var/home/pboling/src/my/kettle-dev/kettle-drift
-  specs:
-    kettle-drift (1.0.6)
-      version_gem (~> 1.1, >= 1.1.14)
-
-PATH
-  remote: /var/home/pboling/src/my/kettle-dev/kettle-wash
-  specs:
-    kettle-wash (0.1.1)
-      version_gem (~> 1.1, >= 1.1.14)
-
 GEM
   remote: https://gem.coop/
   specs:
@@ -118,6 +106,8 @@ GEM
       silent_stream (~> 1.0, >= 1.0.12)
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (~> 3.1, >= 3.1.12)
+    kettle-wash (0.1.1)
+      version_gem (~> 1.1, >= 1.1.14)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
@@ -131,6 +121,8 @@ GEM
     nokogiri (1.19.4-aarch64-linux-musl)
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -341,6 +333,8 @@ GEM
       sorbet-runtime (~> 0.5)
     tree_sitter_language_pack (1.13.3-arm64-darwin)
       sorbet-runtime (~> 0.5)
+    tree_sitter_language_pack (1.13.3-x86_64-darwin)
+      sorbet-runtime (~> 0.5)
     tree_sitter_language_pack (1.13.3-x86_64-linux)
       sorbet-runtime (~> 0.5)
     tsort (0.2.0)
@@ -379,199 +373,11 @@ GEM
     zlib (3.2.3)
 
 PLATFORMS
+  aarch64-linux
   aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-gnu
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
   aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  aarch64-linux-musl
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
-  arm64-darwin
   arm64-darwin
-  x86_64-linux
+  x86_64-darwin
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -588,10 +394,8 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.4)
   irb (~> 1.17)
   kettle-dev (~> 2.3, >= 2.3.7)
-  kettle-drift!
   kettle-soup-cover!
   kettle-test (~> 2.0, >= 2.0.12)
-  kettle-wash!
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
@@ -658,11 +462,10 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
   kettle-dev (2.3.9) sha256=03b2f72c6dda4d2c4401ee3c0c96853116c922766e7b5b04224434a49b571bfc
-  kettle-drift (1.0.6)
   kettle-rb (0.1.5) sha256=0322a569860c86e70f90d5ebe72353b8720b7054c7efa9f9044857f5c972d29f
   kettle-soup-cover (3.0.4)
   kettle-test (2.0.12) sha256=3a8e5c5f38db03a6f0a8896da6f3576d24e36f53796578c19aafaa2ba5a8ea52
-  kettle-wash (0.1.1)
+  kettle-wash (0.1.1) sha256=ae2e08b64c72c46ceed5ffa197ed859e85352f38ed0412fca2e18ce29b2dc4f9
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
@@ -672,6 +475,7 @@ CHECKSUMS
   nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
   nokogiri (1.19.4-aarch64-linux-musl) sha256=35c65b9ce72b3bb03207bdbe7067915019dc18c1b9b59139684bd6690fdd01af
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
+  nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
   nomono (1.0.9)
@@ -747,6 +551,7 @@ CHECKSUMS
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
   tree_sitter_language_pack (1.13.3-aarch64-linux) sha256=55ffc7c87868cb45658338363d9eba51b4a8b0259aa88e4de368d2bd1d52fea4
   tree_sitter_language_pack (1.13.3-arm64-darwin) sha256=bc2498db605f212a1dbd2465ed3f65190d7da786f6ed5d30fcf958121aeb4a5c
+  tree_sitter_language_pack (1.13.3-x86_64-darwin) sha256=061f7da6e1cc4ba936fad436ee0653d7dfdfa4aa879cf555403e3aa373d43966
   tree_sitter_language_pack (1.13.3-x86_64-linux) sha256=1ffd045bd236ea54f58c5872ee66121d01033359c1f28f375b7fd4a4b5620cf9
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo_tests2 (3.2.0) sha256=8b35421548399d1923567b177970f42671c65695b93cdd134d78fbcbab85dff0

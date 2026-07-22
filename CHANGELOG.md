@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.4] - 2026-07-21
+
+- TAG: [v3.0.4][3.0.4t]
+- COVERAGE: 100.00% -- 243/243 lines in 12 files
+- BRANCH COVERAGE: 94.12% -- 64/68 branches in 12 files
+- 16.18% documented
+
+### Changed
+
 - kettle-jem-template-20260720-001 - Generated READMEs can now render
   template-managed corporate sponsor logos from project or family config.
 - kettle-jem-template-20260720-002 - Generated development Gemfiles now use the
@@ -32,14 +49,6 @@ Please file a bug if you notice a violation of semantic versioning.
   omit JRuby and TruffleRuby jobs when project config declares MRI-only engines.
 - kettle-jem-template-20260720-005 - Generated README Support & Community rows
   now include a RubyForum help badge.
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [3.0.3] - 2026-07-19
 
@@ -587,7 +596,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.3...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.4...HEAD
+[3.0.4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.3...v3.0.4
+[3.0.4t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.4
 [3.0.3]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.2...v3.0.3
 [3.0.3t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.3
 [3.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.1...v3.0.2
