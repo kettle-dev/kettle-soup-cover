@@ -59,8 +59,8 @@
       "file": ".github/workflows/dep-heads.yml",
       "lines": [
         43,
-        104,
-        158
+        97,
+        151
       ]
     }
   ],
@@ -71,6 +71,16 @@
         43,
         104,
         162
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\n# Run directly from the generated appraisal Gemfile so setup-ruby": [
+    {
+      "file": ".github/workflows/dep-heads.yml",
+      "lines": [
+        44,
+        98,
+        152
       ]
     }
   ],
