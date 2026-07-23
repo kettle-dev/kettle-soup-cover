@@ -15,6 +15,14 @@
 
 require "json"
 require "optparse"
+require_relative "../lib/kettle/soup/cover/version"
+
+script_basename = File.basename(__FILE__)
+if ARGV.any? { |arg| arg == "-v" || arg == "--version" }
+  puts Kettle::Soup::Cover::Version::VERSION
+  exit(0)
+end
+
 require "kettle/soup/cover"
 
 file_filter = nil
@@ -38,6 +46,7 @@ opts = OptionParser.new do |opt|
     puts opt
     exit
   end
+  opt.on("-v", "--version", "Show version") {}
   opt.on("-l", "--lines", "Show only line coverage") { @show_lines = true }
   opt.on("-b", "--branches", "Show only branch coverage") { @show_branches = true }
   opt.on("--no-lines", "Don't include line coverage") { @show_lines = false }
@@ -45,6 +54,9 @@ opts = OptionParser.new do |opt|
 end
 
 opts.parse!(ARGV)
+
+puts "== #{script_basename} v#{Kettle::Soup::Cover::Version::VERSION} =="
+
 # If a positional arg is present (leftover after parsing) treat it as coverage json path
 project_root = Dir.pwd
 coverage_dir = File.expand_path(Kettle::Soup::Cover::COVERAGE_DIR, project_root)
