@@ -9,6 +9,18 @@ PATH
       simplecov-rcov (~> 0.3, >= 0.3.7)
       simplecov_lcov_formatter (~> 0.9, >= 0.9.0)
 
+PATH
+  remote: /var/home/pboling/src/my/kettle-dev/kettle-drift
+  specs:
+    kettle-drift (1.0.6)
+      version_gem (~> 1.1, >= 1.1.14)
+
+PATH
+  remote: /var/home/pboling/src/my/kettle-dev/kettle-wash
+  specs:
+    kettle-wash (0.1.1)
+      version_gem (~> 1.1, >= 1.1.14)
+
 GEM
   remote: https://gem.coop/
   specs:
@@ -89,13 +101,17 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.1)
-    kettle-dev (2.3.9)
+    kettle-dev (2.3.10)
       emoji_regex (>= 15.0)
+      kettle-gha-pins (~> 0.2, >= 0.2.1)
       kettle-rb (~> 0.1, >= 0.1.2)
-      kettle-test (~> 2.0, >= 2.0.4)
+      kettle-test (~> 2.0, >= 2.0.12)
       ruby-progressbar (~> 1.13)
+    kettle-gha-pins (0.2.1)
+      ruby-progressbar (~> 1.13)
+      version_gem (~> 1.1, >= 1.1.14)
     kettle-rb (0.1.5)
-    kettle-test (2.0.12)
+    kettle-test (2.0.13)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
       rspec (~> 3.0)
@@ -106,8 +122,6 @@ GEM
       silent_stream (~> 1.0, >= 1.0.12)
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (~> 3.1, >= 3.1.12)
-    kettle-wash (0.1.1)
-      version_gem (~> 1.1, >= 1.1.14)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
@@ -122,13 +136,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.19.4-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
-    nomono (1.0.8)
+    nomono (1.1.0)
     openssl (4.0.2)
     ostruct (0.6.3)
     parallel (1.28.0)
@@ -293,7 +305,6 @@ GEM
       simplecov (>= 0.4.1)
     simplecov_lcov_formatter (0.9.0)
       simplecov (>= 0.18)
-    sorbet-runtime (0.6.13351)
     standard (1.56.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
@@ -329,14 +340,6 @@ GEM
       delegate (~> 0.1)
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
-    tree_sitter_language_pack (1.13.3-aarch64-linux)
-      sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.13.3-arm64-darwin)
-      sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.13.3-x86_64-darwin)
-      sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.13.3-x86_64-linux)
-      sorbet-runtime (~> 0.5)
     tsort (0.2.0)
     turbo_tests2 (3.2.0)
       parallel_tests (>= 3.3.0, < 6)
@@ -377,7 +380,7 @@ PLATFORMS
   aarch64-linux-gnu
   aarch64-linux-musl
   arm64-darwin
-  x86_64-darwin
+  x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -394,12 +397,14 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.4)
   irb (~> 1.17)
   kettle-dev (~> 2.3, >= 2.3.7)
+  kettle-drift!
   kettle-soup-cover!
-  kettle-test (~> 2.0, >= 2.0.12)
+  kettle-test (~> 2.0, >= 2.0.13)
+  kettle-wash!
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
-  nomono (~> 1.0, >= 1.0.8)
+  nomono (~> 1.1, >= 1.1.0)
   rake (~> 13.4, >= 13.4.2)
   rbs (>= 3.0)
   rdoc (~> 6.11)
@@ -416,7 +421,6 @@ DEPENDENCIES
   standard (~> 1.56, >= 1.56.0)
   stone_checksums (~> 1.0, >= 1.0.6)
   stringio (>= 3.0)
-  tree_sitter_language_pack (~> 1.13, >= 1.13.3)
   turbo_tests2 (~> 3.2, >= 3.2.0)
   webrick (~> 1.9)
   yaml-converter (~> 0.2, >= 0.2.3)
@@ -436,6 +440,7 @@ CHECKSUMS
   backports (3.25.3) sha256=94298d32dc3c40ca15633b54e282780b49e2db0c045f602ea1907e4f63a17235
   benchmark (0.5.0) sha256=465df122341aedcb81a2a24b4d3bd19b6c67c1530713fd533f3ff034e419236c
   bigdecimal (4.1.2) sha256=53d217666027eab4280346fba98e7d5b66baaae1b9c3c1c0ffe89d48188a3fbd
+  bundler (4.0.17) sha256=214e21431b5665dd2f99df8a5511c6b151d7a72e8015c8b38f8b775b61cbb6c1
   bundler-audit (0.9.3) sha256=81c8766c71e47d0d28a0f98c7eed028539f21a6ea3cd8f685eb6f42333c9b4e9
   cgi (0.5.2) sha256=61ca30298171190fd4fa0d8018e57ada456eae9b7a2b78526debf7f0a0e6f8bb
   cmdparse (3.0.7) sha256=f7c5cace10bec6abf853370ae095e4b97a84ed9d847b3fb38f41cc4fbc950739
@@ -461,11 +466,13 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
-  kettle-dev (2.3.9) sha256=03b2f72c6dda4d2c4401ee3c0c96853116c922766e7b5b04224434a49b571bfc
+  kettle-dev (2.3.10) sha256=13269c33009579f6fdb5dfd001b1e5ddf422d20dbe1a4978987e20923a370e00
+  kettle-drift (1.0.6)
+  kettle-gha-pins (0.2.1) sha256=ad092eb374ce59d21e6c4cc56445ece81d24fff4d12f46a032bbdc255cc8b4db
   kettle-rb (0.1.5) sha256=0322a569860c86e70f90d5ebe72353b8720b7054c7efa9f9044857f5c972d29f
   kettle-soup-cover (3.0.4)
-  kettle-test (2.0.12) sha256=3a8e5c5f38db03a6f0a8896da6f3576d24e36f53796578c19aafaa2ba5a8ea52
-  kettle-wash (0.1.1) sha256=ae2e08b64c72c46ceed5ffa197ed859e85352f38ed0412fca2e18ce29b2dc4f9
+  kettle-test (2.0.13) sha256=ca6333487fbdefee60b18e592220ce99a046adf8afcec4abd76c3378754a7616
+  kettle-wash (0.1.1)
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
@@ -475,10 +482,9 @@ CHECKSUMS
   nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
   nokogiri (1.19.4-aarch64-linux-musl) sha256=35c65b9ce72b3bb03207bdbe7067915019dc18c1b9b59139684bd6690fdd01af
   nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
-  nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
-  nomono (1.0.8) sha256=bf4b9b426cbf216ab17b70db474f691b8ae1f1e29de8db4b0ecd405e6e7e1c80
+  nomono (1.1.0) sha256=463dd4c79da02a855739a1b5483190d527b7868688be905e84abdb3449b32c88
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
@@ -536,7 +542,6 @@ CHECKSUMS
   simplecov-console (0.9.5) sha256=b1108bcfff5f210143e2b8301698c367b01586f20d25a73e95475a5df6fc6ff6
   simplecov-rcov (0.3.7) sha256=372f50bf6df6b6350b7d0c840f2f8bdabe021861a43c26877b747c9ac96139fc
   simplecov_lcov_formatter (0.9.0) sha256=4c1839bb31dcf7a8f7a6474c94ed228aa03b994e9dd5e1965e58b4121b049bed
-  sorbet-runtime (0.6.13351) sha256=f8fee17c6e3edf835dc6823d26afb9a7c8969c6710d1fabe2fb43f4e0c15c64f
   standard (1.56.0) sha256=ae2af4d9669589162ac69ed5ef59dcf9f346d4afc81f7e62b84339310dfcb787
   standard-custom (1.0.2) sha256=424adc84179a074f1a2a309bb9cf7cd6bfdb2b6541f20c6bf9436c0ba22a652b
   standard-performance (1.9.0) sha256=49483d31be448292951d80e5e67cdcb576c2502103c7b40aec6f1b6e9c88e3f2
@@ -549,10 +554,6 @@ CHECKSUMS
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
-  tree_sitter_language_pack (1.13.3-aarch64-linux) sha256=55ffc7c87868cb45658338363d9eba51b4a8b0259aa88e4de368d2bd1d52fea4
-  tree_sitter_language_pack (1.13.3-arm64-darwin) sha256=bc2498db605f212a1dbd2465ed3f65190d7da786f6ed5d30fcf958121aeb4a5c
-  tree_sitter_language_pack (1.13.3-x86_64-darwin) sha256=061f7da6e1cc4ba936fad436ee0653d7dfdfa4aa879cf555403e3aa373d43966
-  tree_sitter_language_pack (1.13.3-x86_64-linux) sha256=1ffd045bd236ea54f58c5872ee66121d01033359c1f28f375b7fd4a4b5620cf9
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   turbo_tests2 (3.2.0) sha256=8b35421548399d1923567b177970f42671c65695b93cdd134d78fbcbab85dff0
   unicode-display_width (3.2.0) sha256=0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42
@@ -570,4 +571,4 @@ CHECKSUMS
   zlib (3.2.3) sha256=5bd316698b32f31a64ab910a8b6c282442ca1626a81bbd6a1674e8522e319c20
 
 BUNDLED WITH
-  4.0.16
+  4.0.17
