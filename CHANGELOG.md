@@ -22,19 +22,30 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- The `kettle-soup-cover` executable now supports `-v` / `--version` and prints
-  a standard startup header on normal runs.
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
+### Security
+
+## [3.0.5] - 2026-07-24
+
+- TAG: [v3.0.5][3.0.5t]
+- COVERAGE: 100.00% -- 243/243 lines in 12 files
+- BRANCH COVERAGE: 94.12% -- 64/68 branches in 12 files
+- 16.18% documented
+
+### Changed
+
+- The `kettle-soup-cover` executable now supports `-v` / `--version` and prints
+  a standard startup header on normal runs.
+
+### Fixed
+
 - The `kettle-soup-cover` executable now uses normal `require` loading for its
   version file, avoiding `require_relative` lint drift in shipped executables.
-
-### Security
 
 ## [3.0.4] - 2026-07-21
 
@@ -602,7 +613,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.4...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.5...HEAD
+[3.0.5]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.4...v3.0.5
+[3.0.5t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.5
 [3.0.4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.3...v3.0.4
 [3.0.4t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.4
 [3.0.3]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.2...v3.0.3
