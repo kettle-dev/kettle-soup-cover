@@ -81,11 +81,16 @@ module Kettle
         Dir[File.join(turbo_tests_coverage_dir(coverage_dir, project_root: project_root), "*", "coverage.json")]
       end
 
+      def turbo_tests_collation_marker_path(coverage_dir = Constants::COVERAGE_ROOT_DIR, project_root: Dir.pwd)
+        File.expand_path(File.join(coverage_dir, ".turbo_tests_collated"), project_root)
+      end
+
       def collate_turbo_tests_coverage!(coverage_dir = Constants::COVERAGE_ROOT_DIR, project_root: Dir.pwd)
         return :disabled unless turbo_tests_coverage?
 
         resultsets = turbo_tests_resultset_paths(coverage_dir, project_root: project_root)
         return :empty if resultsets.empty?
+        return :already_collated if turbo_tests_collated?(resultsets, coverage_dir, project_root: project_root)
 
         require "simplecov"
 
@@ -106,9 +111,25 @@ module Kettle
           end
         end
 
+        SimpleCov.external_at_exit = true if SimpleCov.respond_to?(:external_at_exit=)
         publish_turbo_tests_json_coverage!(coverage_dir, project_root: project_root)
+        mark_turbo_tests_collated!(coverage_dir, project_root: project_root)
 
         :collated
+      end
+
+      def turbo_tests_collated?(resultsets, coverage_dir = Constants::COVERAGE_ROOT_DIR, project_root: Dir.pwd)
+        marker_path = turbo_tests_collation_marker_path(coverage_dir, project_root: project_root)
+        return false unless File.file?(marker_path)
+
+        marker_mtime = File.mtime(marker_path)
+        resultsets.all? { |path| File.file?(path) && File.mtime(path) <= marker_mtime }
+      end
+
+      def mark_turbo_tests_collated!(coverage_dir = Constants::COVERAGE_ROOT_DIR, project_root: Dir.pwd)
+        marker_path = turbo_tests_collation_marker_path(coverage_dir, project_root: project_root)
+        FileUtils.mkdir_p(File.dirname(marker_path))
+        FileUtils.touch(marker_path)
       end
 
       def publish_turbo_tests_json_coverage!(coverage_dir = Constants::COVERAGE_ROOT_DIR, project_root: Dir.pwd)

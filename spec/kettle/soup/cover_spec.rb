@@ -221,6 +221,7 @@ RSpec.describe Kettle::Soup::Cover do
     let(:project_root) { Dir.mktmpdir }
     let(:coverage_dir) { "coverage" }
     let(:resultset_path) { File.join(project_root, coverage_dir, "turbo_tests", "1", ".resultset.json") }
+    let(:marker_path) { File.join(project_root, coverage_dir, ".turbo_tests_collated") }
 
     before do
       allow(described_class).to receive_messages(
@@ -267,6 +268,7 @@ RSpec.describe Kettle::Soup::Cover do
         allow(SimpleCov).to receive(:skip)
         allow(SimpleCov).to receive(:coverage_dir)
         allow(SimpleCov).to receive(:minimum_coverage)
+        allow(SimpleCov).to receive(:external_at_exit=)
       end
 
       it "collates with hard minimums and configured formatters" do
@@ -280,8 +282,10 @@ RSpec.describe Kettle::Soup::Cover do
         expect(SimpleCov).to have_received(:skip).with(["tmp"])
         expect(SimpleCov).to have_received(:coverage_dir).with(File.join(project_root, coverage_dir))
         expect(SimpleCov).to have_received(:minimum_coverage).with(branch: 76, line: 92)
+        expect(SimpleCov).to have_received(:external_at_exit=).with(true)
         expect(Kettle::Soup::Cover::Loaders).to have_received(:load_formatters)
         expect(described_class).to have_received(:publish_turbo_tests_json_coverage!).with(coverage_dir, project_root: project_root)
+        expect(File.file?(marker_path)).to be(true)
       end
 
       context "when multi formatters are disabled" do
@@ -308,6 +312,24 @@ RSpec.describe Kettle::Soup::Cover do
 
           expect(SimpleCov).not_to have_received(:minimum_coverage)
         end
+      end
+    end
+
+    context "when worker resultsets were already collated" do
+      let(:turbo_tests_coverage) { true }
+      let(:resultsets) { [resultset_path] }
+
+      before do
+        FileUtils.mkdir_p(File.dirname(resultset_path))
+        File.write(resultset_path, "{}")
+        FileUtils.touch(marker_path)
+        allow(SimpleCov).to receive(:collate)
+      end
+
+      it "does not run the SimpleCov formatter stack again" do
+        expect(collate_turbo_tests_coverage!).to eq(:already_collated)
+
+        expect(SimpleCov).not_to have_received(:collate)
       end
     end
   end

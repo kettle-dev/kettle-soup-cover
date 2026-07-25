@@ -28,6 +28,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Turbo test coverage collation now disables SimpleCov's process-exit formatter
+  after the explicit collate report, preventing duplicate coverage reports from
+  one `turbo_tests2` run.
+
 ### Security
 
 ## [3.0.5] - 2026-07-24
