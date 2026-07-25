@@ -22,39 +22,39 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260725-001 - Generated JRuby and TruffleRuby workflow
-  files now run when pull request head branches start with `feature/release`,
-  so release CI monitoring does not report intentionally skipped engine
-  workflows as failures.
-
 ### Deprecated
 
 ### Removed
 
 ### Fixed
 
-- Turbo test coverage collation now disables SimpleCov's process-exit formatter
-  after the explicit collate report, preventing duplicate coverage reports from
-  one `turbo_tests2` run.
-
 ### Security
 
-## [3.0.5] - 2026-07-24
+## [3.0.5] - 2026-07-25
 
 - TAG: [v3.0.5][3.0.5t]
-- COVERAGE: 100.00% -- 243/243 lines in 12 files
-- BRANCH COVERAGE: 94.12% -- 64/68 branches in 12 files
-- 16.18% documented
+- COVERAGE: 100.00% -- 257/257 lines in 12 files
+- BRANCH COVERAGE: 93.24% -- 69/74 branches in 12 files
+- 16.90% documented
 
 ### Changed
 
 - The `kettle-soup-cover` executable now supports `-v` / `--version` and prints
   a standard startup header on normal runs.
 
+- kettle-jem-template-20260725-001 - Generated JRuby and TruffleRuby workflow
+  files now run when pull request head branches start with `feature/release`,
+  so release CI monitoring does not report intentionally skipped engine
+  workflows as failures.
+
 ### Fixed
 
 - The `kettle-soup-cover` executable now uses normal `require` loading for its
   version file, avoiding `require_relative` lint drift in shipped executables.
+
+- Turbo test coverage collation now disables SimpleCov's process-exit formatter
+  after the explicit collate report, preventing duplicate coverage reports from
+  one `turbo_tests2` run.
 
 ## [3.0.4] - 2026-07-21
 
