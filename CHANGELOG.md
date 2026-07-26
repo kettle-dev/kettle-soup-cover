@@ -26,6 +26,10 @@ Please file a bug if you notice a violation of semantic versioning.
   `--verbose` is passed; `-v` and `--version` still print just the executable
   version and exit.
 
+- kettle-jem-template-20260725-002 - Version specs now use `anonymous_loader` to
+  cover `version.rb` without redefining constants, or are removed when version
+  specs are not managed for the project.
+
 ### Deprecated
 
 ### Removed
