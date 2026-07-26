@@ -22,6 +22,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+- The `kettle-soup-cover` executable startup header is now shown only when
+  `--verbose` is passed; `-v` and `--version` still print just the executable
+  version and exit.
+
 ### Deprecated
 
 ### Removed

@@ -33,6 +33,7 @@ max_details = 20
 show_detail = false
 coverage_path = nil
 explicit_coverage_path = false
+show_header = false
 
 opts = OptionParser.new do |opt|
   opt.banner = "Usage: kettle-soup-cover [options] [coverage.json path]"
@@ -49,6 +50,7 @@ opts = OptionParser.new do |opt|
     puts opt
     exit
   end
+  opt.on("--verbose", "Show startup header") { show_header = true }
   opt.on("-v", "--version", "Show version") {}
   opt.on("-l", "--lines", "Show only line coverage") { @show_lines = true }
   opt.on("-b", "--branches", "Show only branch coverage") { @show_branches = true }
@@ -58,7 +60,7 @@ end
 
 opts.parse!(ARGV)
 
-puts "== #{script_basename} v#{Kettle::Soup::Cover::Version::VERSION} =="
+puts "== #{script_basename} v#{Kettle::Soup::Cover::Version::VERSION} ==" if show_header
 
 # If a positional arg is present (leftover after parsing) treat it as coverage json path
 project_root = Dir.pwd
