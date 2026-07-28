@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.6] - 2026-07-28
+
+- TAG: [v3.0.6][3.0.6t]
+- COVERAGE: 98.58% -- 278/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Added
+
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
   configuration and documentation dependencies so documentation issues fail
   before generated docs are refreshed.
@@ -44,10 +63,6 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - kettle-jem-template-20260726-002 - Generated version files now document their
@@ -59,8 +74,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260728-002 - Generated RuboCop configs now ignore the
   same `gemfiles/vendor/bundle` tree as `.gitignore`, so vendored dependency
   installs are not reported as project lint debt.
-
-### Security
 
 ## [3.0.5] - 2026-07-25
 
@@ -654,7 +667,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.5...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.6...HEAD
+[3.0.6]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.5...v3.0.6
+[3.0.6t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.6
 [3.0.5]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.4...v3.0.5
 [3.0.5t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.5
 [3.0.4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.3...v3.0.4
