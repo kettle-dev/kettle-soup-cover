@@ -330,21 +330,6 @@ RSpec.describe Kettle::Soup::Cover do
       end
     end
 
-    describe "::quiet_collation_formatter_line?" do
-      it "identifies SimpleCov formatter status and coverage lines" do
-        expect(described_class.quiet_collation_formatter_line?(
-          "Coverage report generated for worker 1 to coverage/index.html\n"
-        )).to be(true)
-        expect(described_class.quiet_collation_formatter_line?(
-          "Lcov style coverage report generated for worker 1 to coverage/lcov.info\n"
-        )).to be(true)
-        expect(described_class.quiet_collation_formatter_line?(
-          "Line Coverage: 99.00% (99 / 100)\n"
-        )).to be(true)
-        expect(described_class.quiet_collation_formatter_line?("formatter warning\n")).to be(false)
-      end
-    end
-
     context "when worker resultsets were already collated" do
       let(:turbo_tests_coverage) { true }
       let(:resultsets) { [resultset_path] }
@@ -361,6 +346,21 @@ RSpec.describe Kettle::Soup::Cover do
 
         expect(SimpleCov).not_to have_received(:collate)
       end
+    end
+  end
+
+  describe "::quiet_collation_formatter_line?" do
+    it "identifies SimpleCov formatter status and coverage lines" do
+      expect(described_class.quiet_collation_formatter_line?(
+        "Coverage report generated for worker 1 to coverage/index.html\n"
+      )).to be(true)
+      expect(described_class.quiet_collation_formatter_line?(
+        "Lcov style coverage report generated for worker 1 to coverage/lcov.info\n"
+      )).to be(true)
+      expect(described_class.quiet_collation_formatter_line?(
+        "Line Coverage: 99.00% (99 / 100)\n"
+      )).to be(true)
+      expect(described_class.quiet_collation_formatter_line?("formatter warning\n")).to be(false)
     end
   end
 
