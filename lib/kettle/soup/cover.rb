@@ -22,6 +22,7 @@
 require "fileutils"
 require "json"
 require "rbconfig"
+require "stringio"
 
 # This gem
 require_relative "cover/version"
@@ -94,20 +95,22 @@ module Kettle
 
         require "simplecov"
 
-        SimpleCov.collate(resultsets) do
-          command_name("#{Constants::COMMAND_NAME} (turbo_tests2)")
-          enable_coverage(:branch)
-          primary_coverage(:branch)
-          skip(Constants::FILTER_DIRS)
-          coverage_dir(File.expand_path(coverage_dir, project_root))
+        with_quiet_collation_output do
+          SimpleCov.collate(resultsets) do
+            command_name("#{Constants::COMMAND_NAME} (turbo_tests2)")
+            enable_coverage(:branch)
+            primary_coverage(:branch)
+            skip(Constants::FILTER_DIRS)
+            coverage_dir(File.expand_path(coverage_dir, project_root))
 
-          Kettle::Soup::Cover.configure_formatters!
+            Kettle::Soup::Cover.configure_formatters!
 
-          if Constants::MIN_COVERAGE_HARD
-            minimum_coverage(
-              branch: Constants::MIN_COVERAGE_BRANCH,
-              line: Constants::MIN_COVERAGE_LINE
-            )
+            if Constants::MIN_COVERAGE_HARD
+              minimum_coverage(
+                branch: Constants::MIN_COVERAGE_BRANCH,
+                line: Constants::MIN_COVERAGE_LINE
+              )
+            end
           end
         end
 
@@ -188,6 +191,41 @@ module Kettle
         return left if left
 
         right
+      end
+
+      def with_quiet_collation_output
+        return yield unless Constants::QUIET_COLLATION && !Constants::VERBOSE
+
+        stdout = StringIO.new
+        stderr = StringIO.new
+        original_stdout = $stdout
+        original_stderr = $stderr
+
+        begin
+          $stdout = stdout
+          $stderr = stderr
+          yield
+        ensure
+          $stdout = original_stdout
+          $stderr = original_stderr
+          replay_quiet_collation_output(stdout.string, original_stdout)
+          replay_quiet_collation_output(stderr.string, original_stderr)
+        end
+      end
+
+      def replay_quiet_collation_output(output, io)
+        output.each_line do |line|
+          io.print(line) unless quiet_collation_formatter_line?(line)
+        end
+      end
+
+      def quiet_collation_formatter_line?(line)
+        stripped = line.strip
+        return true if stripped.empty?
+        return true if stripped.match?(/coverage report generated/i)
+        return true if stripped.match?(/\A(?:Line|Branch) coverage:/i)
+
+        false
       end
 
       def coverage_task_env(coverage_dir = Constants::COVERAGE_DIR, project_root: Dir.pwd)

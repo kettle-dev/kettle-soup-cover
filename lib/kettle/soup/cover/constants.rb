@@ -125,6 +125,7 @@ module Kettle
         # Default merge timeout of 1 hour (3600 seconds) - enough for most test suites
         # Set K_SOUP_COV_MERGE_TIMEOUT to override
         MERGE_TIMEOUT = ENV_GET.call("MERGE_TIMEOUT", "3600").to_i
+        QUIET_COLLATION = ENV_GET.call("QUIET_COLLATION", Constants::TRUE).casecmp?(Constants::TRUE)
         VERBOSE = ENV_GET.call("VERBOSE", Constants::FALSE).casecmp?(Constants::TRUE)
 
         WASHED_CONSTANTS = {
@@ -152,6 +153,7 @@ module Kettle
             MULTI_FORMATTERS
             OPEN_BIN
             PREFIX
+            QUIET_COLLATION
             SIMPLECOV_COMMAND_NAME
             TRUE
             TEST_ENV_NUMBER

@@ -196,6 +196,7 @@ setting is read from `K_SOUP_COV_DIR`.
 | `K_SOUP_COV_MULTI_FORMATTERS` | `true` on CI; otherwise `true` when any formatter is configured | Uses SimpleCov's multi-formatter support. |
 | `K_SOUP_COV_OPEN_BIN` | `open` on macOS, `xdg-open` elsewhere | Browser-opening command for `rake coverage`. Set empty to only print the report path. |
 | `K_SOUP_COV_PREFIX` | `K_SOUP_COV_` | Alternate namespace for all `K_SOUP_COV_*` variables. |
+| `K_SOUP_COV_QUIET_COLLATION` | `true` | Suppresses repeated SimpleCov formatter status lines during turbo_tests2 parent collation while still running all configured formatters. Set `false` to debug formatter output. |
 | `K_SOUP_COV_TURBO_TESTS` | `true` | Enables turbo_tests2 worker coverage isolation when `TEST_ENV_NUMBER` is present. |
 | `K_SOUP_COV_TURBO_TESTS_DIR` | `turbo_tests` | Subdirectory for worker coverage under `K_SOUP_COV_DIR`. |
 | `K_SOUP_COV_USE_MERGING` | `true` | Enables SimpleCov result merging. |

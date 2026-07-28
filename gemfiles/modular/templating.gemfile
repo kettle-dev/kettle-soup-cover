@@ -7,7 +7,7 @@ if structuredmerge_remote
   # Merge recipes for released installs.
   gem "kettle-jem", ">= 7.0"
   # Parser dependencies for released installs.
-  gem "tree_sitter_language_pack", "~> 1.13", ">= 1.13.3"
+  gem "tree_sitter_language_pack", "~> 1.13", ">= 1.13.5"
 end
 
 if kettle_remote

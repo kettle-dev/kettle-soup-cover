@@ -288,6 +288,21 @@ RSpec.describe Kettle::Soup::Cover do
         expect(File.file?(marker_path)).to be(true)
       end
 
+      it "runs configured formatters while suppressing repeated SimpleCov status lines" do
+        allow(described_class).to receive(:publish_turbo_tests_json_coverage!).and_return(:published)
+        allow(SimpleCov).to receive(:collate) do |_resultsets, &block|
+          puts "Coverage report generated for Specs (turbo_tests2 worker 1), " \
+            "Specs (turbo_tests2 worker 2) to coverage/index.html"
+          puts "Line coverage: 99 / 100 (99.00%)"
+          puts "formatter warning that should remain visible"
+          SimpleCov.instance_eval(&block)
+        end
+
+        expect {
+          expect(collate_turbo_tests_coverage!).to eq(:collated)
+        }.to output("formatter warning that should remain visible\n").to_stdout
+      end
+
       context "when multi formatters are disabled" do
         before do
           stub_const("Kettle::Soup::Cover::Constants::MULTI_FORMATTERS", false)
@@ -312,6 +327,21 @@ RSpec.describe Kettle::Soup::Cover do
 
           expect(SimpleCov).not_to have_received(:minimum_coverage)
         end
+      end
+    end
+
+    describe "::quiet_collation_formatter_line?" do
+      it "identifies SimpleCov formatter status and coverage lines" do
+        expect(described_class.quiet_collation_formatter_line?(
+          "Coverage report generated for worker 1 to coverage/index.html\n"
+        )).to be(true)
+        expect(described_class.quiet_collation_formatter_line?(
+          "Lcov style coverage report generated for worker 1 to coverage/lcov.info\n"
+        )).to be(true)
+        expect(described_class.quiet_collation_formatter_line?(
+          "Line Coverage: 99.00% (99 / 100)\n"
+        )).to be(true)
+        expect(described_class.quiet_collation_formatter_line?("formatter warning\n")).to be(false)
       end
     end
 

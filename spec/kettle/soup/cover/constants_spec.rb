@@ -125,6 +125,29 @@ RSpec.describe Kettle::Soup::Cover::Constants do
     end
   end
 
+  describe "QUIET_COLLATION" do
+    before do
+      reset_soup_cover_constants do
+        stub_env("K_SOUP_COV_QUIET_COLLATION" => quiet_collation)
+        stub_env("TEST_ENV_NUMBER" => "")
+      end
+    end
+
+    let(:quiet_collation) { nil }
+
+    it "defaults to true" do
+      expect(described_class::QUIET_COLLATION).to be(true)
+    end
+
+    context "when disabled" do
+      let(:quiet_collation) { "false" }
+
+      it "can be disabled for formatter debugging" do
+        expect(described_class::QUIET_COLLATION).to be(false)
+      end
+    end
+  end
+
   describe "MIN_COVERAGE_HARD" do
     before do
       reset_soup_cover_constants do
