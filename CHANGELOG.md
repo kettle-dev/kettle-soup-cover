@@ -20,15 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
-  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
-  tagged RubyForum community alongside Discord.
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.7] - 2026-07-31
+
+- TAG: [v3.0.7][3.0.7t]
+- COVERAGE: 100.00% -- 282/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Added
+
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
 
 ### Fixed
 
@@ -54,8 +67,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so release package contents stay correct
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [3.0.6] - 2026-07-28
 
@@ -694,7 +705,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.6...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.7...HEAD
+[3.0.7]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.6...v3.0.7
+[3.0.7t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.7
 [3.0.6]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.5...v3.0.6
 [3.0.6t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.6
 [3.0.5]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.4...v3.0.5

@@ -100,7 +100,7 @@ GEM
       prism (>= 1.3.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    json (2.21.1)
+    json (2.21.2)
     kettle-dev (2.5.12)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.3)
@@ -109,10 +109,10 @@ GEM
       kettle-test (~> 2.0, >= 2.0.12)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
-    kettle-family (1.2.12)
+    kettle-family (1.2.13)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
-      kettle-dev (~> 2.3, >= 2.5.11)
+      kettle-dev (~> 2.3, >= 2.5.12)
       kettle-test (~> 2.0, >= 2.0.14)
       tsort (~> 0.2)
       tty-progressbar (~> 0.18)
@@ -148,7 +148,21 @@ GEM
       docopt_ng (~> 0.7.1)
       reline (~> 0.6)
     mutex_m (0.3.0)
+    nokogiri (1.19.4-aarch64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.4-aarch64-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm-linux-musl)
+      racc (~> 1.4)
+    nokogiri (1.19.4-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
     nomono (1.1.1)
     openssl (4.0.2)
@@ -170,7 +184,7 @@ GEM
     racc (1.8.1)
     rainbow (3.1.1)
     rake (13.4.2)
-    rbs (4.1.0)
+    rbs (4.1.1)
       logger
       prism (>= 1.6.0)
       tsort
@@ -394,7 +408,14 @@ GEM
     zlib (3.2.3)
 
 PLATFORMS
+  aarch64-linux-gnu
+  aarch64-linux-musl
+  arm-linux-gnu
+  arm-linux-musl
+  arm64-darwin
+  x86_64-darwin
   x86_64-linux-gnu
+  x86_64-linux-musl
 
 DEPENDENCIES
   addressable (>= 2.8, < 3)
@@ -484,9 +505,9 @@ CHECKSUMS
   hexapdf (1.9.1) sha256=2d1f6a3622e6bc2a70a707d4c3f3fa44f5552ecd9d899f6283abb07398a84884
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
-  json (2.21.1) sha256=13a43df75d95641443f5702dff350f237164a9d811ff0f2c2800d4d980220583
+  json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   kettle-dev (2.5.12) sha256=da87bc5128e0cb5e6e517ac2dcdad48a02004bb0b73063427b2bcb10f9eb7690
-  kettle-family (1.2.12) sha256=ea81adc2958f85cac25dbc356488d15b717dca98b2e151c53e24841c53fd4b7e
+  kettle-family (1.2.13) sha256=3fff180d0600b5380987dd84495eb6e94f6f21a076d454e5e1d77512de22d68b
   kettle-gha-pins (0.3.4) sha256=270319d8bf282a77c2f7c2f0767a2721d42d12909744b05e8d78e52f0ffab1e4
   kettle-ndjson (0.1.4) sha256=598f068822c51ac00790a352eee435fe656d28b594461f258aff70c4f851ca3e
   kettle-rb (0.1.7) sha256=eb1da06569bc05a372b8414e37ae09611d649b19e1ebc5347af7af0fff143181
@@ -500,7 +521,14 @@ CHECKSUMS
   logger (1.7.0) sha256=196edec7cc44b66cfb40f9755ce11b392f21f7967696af15d274dde7edff0203
   mister_bin (0.9.0) sha256=624fe401db4faf1978e84c17e0b320827697a13a6cba4fe656001269079be7d3
   mutex_m (0.3.0) sha256=cfcb04ac16b69c4813777022fdceda24e9f798e48092a2b817eb4c0a782b0751
+  nokogiri (1.19.4-aarch64-linux-gnu) sha256=1269fb644a6de405057a53dd5c762b1209b43ca7424f839454d3dbc677c31a8f
+  nokogiri (1.19.4-aarch64-linux-musl) sha256=35c65b9ce72b3bb03207bdbe7067915019dc18c1b9b59139684bd6690fdd01af
+  nokogiri (1.19.4-arm-linux-gnu) sha256=a301313e38bb065d68239e79734bcd6f56fb6efaacebde29e9abf2a4735340ca
+  nokogiri (1.19.4-arm-linux-musl) sha256=588923c101bcfa78869734d247d25b598674323e7f22474fc468f6e5647311eb
+  nokogiri (1.19.4-arm64-darwin) sha256=a46db9853286e6597b36ebc6953817d15acf3a299583eb3f89fdc6f91dd63527
+  nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
+  nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
   nomono (1.1.1) sha256=7d1332b7d737f23cb37bb802aa2ae5b8e70e191cc9de480c7c7d8296057d06c2
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
@@ -515,7 +543,7 @@ CHECKSUMS
   racc (1.8.1) sha256=4a7f6929691dbec8b5209a0b373bc2614882b55fc5d2e447a21aaa691303d62f
   rainbow (3.1.1) sha256=039491aa3a89f42efa1d6dec2fc4e62ede96eb6acd95e52f1ad581182b79bc6a
   rake (13.4.2) sha256=cb825b2bd5f1f8e91ca37bddb4b9aaf345551b4731da62949be002fa89283701
-  rbs (4.1.0) sha256=8baba59008b0643b4ba2090e9b1d0149655b0bbd42eb2ffe42b1d0eb6923fd72
+  rbs (4.1.1) sha256=1bf118f2f95d1cd3956357645d495152b661e0257e57781d18ceecd461622b9e
   rdoc (6.17.0) sha256=0f50d4e568fc98195f9bb155a9e8dff6c7feabfb515fb22ef6df1d12ad5a02b7
   reek (6.5.0) sha256=d26d3a492773b2bbc228888067a21afe33ac07954a17dbd64cdeae42c4c69be1
   regexp_parser (2.12.0) sha256=35a916a1d63190ab5c9009457136ae5f3c0c7512d60291d0d1378ba18ce08ebb
