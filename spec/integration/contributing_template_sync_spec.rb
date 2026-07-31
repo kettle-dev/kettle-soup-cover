@@ -7,6 +7,6 @@ RSpec.describe "CONTRIBUTING template sync" do
     expect(content.scan(/^## Developer Certificate of Origin$/).size).to eq(1)
     expect(content.scan(/^## Help out!$/).size).to eq(1)
     expect(content.scan(/^Follow these instructions:$/).size).to eq(1)
-    expect(content.scan(/^1\. Join the Discord:/).size).to eq(1)
+    expect(content.scan(/^1\. Join the community:/).size).to eq(1)
   end
 end
