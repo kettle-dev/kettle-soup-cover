@@ -20,6 +20,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
+
 ### Changed
 
 ### Deprecated
@@ -27,6 +31,29 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Removed
 
 ### Fixed
+
+- kettle-jem-template-20260728-003 - Generated dep-heads workflows now run
+  TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures
+  before the test suite starts.
+- kettle-jem-template-20260728-004 - Generated dep-heads workflows now use the
+  setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv
+  lockfile parser failures on Git and path dependencies.
+- kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the
+  missing canonical version spec when a project only has shim namespace version
+  specs.
+- kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the
+  legacy manual bundle install path, avoiding setup-time Bundler full-index
+  failures against `gem.coop`.
+- kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves
+  and templates dedicated `version_gem.rb` entrypoints even when the gemspec
+  dependency is intentionally omitted, and generated anonymous-loader specs
+  cover both `version.rb` and `version_gem.rb`.
+- kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime
+  floor now get managed minimal `version.rb` files and anonymous-loader version
+  specs without adding `version_gem`.
+- kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
+  relative to the gemspec directory, so release package contents stay correct
+  even when the gemspec is loaded from another working directory.
 
 ### Security
 
