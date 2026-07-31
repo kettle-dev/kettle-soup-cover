@@ -101,10 +101,10 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.21.2)
-    kettle-dev (2.5.12)
+    kettle-dev (2.5.13)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.3)
-      kettle-ndjson (~> 0.1, >= 0.1.4)
+      kettle-ndjson (~> 0.1, >= 0.1.9)
       kettle-rb (~> 0.1, >= 0.1.7)
       kettle-test (~> 2.0, >= 2.0.12)
       ruby-progressbar (~> 1.13)
@@ -120,7 +120,7 @@ GEM
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.14)
-    kettle-ndjson (0.1.4)
+    kettle-ndjson (0.1.9)
       version_gem (~> 1.1, >= 1.1.14)
     kettle-rb (0.1.7)
     kettle-test (2.0.17)
@@ -430,7 +430,7 @@ DEPENDENCIES
   gem_bench (~> 2.0, >= 2.0.5)
   gitmoji-regex (~> 2.0, >= 2.0.10)
   irb (~> 1.17)
-  kettle-dev (~> 2.5, >= 2.5.12)
+  kettle-dev (~> 2.5, >= 2.5.13)
   kettle-family (~> 1.2, >= 1.2.12)
   kettle-soup-cover!
   kettle-test (~> 2.0, >= 2.0.17)
@@ -506,10 +506,10 @@ CHECKSUMS
   io-console (0.8.2) sha256=d6e3ae7a7cc7574f4b8893b4fca2162e57a825b223a177b7afa236c5ef9814cc
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
-  kettle-dev (2.5.12) sha256=da87bc5128e0cb5e6e517ac2dcdad48a02004bb0b73063427b2bcb10f9eb7690
+  kettle-dev (2.5.13) sha256=56a48fb548d2c2a2684bfbf647921f7d7a903cf11eb8f6be6ea6296cdf1f4869
   kettle-family (1.2.13) sha256=3fff180d0600b5380987dd84495eb6e94f6f21a076d454e5e1d77512de22d68b
   kettle-gha-pins (0.3.4) sha256=270319d8bf282a77c2f7c2f0767a2721d42d12909744b05e8d78e52f0ffab1e4
-  kettle-ndjson (0.1.4) sha256=598f068822c51ac00790a352eee435fe656d28b594461f258aff70c4f851ca3e
+  kettle-ndjson (0.1.9) sha256=dd78559bfadebbcd6076ae2c11d5d9f55aa6467fbe2f2fc4a8100fe9bcfbff27
   kettle-rb (0.1.7) sha256=eb1da06569bc05a372b8414e37ae09611d649b19e1ebc5347af7af0fff143181
   kettle-soup-cover (3.0.7)
   kettle-test (2.0.17) sha256=0d1d7a40696ddc308c13b9feb5c0317fb92853f0d3c12b4b0a77bccc96599731
