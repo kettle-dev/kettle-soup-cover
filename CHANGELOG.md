@@ -22,12 +22,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
-  use ClickGems instead of BestGems.
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.8] - 2026-08-01
+
+- TAG: [v3.0.8][3.0.8t]
+- COVERAGE: 100.00% -- 282/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Changed
+
+- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
+  use ClickGems instead of BestGems.
 
 ### Fixed
 
@@ -40,8 +53,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260801-004 - Generated organization README logos now
   use GitHub's stable organization avatar endpoint instead of assuming a
   matching Galtzo-hosted asset exists.
-
-### Security
 
 ## [3.0.7] - 2026-07-31
 
@@ -718,7 +729,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.7...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.8...HEAD
+[3.0.8]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.7...v3.0.8
+[3.0.8t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.8
 [3.0.7]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.6...v3.0.7
 [3.0.7t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.7
 [3.0.6]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.5...v3.0.6
