@@ -25,11 +25,11 @@ require "rbconfig"
 require "stringio"
 
 # This gem
-require_relative "cover/version"
 
 require_relative "cover/constants"
 require_relative "cover/loaders"
 require_relative "cover/formatters"
+require_relative "cover/version"
 
 module Kettle
   module Soup
