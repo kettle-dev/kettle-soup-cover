@@ -28,10 +28,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [3.0.9] - 2026-08-02
+
+- TAG: [v3.0.9][3.0.9t]
+- COVERAGE: 100.00% -- 282/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Fixed
+
 - kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,
   preserving comments and trailing commas during template updates.
-
-### Security
 
 ## [3.0.8] - 2026-08-01
 
@@ -716,7 +725,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.8...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.9...HEAD
+[3.0.9]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.8...v3.0.9
+[3.0.9t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.9
 [3.0.8]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.7...v3.0.8
 [3.0.8t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.8
 [3.0.7]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.6...v3.0.7
