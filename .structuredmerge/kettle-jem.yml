@@ -98,8 +98,8 @@ dependency_conflicts:
     - gem: bundler-audit
       direct: kettle-soup-cover.gemspec
       modular: gemfiles/modular/audit.gemfile
-      action: review
-      reason: ""
+      action: keep_both
+      reason: "The gemspec keeps the broad development floor while the audit modular Gemfile participates in the CI audit lane; both requirements overlap."
 # This project's identifying emoji.
 # Used as the leading emoji in the README H1 heading and in the gemspec
 # summary and description. Every gem should have its own unique emoji.
