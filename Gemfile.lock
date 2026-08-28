@@ -157,9 +157,9 @@ GEM
       ast-merge (= 7.1.4)
       tree_haver (= 7.1.4)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-changelog (1.0.3)
+    kettle-changelog (1.0.4)
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
-      kettle-dev (>= 3.0.11, < 4.0.0)
+      kettle-dev (>= 3.0.14, < 4.0.0)
       version_gem (~> 1.1, >= 1.1.15)
     kettle-dev (3.0.14)
       emoji_regex (>= 15.0)
@@ -217,7 +217,7 @@ GEM
     kettle-ndjson (0.1.13)
       version_gem (~> 1.1, >= 1.1.15)
     kettle-rb (0.1.11)
-    kettle-test (2.0.20)
+    kettle-test (2.0.21)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
       rspec (~> 3.0)
@@ -587,7 +587,7 @@ DEPENDENCIES
   kettle-dev (~> 3.0, >= 3.0.14)
   kettle-family (~> 1.2, >= 1.2.62)
   kettle-soup-cover!
-  kettle-test (~> 2.0, >= 2.0.20)
+  kettle-test (~> 2.0, >= 2.0.21)
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
@@ -675,16 +675,16 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-merge (7.1.4) sha256=70e78f84a1db0ab1145996a79be5f9951fe928aa76288f540c704e48dd431601
-  kettle-changelog (1.0.3) sha256=72d977f269134b2b2fe3776ab4daffa1fac7fd5676379fb26d844fb9086acd8e
-  kettle-dev (3.0.14)
+  kettle-changelog (1.0.4) sha256=171fc6ebd47c3deb576addbadd001dd00d3d5df44871fb6e25c6c639c474eea7
+  kettle-dev (3.0.14) sha256=d3844051d570113938f77a283698f140a124aebc7440f5e41e6641675144c1be
   kettle-family (1.2.62) sha256=839fd741de89a9e01dbb00d62ddf34e1a6fd63270d1dcd24ad79109278737f55
   kettle-gha-pins (0.3.14) sha256=443a218149d3a2ab300875eb10ef55d5c4bc340bce7ba7caba026e1680dd8c21
   kettle-jem (7.1.8) sha256=928b2b4a75c052db7504d9778e6b2180bc5424a0bdd5853ab5d47a2b68185a27
   kettle-ndjson (0.1.13) sha256=62fc0f6f5812ecb103e0cf584ae6a66e2369266e48fbf42f7ee643288a8bf575
   kettle-rb (0.1.11) sha256=3e50b413048906f2c5aea69ff805fbf8f7f2b5ea9d9e3d95151d38d97d6640f3
   kettle-soup-cover (3.0.10)
-  kettle-test (2.0.20) sha256=258172ff763eb4f9dedefa66cd66fa6863135aba5833e6e2aafc69d4c03ba2d0
-  kettle-wash (0.1.6)
+  kettle-test (2.0.21) sha256=2ab0dd1a1d11568f8fba61084ebef84717cd4dff028a527777c92d4e77f0e9c5
+  kettle-wash (0.1.6) sha256=934dfb955f41b89540fe5df87614cf718a73ebc1696de7c50e7940a4695753ed
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-merge (7.1.4) sha256=229ee737fe597b9a585df5e48d28bf8180776e697ff3ffb07917c80b4a1dd6e5
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729

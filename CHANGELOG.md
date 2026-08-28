@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.10] - 2026-08-28
+
+- TAG: [v3.0.10][3.0.10t]
+- COVERAGE: 100.00% -- 282/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 12 project files:
   - configuration (1)
   - dependencies (11)
@@ -32,14 +49,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (1)
   - documentation (2)
   - other (2)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [3.0.9] - 2026-08-02
 
@@ -736,7 +745,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.9...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.10...HEAD
+[3.0.10]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.9...v3.0.10
+[3.0.10t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.10
 [3.0.9]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.8...v3.0.9
 [3.0.9t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.9
 [3.0.8]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.7...v3.0.8
@@ -763,6 +774,9 @@ Please file a bug if you notice a violation of semantic versioning.
 [3.0.0.rc5t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc5
 [3.0.0.rc4]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.0.rc3...v3.0.0.rc4
 [3.0.0.rc4t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc4
+[3.0.0.rc3t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc3
+[3.0.0.rc2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc2
+[3.0.0.rc1t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.0.rc1
 [2.0.2]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.1...v2.0.2
 [2.0.2t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v2.0.2
 [2.0.1]: https://github.com/kettle-dev/kettle-soup-cover/compare/v2.0.0...v2.0.1
