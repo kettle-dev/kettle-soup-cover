@@ -161,12 +161,12 @@ GEM
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
       kettle-dev (>= 3.0.14, < 4.0.0)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-dev (3.0.14)
+    kettle-dev (3.0.15)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.14)
       kettle-ndjson (~> 0.1, >= 0.1.13)
       kettle-rb (~> 0.1, >= 0.1.11)
-      kettle-test (~> 2.0, >= 2.0.20)
+      kettle-test (~> 2.0, >= 2.0.21)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
     kettle-family (1.2.62)
@@ -584,7 +584,7 @@ DEPENDENCIES
   gitmoji-regex (~> 2.0, >= 2.0.12)
   irb (~> 1.17)
   kettle-changelog (~> 1.0, >= 1.0.3)
-  kettle-dev (~> 3.0, >= 3.0.14)
+  kettle-dev (~> 3.0, >= 3.0.15)
   kettle-family (~> 1.2, >= 1.2.62)
   kettle-soup-cover!
   kettle-test (~> 2.0, >= 2.0.21)
@@ -676,7 +676,7 @@ CHECKSUMS
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-merge (7.1.4) sha256=70e78f84a1db0ab1145996a79be5f9951fe928aa76288f540c704e48dd431601
   kettle-changelog (1.0.4) sha256=171fc6ebd47c3deb576addbadd001dd00d3d5df44871fb6e25c6c639c474eea7
-  kettle-dev (3.0.14) sha256=d3844051d570113938f77a283698f140a124aebc7440f5e41e6641675144c1be
+  kettle-dev (3.0.15) sha256=da20c1597dc12f642f291d65495bec174878bc2207929e3a36e422acbf3eb9df
   kettle-family (1.2.62) sha256=839fd741de89a9e01dbb00d62ddf34e1a6fd63270d1dcd24ad79109278737f55
   kettle-gha-pins (0.3.14) sha256=443a218149d3a2ab300875eb10ef55d5c4bc340bce7ba7caba026e1680dd8c21
   kettle-jem (7.1.8) sha256=928b2b4a75c052db7504d9778e6b2180bc5424a0bdd5853ab5d47a2b68185a27
