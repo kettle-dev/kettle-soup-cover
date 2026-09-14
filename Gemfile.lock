@@ -163,12 +163,12 @@ GEM
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
       kettle-dev (>= 3.0.19, < 4.0.0)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-dev (3.1.0)
+    kettle-dev (3.1.1)
       emoji_regex (>= 15.0)
-      kettle-gha-pins (~> 0.3, >= 0.3.14)
-      kettle-ndjson (~> 0.1, >= 0.1.15)
-      kettle-rb (~> 0.1, >= 0.1.12)
-      kettle-test (~> 2.0, >= 2.0.21)
+      kettle-gha-pins (~> 0.3, >= 0.3.15)
+      kettle-ndjson (~> 0.1, >= 0.1.16)
+      kettle-rb (~> 0.1, >= 0.1.13)
+      kettle-test (~> 2.0, >= 2.0.22)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
     kettle-family (1.3.1)
@@ -183,7 +183,7 @@ GEM
       tty-screen (~> 0.8)
       unicode-display_width (~> 2.6)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-gha-pins (0.3.14)
+    kettle-gha-pins (0.3.15)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.15)
@@ -217,9 +217,9 @@ GEM
       tree_haver (~> 7.1, >= 7.1.8)
       version_gem (~> 1.1, >= 1.1.15)
       yaml-merge (~> 7.1, >= 7.1.8)
-    kettle-ndjson (0.1.15)
+    kettle-ndjson (0.1.16)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-rb (0.1.12)
+    kettle-rb (0.1.13)
     kettle-test (2.0.22)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
@@ -231,7 +231,7 @@ GEM
       silent_stream (~> 1.0, >= 1.0.12)
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (~> 3.1, >= 3.1.12)
-    kettle-wash (0.1.6)
+    kettle-wash (0.1.7)
       version_gem (~> 1.1, >= 1.1.15)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
@@ -523,16 +523,16 @@ GEM
       parslet (~> 2.0)
       tree_sitter_language_pack (>= 1.16.2, < 2.0)
       version_gem (~> 1.1, >= 1.1.15)
-    tree_sitter_language_pack (1.19.1)
+    tree_sitter_language_pack (1.20.0)
       rb_sys (>= 0.9.130, < 0.10)
       sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.19.1-aarch64-linux)
+    tree_sitter_language_pack (1.20.0-aarch64-linux)
       sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.19.1-arm64-darwin)
+    tree_sitter_language_pack (1.20.0-arm64-darwin)
       sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.19.1-x86_64-darwin)
+    tree_sitter_language_pack (1.20.0-x86_64-darwin)
       sorbet-runtime (~> 0.5)
-    tree_sitter_language_pack (1.19.1-x86_64-linux)
+    tree_sitter_language_pack (1.20.0-x86_64-linux)
       sorbet-runtime (~> 0.5)
     tsort (0.2.0)
     tty-cursor (0.7.1)
@@ -697,15 +697,15 @@ CHECKSUMS
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-merge (7.1.9) sha256=13c979c1398e6e3126ec6c1d4acccd08a138fb06a58152f51ad9079caf03b39e
   kettle-changelog (1.0.7) sha256=42b9307e46e1e551434e8054ca4f467e8b13b69bd65e5dea4544b279179a50ff
-  kettle-dev (3.1.0) sha256=2780915bf964f2ef0afe8468aaf90991195545f46628f9ec65f999ac58f19957
+  kettle-dev (3.1.1) sha256=9ac5992f5842f2ec218dc5048814e57c7260cdc6069ad1d3c3581334c94f1459
   kettle-family (1.3.1) sha256=0e77fb67d8e989a806ae453fdcac43a44e3dd43e1d2dae7a51418504309e27d6
-  kettle-gha-pins (0.3.14) sha256=443a218149d3a2ab300875eb10ef55d5c4bc340bce7ba7caba026e1680dd8c21
+  kettle-gha-pins (0.3.15) sha256=0607ef5952dc2de9d47618307f89e4a1f176f78ee540aaf8ee9e537633ad0b17
   kettle-jem (7.1.28) sha256=6bd38a850bc3a73786cd26f3c3489f37ab6040832143df8fbd5e41ad73085d14
-  kettle-ndjson (0.1.15) sha256=8606ab5b59092d46ba50394b2ad65738f6a5cc11258c6cc943f8e451da864a1f
-  kettle-rb (0.1.12) sha256=918ea072d3069f998e7dbd76836a14378cc9a16e317e2bf79da714f5ec0be5a4
+  kettle-ndjson (0.1.16) sha256=a8653859eece3eba5a40f9d735e5a0720b115ed88d0e9354d242136e57823653
+  kettle-rb (0.1.13) sha256=c8161ad0d185c3bc51d871a0c7e1f7e07caf04598e28785a9b7e6c5a70b403db
   kettle-soup-cover (3.0.10)
   kettle-test (2.0.22) sha256=2c6a63974c29ffd0c459c830c8b06057dd33d5a70185433fe8a689378fd6062d
-  kettle-wash (0.1.6) sha256=934dfb955f41b89540fe5df87614cf718a73ebc1696de7c50e7940a4695753ed
+  kettle-wash (0.1.7) sha256=ceb7ad5975c7a6353052f564ca2068e7e612d4042441ddee19de830b079e4f9a
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-merge (7.1.9) sha256=ce3ab38361aaf43dfd60b5df56a3b799ca69be18cd815495dcce265b8c8f62a3
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
@@ -811,11 +811,11 @@ CHECKSUMS
   toml-merge (7.1.9) sha256=a085b6d3e0f5ceed49ad2711f643c640a65cfbedca590dafdef7ce6e33fec71a
   toml-rb (4.2.1) sha256=e6c40e27905e86a7d38cc252eb4bc12d72c61576c826a358390c30f5de0b9dbb
   tree_haver (7.1.9) sha256=d7420e0f8f21368e1362da63bfe105897e7e56bdf741ba292adef7a6c3ea0a75
-  tree_sitter_language_pack (1.19.1) sha256=12623c568e593e490f5bd027a4a9ab1d10aa49f283ff6d9e361cafbde8977e43
-  tree_sitter_language_pack (1.19.1-aarch64-linux) sha256=83cf05faaf78d4df8817217afb6b7eda479c1643f20bb2346e948101b7f632ec
-  tree_sitter_language_pack (1.19.1-arm64-darwin) sha256=b3f42f5ae54b37893eb52ca8e1afa3bf7027d0a50af36c5b2a842466a372b6f4
-  tree_sitter_language_pack (1.19.1-x86_64-darwin) sha256=a84070e2b71f9edf8c3b07db48b5fedf96b6556abf133f412d1b7f0ef763d75f
-  tree_sitter_language_pack (1.19.1-x86_64-linux) sha256=a9bd3516abc22d6ac088e67a74b97276d1da3da2ccae4c1359f2aed968ad27d6
+  tree_sitter_language_pack (1.20.0) sha256=2ab298478a2390f0fba2f05e32325bb5b7c2f5f9674019d209de582446329d7d
+  tree_sitter_language_pack (1.20.0-aarch64-linux) sha256=8b43f4c3d18705d4211a5dc0d9281f5e68616c8dd6b323df411b9ee026894f6f
+  tree_sitter_language_pack (1.20.0-arm64-darwin) sha256=b5e6899bedaa750f030a12bfd5db96fe9ed6a0617eee37119c0ffafd49d5baae
+  tree_sitter_language_pack (1.20.0-x86_64-darwin) sha256=8c33f147b46b768a8c333fe8ee3924279feed0c39819232cd92a73f8d34826d6
+  tree_sitter_language_pack (1.20.0-x86_64-linux) sha256=ce5e910a1443afbc770eb6cd18d33b08327fed1ef721f6c9a15e0dfccf7327a4
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
   tty-cursor (0.7.1) sha256=79534185e6a777888d88628b14b6a1fdf5154a603f285f80b1753e1908e0bf48
   tty-progressbar (0.18.3) sha256=6cbb4260e55e74a9180d502143eb6a467d2c8e51bf5f3c9509fb5cacc3d4a5f6
