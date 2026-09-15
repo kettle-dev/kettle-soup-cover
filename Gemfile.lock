@@ -508,7 +508,7 @@ GEM
       delegate (~> 0.1)
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
-    token-resolver (2.0.10)
+    token-resolver (2.0.11)
       parslet (~> 2.0)
       version_gem (~> 1.1, >= 1.1.15)
     toml-merge (7.1.9)
@@ -807,7 +807,7 @@ CHECKSUMS
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
-  token-resolver (2.0.10) sha256=188df2d18d90816c690ba9a66d7299ba9de9a73779d816170ea70da624aa3d87
+  token-resolver (2.0.11) sha256=eef000ba6a47563a1d7a6be316124375effc61d56c90e603f657769298ff41bf
   toml-merge (7.1.9) sha256=a085b6d3e0f5ceed49ad2711f643c640a65cfbedca590dafdef7ce6e33fec71a
   toml-rb (4.2.1) sha256=e6c40e27905e86a7d38cc252eb4bc12d72c61576c826a358390c30f5de0b9dbb
   tree_haver (7.1.9) sha256=d7420e0f8f21368e1362da63bfe105897e7e56bdf741ba292adef7a6c3ea0a75
