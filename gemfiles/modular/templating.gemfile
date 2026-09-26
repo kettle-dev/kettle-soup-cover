@@ -9,7 +9,7 @@ if structuredmerge_remote || !tslp_dev.to_s.empty?
   # Keep one Bundler declaration so the local debugging override cannot be
   # mistaken for a second dependency declaration.
   tslp_requirements = if tslp_dev.to_s.empty?
-    ["~> 1.15", ">= 1.15.7"]
+    ["~> 1.16", ">= 1.16.2"]
   else
     [{path: tslp_dev}]
   end
@@ -17,13 +17,14 @@ if structuredmerge_remote || !tslp_dev.to_s.empty?
 end
 
 if structuredmerge_remote
-  # Merge recipes for released installs.
-  gem "kettle-jem", ">= 7.0"
+  # Keep the released floor when templating with local StructuredMerge paths;
+  # kettle-jem-deps-floor advances this requirement from published versions.
+  gem "kettle-jem", "~> 7.1", ">= 7.1.28"
 end
 
 if kettle_remote
   # Template/plugin checks for released installs.
-  gem "kettle-drift", "~> 1.0", ">= 1.0.12", require: false
+  gem "kettle-drift", "~> 1.0", ">= 1.0.14", require: false
 end
 
 # Set STRUCTUREDMERGE_DEV=/path/to/structuredmerge/ruby/gems for local development with path-based dependencies.

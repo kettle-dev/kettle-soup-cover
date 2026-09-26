@@ -1,4 +1,31 @@
 {
+  "# The gemspec defines the released runtime contract. runtime_heads\n# intentionally resolves version_gem from main to detect upstream changes": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        112,
+        120
+      ]
+    }
+  ],
+  "# intentionally resolves version_gem from main to detect upstream changes\n# before release, so both declarations must remain.": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        113,
+        121
+      ]
+    }
+  ],
+  "- configuration (1)\n- dependencies (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        38,
+        65
+      ]
+    }
+  ],
   "ENV.delete(\"MAX_ROWS\")\nENV[\"K_SOUP_COV_TURBO_TESTS\"] = \"false\"": [
     {
       "file": "spec/spec_helper.rb",
@@ -51,6 +78,15 @@
       "lines": [
         167,
         174
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\nrubygems: latest": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        43,
+        49
       ]
     }
   ],

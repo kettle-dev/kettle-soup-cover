@@ -105,10 +105,21 @@ author_aliases:
 #                              incompatible ranges remain an error.
 dependency_conflicts:
   # Set true only after every discovered conflict has an intentional action.
-  reviewed: true
+  reviewed: false
   # Review each entry and choose a supported action.
   # keep_both is for a broad direct requirement plus a compatible modular narrowing.
   resolve:
+    # The gemspec defines the released runtime contract. runtime_heads
+    # intentionally resolves version_gem from main to detect upstream changes
+    # before release, so both declarations must remain.
+    - gem: version_gem
+      direct: kettle-soup-cover.gemspec
+      modular: gemfiles/modular/runtime_heads.gemfile
+      action: review
+      reason: ""
+    # The gemspec defines the released runtime contract. runtime_heads
+    # intentionally resolves version_gem from main to detect upstream changes
+    # before release, so both declarations must remain.
     - gem: bundler-audit
       direct: kettle-soup-cover.gemspec
       modular: gemfiles/modular/audit.gemfile
