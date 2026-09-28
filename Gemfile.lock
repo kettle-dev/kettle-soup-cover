@@ -406,7 +406,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-on-rbs (2.0.0)
+    rubocop-on-rbs (2.1.0)
       lint_roller (~> 1.1)
       rbs (~> 4.0)
       rubocop (>= 1.72.1, < 2.0)
@@ -509,7 +509,7 @@ GEM
       ast-merge (= 7.1.9)
       tree_haver (= 7.1.9)
       version_gem (~> 1.1, >= 1.1.15)
-    toml-rb (4.2.1)
+    toml-rb (4.2.2)
       citrus (~> 3.0, > 3.0)
       racc (~> 1.7)
     tree_haver (7.1.9)
@@ -760,7 +760,7 @@ CHECKSUMS
   rubocop-lts-ruby (0.1.4) sha256=eb0039d61d645d2b6754abd4006842945b7848a916a664f522f5e2f7a5a69bf1
   rubocop-md (2.0.4) sha256=0d076b6b5e99dea2ddc928c4bd702497decb9a8400da7808091e02ebcafcfb93
   rubocop-minitest (0.40.0) sha256=353c698199115f12151144cf0b5a96f69bb9d77b660cf6536df2c4250c672a9d
-  rubocop-on-rbs (2.0.0) sha256=ce74d1b3d5daead19f4b611623656c185821dfc9aed9c7079bb1e5d7d7c464be
+  rubocop-on-rbs (2.1.0) sha256=da347d86b4d7a0d72d8c72b22d41b97808ebe8ed0e3125c94af4d5097e9a66c4
   rubocop-packaging (0.6.0)
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
@@ -796,7 +796,7 @@ CHECKSUMS
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
   token-resolver (2.0.11) sha256=eef000ba6a47563a1d7a6be316124375effc61d56c90e603f657769298ff41bf
   toml-merge (7.1.9) sha256=a085b6d3e0f5ceed49ad2711f643c640a65cfbedca590dafdef7ce6e33fec71a
-  toml-rb (4.2.1) sha256=e6c40e27905e86a7d38cc252eb4bc12d72c61576c826a358390c30f5de0b9dbb
+  toml-rb (4.2.2) sha256=b41cf36117bafab84c72017697ab49fe49a065e2bcfa6dffb704389fb7b0a60a
   tree_haver (7.1.9) sha256=d7420e0f8f21368e1362da63bfe105897e7e56bdf741ba292adef7a6c3ea0a75
   tree_sitter_language_pack (1.20.0-aarch64-linux) sha256=8b43f4c3d18705d4211a5dc0d9281f5e68616c8dd6b323df411b9ee026894f6f
   tree_sitter_language_pack (1.20.0-arm64-darwin) sha256=b5e6899bedaa750f030a12bfd5db96fe9ed6a0617eee37119c0ffafd49d5baae
