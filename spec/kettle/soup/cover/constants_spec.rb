@@ -4,6 +4,8 @@ RSpec.describe Kettle::Soup::Cover::Constants do
   include_context "with stubbed env"
   include_context "with hidden env"
 
+  let(:constants) { Kettle::Soup::Cover.const_get("Constants", false) }
+
   describe "CI" do
     before do
       reset_soup_cover_constants do
@@ -22,7 +24,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
 
     context "when CI=true" do
       it "sets CI=true" do
-        expect(described_class::CI).to eq("true")
+        expect(constants::CI).to eq("true")
       end
     end
 
@@ -30,11 +32,11 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:ci) { "false" }
 
       it "sets CI=false" do
-        expect(described_class::CI).to eq("false")
+        expect(constants::CI).to eq("false")
       end
 
       it "sets MULTI_FORMATTERS" do
-        expect(described_class::MULTI_FORMATTERS).to be(false)
+        expect(constants::MULTI_FORMATTERS).to be(false)
       end
     end
   end
@@ -52,7 +54,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "uses the CI formatter list" do
-        expect(described_class::FORMATTERS.map { |formatter| formatter.fetch(:type) }).to eq(
+        expect(constants::FORMATTERS.map { |formatter| formatter.fetch(:type) }).to eq(
           %i[html xml rcov lcov json tty]
         )
       end
@@ -69,7 +71,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "keeps the tty formatter" do
-        expect(described_class::FORMATTERS.map { |formatter| formatter.fetch(:type) }).to eq(%i[html tty])
+        expect(constants::FORMATTERS.map { |formatter| formatter.fetch(:type) }).to eq(%i[html tty])
       end
     end
 
@@ -84,11 +86,11 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "has no formatter plugins" do
-        expect(described_class::FORMATTERS).to be_empty
+        expect(constants::FORMATTERS).to be_empty
       end
 
       it "defaults multi formatter mode to false" do
-        expect(described_class::MULTI_FORMATTERS_DEFAULT).to eq("false")
+        expect(constants::MULTI_FORMATTERS_DEFAULT).to eq("false")
       end
     end
   end
@@ -105,7 +107,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "defaults to true" do
-        expect(described_class::MULTI_FORMATTERS_DEFAULT).to eq("true")
+        expect(constants::MULTI_FORMATTERS_DEFAULT).to eq("true")
       end
     end
 
@@ -120,7 +122,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "defaults to false" do
-        expect(described_class::MULTI_FORMATTERS_DEFAULT).to eq("false")
+        expect(constants::MULTI_FORMATTERS_DEFAULT).to eq("false")
       end
     end
   end
@@ -136,14 +138,14 @@ RSpec.describe Kettle::Soup::Cover::Constants do
     let(:quiet_collation) { nil }
 
     it "defaults to true" do
-      expect(described_class::QUIET_COLLATION).to be(true)
+      expect(constants::QUIET_COLLATION).to be(true)
     end
 
     context "when disabled" do
       let(:quiet_collation) { "false" }
 
       it "can be disabled for formatter debugging" do
-        expect(described_class::QUIET_COLLATION).to be(false)
+        expect(constants::QUIET_COLLATION).to be(false)
       end
     end
   end
@@ -170,7 +172,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { nil }
 
       it "defaults to true (CI behavior)" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(true)
+        expect(constants::MIN_COVERAGE_HARD).to be(true)
       end
     end
 
@@ -179,7 +181,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { "true" }
 
       it "is true" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(true)
+        expect(constants::MIN_COVERAGE_HARD).to be(true)
       end
     end
 
@@ -188,7 +190,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { "false" }
 
       it "is false (explicit override)" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(false)
+        expect(constants::MIN_COVERAGE_HARD).to be(false)
       end
     end
 
@@ -197,7 +199,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { nil }
 
       it "defaults to false (non-CI behavior)" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(false)
+        expect(constants::MIN_COVERAGE_HARD).to be(false)
       end
     end
 
@@ -206,7 +208,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { "true" }
 
       it "is true (explicit override)" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(true)
+        expect(constants::MIN_COVERAGE_HARD).to be(true)
       end
     end
 
@@ -215,7 +217,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:min_hard) { "false" }
 
       it "is false" do
-        expect(described_class::MIN_COVERAGE_HARD).to be(false)
+        expect(constants::MIN_COVERAGE_HARD).to be(false)
       end
     end
   end
@@ -240,7 +242,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:ci) { "true" }
 
       it "defaults to false (CI workspaces are already clean)" do
-        expect(described_class::CLEAN_RESULTSET).to be(false)
+        expect(constants::CLEAN_RESULTSET).to be(false)
       end
     end
 
@@ -248,7 +250,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:ci) { "false" }
 
       it "defaults to true (local devs re-run tests frequently)" do
-        expect(described_class::CLEAN_RESULTSET).to be(true)
+        expect(constants::CLEAN_RESULTSET).to be(true)
       end
     end
 
@@ -257,7 +259,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:clean_resultset) { "true" }
 
       it "is true (explicit override)" do
-        expect(described_class::CLEAN_RESULTSET).to be(true)
+        expect(constants::CLEAN_RESULTSET).to be(true)
       end
     end
 
@@ -266,7 +268,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:clean_resultset) { "false" }
 
       it "is false (explicit override)" do
-        expect(described_class::CLEAN_RESULTSET).to be(false)
+        expect(constants::CLEAN_RESULTSET).to be(false)
       end
     end
   end
@@ -281,7 +283,7 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "defaults to open" do
-        expect(described_class::OPEN_BIN).to eq("open")
+        expect(constants::OPEN_BIN).to eq("open")
       end
     end
   end
@@ -302,16 +304,16 @@ RSpec.describe Kettle::Soup::Cover::Constants do
     let(:test_env_number) { "2" }
 
     it "uses an isolated worker coverage directory with a unique worker command name" do
-      expect(described_class::COVERAGE_ROOT_DIR).to eq("coverage")
-      expect(described_class::COVERAGE_DIR).to eq("coverage/parallel/2")
-      expect(described_class::SIMPLECOV_COMMAND_NAME).to eq("#{described_class::COMMAND_NAME} (turbo_tests2 worker 2)")
-      expect(described_class::TURBO_TESTS_WORKER).to be(true)
-      expect(described_class::CLEAN_RESULTSET).to be(false)
+      expect(constants::COVERAGE_ROOT_DIR).to eq("coverage")
+      expect(constants::COVERAGE_DIR).to eq("coverage/parallel/2")
+      expect(constants::SIMPLECOV_COMMAND_NAME).to eq("#{constants::COMMAND_NAME} (turbo_tests2 worker 2)")
+      expect(constants::TURBO_TESTS_WORKER).to be(true)
+      expect(constants::CLEAN_RESULTSET).to be(false)
     end
 
     it "disables worker-level hard minimums while preserving the requested setting" do
-      expect(described_class::MIN_COVERAGE_HARD_REQUESTED).to be(false)
-      expect(described_class::MIN_COVERAGE_HARD).to be(false)
+      expect(constants::MIN_COVERAGE_HARD_REQUESTED).to be(false)
+      expect(constants::MIN_COVERAGE_HARD).to be(false)
     end
 
     context "when hard minimums are requested" do
@@ -327,8 +329,8 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
 
       it "defers hard minimum enforcement to the collated parent process" do
-        expect(described_class::MIN_COVERAGE_HARD_REQUESTED).to be(true)
-        expect(described_class::MIN_COVERAGE_HARD).to be(false)
+        expect(constants::MIN_COVERAGE_HARD_REQUESTED).to be(true)
+        expect(constants::MIN_COVERAGE_HARD).to be(false)
       end
     end
 
@@ -336,9 +338,9 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       let(:turbo_tests) { "false" }
 
       it "keeps the root coverage directory" do
-        expect(described_class::COVERAGE_DIR).to eq("coverage")
-        expect(described_class::SIMPLECOV_COMMAND_NAME).to eq(described_class::COMMAND_NAME)
-        expect(described_class::TURBO_TESTS_WORKER).to be(false)
+        expect(constants::COVERAGE_DIR).to eq("coverage")
+        expect(constants::SIMPLECOV_COMMAND_NAME).to eq(constants::COMMAND_NAME)
+        expect(constants::TURBO_TESTS_WORKER).to be(false)
       end
     end
   end
