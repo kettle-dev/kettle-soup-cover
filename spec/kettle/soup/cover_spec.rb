@@ -112,7 +112,10 @@ RSpec.describe Kettle::Soup::Cover do
     after { FileUtils.remove_entry(project_root) }
 
     it "finds worker resultsets" do
-      expect(turbo_tests_resultset_paths).to eq([resultset_path])
+      paths = turbo_tests_resultset_paths
+
+      expect(paths.length).to eq(1)
+      expect(File.identical?(paths.first, resultset_path)).to be(true)
     end
   end
 
@@ -133,7 +136,10 @@ RSpec.describe Kettle::Soup::Cover do
     after { FileUtils.remove_entry(project_root) }
 
     it "finds worker JSON reports" do
-      expect(turbo_tests_json_paths).to eq([json_path])
+      paths = turbo_tests_json_paths
+
+      expect(paths.length).to eq(1)
+      expect(File.identical?(paths.first, json_path)).to be(true)
     end
   end
 
