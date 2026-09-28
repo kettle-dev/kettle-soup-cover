@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.10...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.11...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,47 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="3011---2026-09-28">
+<a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.10...v3.0.11">3.0.11</a> - 2026-09-28</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.11">v3.0.11</a>
+</li>
+  <li>COVERAGE: 100.00% – 282/282 lines in 12 files</li>
+  <li>BRANCH COVERAGE: 91.67% – 77/84 branches in 12 files</li>
+  <li>20.00% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260913-001 - Templating now also surfaces a review<br>
+entry in <code>dependency_conflicts.resolve</code> when a direct development<br>
+dependency doesn’t support one or more of this project’s declared<br>
+<code>engines:</code> and has no template-managed modular home (e.g. <code>sqlite3</code> on<br>
+<code>jruby</code>). Review each entry and pick a resolution per the project’s own<br>
+engine support needs.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>[kc] kettle-jem/prepare: updated 14 project files:
+    <ul>
+      <li>configuration (1)</li>
+      <li>dependencies (13)</li>
+    </ul>
+  </li>
+  <li>[kc] kettle-jem/template: updated 22 project files:
+    <ul>
+      <li>code and tests (2)</li>
+      <li>configuration (1)</li>
+      <li>dependencies (1)</li>
+      <li>workflows (18)</li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="3010---2026-08-28">
 <a href="https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.9...v3.0.10">3.0.10</a> - 2026-08-28</h2>
 
@@ -95,7 +136,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>20.00% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 12 project files:
@@ -144,7 +185,7 @@ preserving comments and trailing commas during template updates.</li>
   <li>20.00% documented</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260801-001 - Generated README gem dashboard links now<br>
@@ -176,7 +217,7 @@ matching Galtzo-hosted asset exists.</li>
   <li>20.00% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <h3 id="fixed-3">Fixed</h3>
 
@@ -210,7 +251,7 @@ even when the gemspec is loaded from another working directory.</li>
   <li>20.00% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>
@@ -224,7 +265,7 @@ RSpec helpers provided by <code>kettle-test</code>.</p>
   </li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>The <code>kettle-soup-cover</code> executable startup header is now shown only when<br>
@@ -271,7 +312,7 @@ installs are not reported as project lint debt.</li>
   <li>16.90% documented</li>
 </ul>
 
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 
 <ul>
   <li>
@@ -311,7 +352,7 @@ one <code>turbo_tests2</code> run.</p>
   <li>16.18% documented</li>
 </ul>
 
-<h3 id="changed-5">Changed</h3>
+<h3 id="changed-6">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260720-002 - Generated development Gemfiles now use the<br>
@@ -333,7 +374,7 @@ now include a RubyForum help badge.</li>
   <li>16.18% documented</li>
 </ul>
 
-<h3 id="changed-6">Changed</h3>
+<h3 id="changed-7">Changed</h3>
 
 <ul>
   <li>Restored <code>kettle-wash</code> as a runtime dependency because the shipped<br>
@@ -351,14 +392,14 @@ now include a RubyForum help badge.</li>
   <li>16.18% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Added <code>Kettle::Soup::Cover::Constants::WASHED_CONSTANTS</code> as the contract used<br>
 by the spec harness to validate constant reload behavior.</li>
 </ul>
 
-<h3 id="changed-7">Changed</h3>
+<h3 id="changed-8">Changed</h3>
 
 <ul>
   <li>
@@ -416,7 +457,7 @@ cleanup, preventing post-suite collation failures after specs reload constants.<
   <li>16.22% documented</li>
 </ul>
 
-<h3 id="changed-8">Changed</h3>
+<h3 id="changed-9">Changed</h3>
 
 <ul>
   <li>
@@ -453,7 +494,7 @@ require <code>kettle/soup/cover/version_gem</code> for the optional<br>
   <li>16.22% documented</li>
 </ul>
 
-<h3 id="changed-9">Changed</h3>
+<h3 id="changed-10">Changed</h3>
 
 <ul>
   <li>Updated to latest kettle-jem template
@@ -519,13 +560,13 @@ formatter flow.</li>
   <li>16.44% documented</li>
 </ul>
 
-<h3 id="added-4">Added</h3>
+<h3 id="added-5">Added</h3>
 
 <ul>
   <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
 </ul>
 
-<h3 id="changed-10">Changed</h3>
+<h3 id="changed-11">Changed</h3>
 
 <ul>
   <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
@@ -550,7 +591,7 @@ triggers to run on the release branch.</li>
   <li>16.44% documented</li>
 </ul>
 
-<h3 id="changed-11">Changed</h3>
+<h3 id="changed-12">Changed</h3>
 
 <ul>
   <li>Upgrade to simplecov v1.0.pre</li>
@@ -578,7 +619,7 @@ triggers to run on the release branch.</li>
   <li>16.44% documented</li>
 </ul>
 
-<h3 id="changed-12">Changed</h3>
+<h3 id="changed-13">Changed</h3>
 
 <ul>
   <li>Retemplated development tooling for <code>kettle-dev</code> 2.2.3.</li>
@@ -624,7 +665,7 @@ processes so only the parent collation process publishes coverage reports.</li>
   <li>16.67% documented</li>
 </ul>
 
-<h3 id="changed-13">Changed</h3>
+<h3 id="changed-14">Changed</h3>
 
 <ul>
   <li>Raised direct runtime, development, style, and documentation dependency floors<br>
@@ -689,7 +730,7 @@ across Ruby engines.</li>
   <li>18.46% documented</li>
 </ul>
 
-<h3 id="added-5">Added</h3>
+<h3 id="added-6">Added</h3>
 
 <ul>
   <li>
@@ -709,7 +750,7 @@ parallel workers write coverage under per-worker directories and the cleanup<br>
 hook can collate the resultsets.</li>
 </ul>
 
-<h3 id="changed-14">Changed</h3>
+<h3 id="changed-15">Changed</h3>
 
 <ul>
   <li>Updated documentation on hostile takeover of RubyGems
@@ -738,7 +779,7 @@ not fail before merged coverage is available.</li>
   <li>15.56% documented</li>
 </ul>
 
-<h3 id="added-6">Added</h3>
+<h3 id="added-7">Added</h3>
 
 <ul>
   <li>Added regression tests for <code>MIN_COVERAGE_HARD</code> behavior</li>
@@ -768,7 +809,7 @@ not fail before merged coverage is available.</li>
   <li>15.56% documented</li>
 </ul>
 
-<h3 id="added-7">Added</h3>
+<h3 id="added-8">Added</h3>
 
 <ul>
   <li>When <code>ENV["MAX_ROWS"] == "0"</code>, explicitly, skip simplecov-console TTY output.</li>
@@ -783,7 +824,7 @@ not fail before merged coverage is available.</li>
   </li>
 </ul>
 
-<h3 id="changed-15">Changed</h3>
+<h3 id="changed-16">Changed</h3>
 
 <ul>
   <li>
@@ -827,7 +868,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>11.11% documented</li>
 </ul>
 
-<h3 id="added-8">Added</h3>
+<h3 id="added-9">Added</h3>
 
 <ul>
   <li>Add GitHub Pages site to badge info table</li>
@@ -840,7 +881,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Auto-assign issues in the GitHub issue tracker</li>
 </ul>
 
-<h3 id="changed-16">Changed</h3>
+<h3 id="changed-17">Changed</h3>
 
 <ul>
   <li>Updated <code>spec.homepage_uri</code> in gemspec to GitHub Pages YARD documentation site</li>
@@ -866,7 +907,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>11.11% documented</li>
 </ul>
 
-<h3 id="added-9">Added</h3>
+<h3 id="added-10">Added</h3>
 
 <ul>
   <li>YARD config, GFM compatible with relative file links</li>
@@ -877,7 +918,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   </li>
 </ul>
 
-<h3 id="changed-17">Changed</h3>
+<h3 id="changed-18">Changed</h3>
 
 <ul>
   <li>Updated <code>spec.homepage_uri</code> in gemspec to GitHub Pages YARD documentation site</li>
@@ -892,13 +933,13 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>11.11% documented</li>
 </ul>
 
-<h3 id="added-10">Added</h3>
+<h3 id="added-11">Added</h3>
 
 <ul>
   <li>Link to discussions on GitHub</li>
 </ul>
 
-<h3 id="changed-18">Changed</h3>
+<h3 id="changed-19">Changed</h3>
 
 <ul>
   <li>Fixed <code>spec.homepage</code> and <code>spec.source_code_uri</code> in gemspec</li>
@@ -913,7 +954,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>11.11% documented</li>
 </ul>
 
-<h3 id="added-11">Added</h3>
+<h3 id="added-12">Added</h3>
 
 <ul>
   <li>Document usage with minitest</li>
@@ -923,7 +964,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Link to Discord</li>
 </ul>
 
-<h3 id="changed-19">Changed</h3>
+<h3 id="changed-20">Changed</h3>
 
 <ul>
   <li>Gem build: Don’t check for cert if SKIP_GEM_SIGNING is set
@@ -944,7 +985,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>11.11% documented</li>
 </ul>
 
-<h3 id="added-12">Added</h3>
+<h3 id="added-13">Added</h3>
 
 <ul>
   <li>Support for linux, and other OSes, in <code>coverage</code> rake task
@@ -963,7 +1004,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Test coverage increased from 25 =&gt; 50 for branches</li>
 </ul>
 
-<h3 id="changed-20">Changed</h3>
+<h3 id="changed-21">Changed</h3>
 
 <ul>
   <li>Refactored internals in ways that should not affect public APIs
@@ -994,7 +1035,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 <h2 id="105---2025-04-03">
 <a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.4...v1.0.5">1.0.5</a> - 2025-04-03</h2>
 
-<h3 id="added-13">Added</h3>
+<h3 id="added-14">Added</h3>
 
 <ul>
   <li>Documentation</li>
@@ -1003,7 +1044,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
   <li>Added Ruby 3.3, 3.4 to CI</li>
 </ul>
 
-<h3 id="changed-21">Changed</h3>
+<h3 id="changed-22">Changed</h3>
 
 <ul>
   <li>Update to Contributor Covenant 2.1</li>
@@ -1025,13 +1066,13 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 <h2 id="104---2024-06-11">
 <a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.3...v1.0.4">1.0.4</a> - 2024-06-11</h2>
 
-<h3 id="added-14">Added</h3>
+<h3 id="added-15">Added</h3>
 
 <ul>
   <li>Documentation</li>
 </ul>
 
-<h3 id="changed-22">Changed</h3>
+<h3 id="changed-23">Changed</h3>
 
 <ul>
   <li>
@@ -1041,7 +1082,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 <h2 id="103---2024-05-23">
 <a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v1.0.2...v1.0.3">1.0.3</a> - 2024-05-23</h2>
 
-<h3 id="added-15">Added</h3>
+<h3 id="added-16">Added</h3>
 
 <ul>
   <li>Documentation</li>
@@ -1081,7 +1122,7 @@ Rake::Task[:backend_matrix_specs].enhance([:set_matrix_command_name])
 <h2 id="100---2023-10-19">
 <a href="https://gitlab.com/kettle-dev/kettle-soup-cover/-/compare/v0.1.0...v1.0.0">1.0.0</a> - 2023-10-19</h2>
 
-<h3 id="added-16">Added</h3>
+<h3 id="added-17">Added</h3>
 
 <ul>
   <li>✨ <code>Regexp.escape</code> the <code>FILTER_DIRS</code> to allow for paths to be excluded from coverage
@@ -1128,7 +1169,7 @@ to normalize handling of this common logical need in other libraries.</li>
   <li>More and better documentation</li>
 </ul>
 
-<h3 id="changed-23">Changed</h3>
+<h3 id="changed-24">Changed</h3>
 
 <ul>
   <li>This gem no longer does <code>require "simplecov"</code>

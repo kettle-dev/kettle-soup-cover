@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.11] - 2026-09-28
+
+- TAG: [v3.0.11][3.0.11t]
+- COVERAGE: 100.00% -- 282/282 lines in 12 files
+- BRANCH COVERAGE: 91.67% -- 77/84 branches in 12 files
+- 20.00% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -38,14 +57,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - configuration (1)
   - dependencies (1)
   - workflows (18)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [3.0.10] - 2026-08-28
 
@@ -762,7 +773,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.10...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.11...HEAD
+[3.0.11]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.10...v3.0.11
+[3.0.11t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.11
 [3.0.10]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.9...v3.0.10
 [3.0.10t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.10
 [3.0.9]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.8...v3.0.9
