@@ -2,6 +2,7 @@
 
 require "open3"
 require "stringio"
+require "kettle/dev/paths"
 
 RSpec.describe Kettle::Soup::Cover do
   include_context "with stubbed env"
@@ -115,7 +116,7 @@ RSpec.describe Kettle::Soup::Cover do
       paths = turbo_tests_resultset_paths
 
       expect(paths.length).to eq(1)
-      expect(File.identical?(paths.first, resultset_path)).to be(true)
+      expect(Kettle::Dev::Paths.same?(paths.first, resultset_path)).to be(true)
     end
   end
 
@@ -139,7 +140,7 @@ RSpec.describe Kettle::Soup::Cover do
       paths = turbo_tests_json_paths
 
       expect(paths.length).to eq(1)
-      expect(File.identical?(paths.first, json_path)).to be(true)
+      expect(Kettle::Dev::Paths.same?(paths.first, json_path)).to be(true)
     end
   end
 

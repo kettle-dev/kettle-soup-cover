@@ -1,7 +1,7 @@
 {
-  "spec/kettle/soup/cover_spec.rb:1255285700": [
-    [300, 11, 137, "RSpec/Output: Do not write to stdout in specs.", 3526369885],
-    [302, 11, 39, "RSpec/Output: Do not write to stdout in specs.", 3454883721],
-    [303, 11, 51, "RSpec/Output: Do not write to stdout in specs.", 2780377567]
+  "spec/kettle/soup/cover_spec.rb:3136266797": [
+    [301, 11, 137, "RSpec/Output: Do not write to stdout in specs.", 3526369885],
+    [303, 11, 39, "RSpec/Output: Do not write to stdout in specs.", 3454883721],
+    [304, 11, 51, "RSpec/Output: Do not write to stdout in specs.", 2780377567]
   ]
 }
