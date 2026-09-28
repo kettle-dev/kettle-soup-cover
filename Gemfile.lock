@@ -162,7 +162,7 @@ GEM
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
       kettle-dev (~> 3.1, >= 3.1.2)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-dev (3.1.3)
+    kettle-dev (3.1.4)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.16)
       kettle-ndjson (~> 0.1, >= 0.1.18)
@@ -406,11 +406,10 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    rubocop-on-rbs (2.1.0)
+    rubocop-on-rbs (2.2.0)
       lint_roller (~> 1.1)
       rbs (~> 4.0)
       rubocop (>= 1.72.1, < 2.0)
-      zlib
     rubocop-performance (1.26.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -570,7 +569,6 @@ GEM
       version_gem (~> 1.1, >= 1.1.15)
       yaml-converter (~> 0.2)
     zeitwerk (2.8.3)
-    zlib (3.2.3)
 
 PLATFORMS
   aarch64-linux
@@ -688,7 +686,7 @@ CHECKSUMS
   json (2.21.2) sha256=1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a
   json-merge (7.1.9) sha256=13c979c1398e6e3126ec6c1d4acccd08a138fb06a58152f51ad9079caf03b39e
   kettle-changelog (1.0.8) sha256=08ded13e84276e58cd6375c1750ee6dab45fd2f67c0f0fed623a7267ddb9e300
-  kettle-dev (3.1.3) sha256=07c2fbf8f182b6a2d0a8f526995dd4f1ee12a81fcfa8be46fb52fecfeabe9d83
+  kettle-dev (3.1.4) sha256=71a4dd7d4273ee7dc553d68f09384c71e868f617aac4e04e56cd9c378e8fc851
   kettle-family (1.3.1) sha256=0e77fb67d8e989a806ae453fdcac43a44e3dd43e1d2dae7a51418504309e27d6
   kettle-gha-pins (0.3.16) sha256=4ee906232dae309e8dbd1fca8e993bbfdad20f24892fc73776c9960081bbbbdb
   kettle-jem (7.1.28) sha256=6bd38a850bc3a73786cd26f3c3489f37ab6040832143df8fbd5e41ad73085d14
@@ -760,7 +758,7 @@ CHECKSUMS
   rubocop-lts-ruby (0.1.4) sha256=eb0039d61d645d2b6754abd4006842945b7848a916a664f522f5e2f7a5a69bf1
   rubocop-md (2.0.4) sha256=0d076b6b5e99dea2ddc928c4bd702497decb9a8400da7808091e02ebcafcfb93
   rubocop-minitest (0.40.0) sha256=353c698199115f12151144cf0b5a96f69bb9d77b660cf6536df2c4250c672a9d
-  rubocop-on-rbs (2.1.0) sha256=da347d86b4d7a0d72d8c72b22d41b97808ebe8ed0e3125c94af4d5097e9a66c4
+  rubocop-on-rbs (2.2.0) sha256=a78c1fa10fd9d78e26a9de67e9428a1ef6b5dc3b61e3db69e201222ccd588cf5
   rubocop-packaging (0.6.0)
   rubocop-performance (1.26.1) sha256=cd19b936ff196df85829d264b522fd4f98b6c89ad271fa52744a8c11b8f71834
   rubocop-rake (0.7.1) sha256=3797f2b6810c3e9df7376c26d5f44f3475eda59eb1adc38e6f62ecf027cbae4d
@@ -820,7 +818,6 @@ CHECKSUMS
   yard-timekeeper (0.2.7) sha256=a97a8cf15cd97ad0121189b05084233fd859894446457269522cd7b551e9383e
   yard-yaml (0.2.6) sha256=4d4ecb669655403766c1167e4bdaab0a3921a66f263f1fb0ace9d6ea4699cb1c
   zeitwerk (2.8.3) sha256=2c85125a8467ce069e20123d1e709a08955c9d29c118c25b46b7b7fafdbb92e5
-  zlib (3.2.3) sha256=5bd316698b32f31a64ab910a8b6c282442ca1626a81bbd6a1674e8522e319c20
 
 BUNDLED WITH
   4.0.21
