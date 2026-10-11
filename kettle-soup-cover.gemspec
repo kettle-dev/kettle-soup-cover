@@ -106,7 +106,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.require_paths = ["lib"]
 
   # Utilities
-  spec.add_dependency("kettle-wash", "~> 0.1", ">= 0.1.9") # Runtime constant reload support for shipped rake tasks
+  spec.add_dependency("kettle-wash", "~> 0.1", ">= 0.1.10") # Runtime constant reload support for shipped rake tasks
   spec.add_dependency("simplecov", ">= 1.0") # Ruby >= 3.2, Includes dependency on simplecov-html
   spec.add_dependency("simplecov-cobertura", ">= 4.0") # Ruby >= 3.1, provides GitLab, Jenkins compatibility (XML)
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output
@@ -128,7 +128,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   #       and preferably a modular one (see gemfiles/modular/*.gemfile).
 
   # Dev, Test, & Release Tasks
-  spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.8")             # ruby >= 3.2.0
+  spec.add_development_dependency("kettle-dev", "~> 3.1", ">= 3.1.9")             # ruby >= 3.2.0
 
   # Security
   spec.add_development_dependency("bundler-audit", "~> 0.9.3")                      # ruby >= 2.0.0
@@ -143,7 +143,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   # Loads version files in anonymous namespaces for coverage without constant redefinition warnings.
   spec.add_development_dependency("anonymous_loader", "~> 0.1", ">= 0.1.3")         # ruby >= 2.2.0
   spec.add_development_dependency("appraisal2", "~> 3.2", ">= 3.2.5")               # ruby >= 1.8.7, for testing against multiple versions of dependencies
-  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.23")            # ruby >= 3.2.0
+  spec.add_development_dependency("kettle-test", "~> 2.0", ">= 2.0.24")            # ruby >= 3.2.0
   spec.add_development_dependency("turbo_tests2", "~> 3.2", ">= 3.2.14")           # ruby >= 2.4.0, default kettle-test runner
 
   # Releasing
