@@ -6,7 +6,7 @@
 # kettle-jem will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# kettle-soup-cover Rakefile v7.1.29 - 2026-10-09
+# kettle-soup-cover Rakefile v7.1.30 - 2026-10-15
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # See LICENSE.md for license information.
@@ -63,6 +63,12 @@ desc "Default tasks aggregator"
 task :default do
   puts "Default task complete."
 end
+
+# Without this, a generated docs/ directory makes Rake resolve the bare
+# name `docs` as an up-to-date file task, so `rake docs` exits 0 having
+# regenerated nothing.
+desc "Generate YARD documentation"
+task docs: "yard"
 
 # simplecov:disable
 ### MONOREPO FAMILY TASKS
