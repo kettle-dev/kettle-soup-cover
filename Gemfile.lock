@@ -149,16 +149,16 @@ GEM
       ast-merge (= 7.1.10)
       tree_haver (= 7.1.10)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-changelog (1.0.11)
+    kettle-changelog (1.0.13)
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
-      kettle-dev (~> 3.1, >= 3.1.13)
+      kettle-dev (~> 3.1, >= 3.1.16)
       version_gem (~> 1.1, >= 1.1.15)
-    kettle-dev (3.1.13)
+    kettle-dev (3.1.23)
       emoji_regex (>= 15.0)
-      kettle-gha-pins (~> 0.3, >= 0.3.17)
-      kettle-ndjson (~> 0.1, >= 0.1.19)
-      kettle-rb (~> 0.1, >= 0.1.17)
-      kettle-test (~> 2.0, >= 2.0.25)
+      kettle-gha-pins (~> 0.3, >= 0.3.18)
+      kettle-ndjson (~> 0.1, >= 0.1.20)
+      kettle-rb (~> 0.1, >= 0.1.18)
+      kettle-test (~> 2.0, >= 2.0.27)
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.15)
@@ -256,7 +256,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
-    nomono (1.1.7)
+    nomono (1.1.14)
       version_gem (~> 1.1, >= 1.1.15)
     openssl (4.0.2)
     ostruct (0.6.3)
@@ -587,7 +587,7 @@ DEPENDENCIES
   kramdown (~> 2.5, >= 2.5.2)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
-  nomono (~> 1.1, >= 1.1.7)
+  nomono (~> 1.1, >= 1.1.14)
   ostruct (~> 0.6)
   rake (~> 13.4, >= 13.4.2)
   rbs (>= 3.0)
@@ -665,8 +665,8 @@ CHECKSUMS
   irb (1.18.0) sha256=de9454a0703a54704b9811a5ef31a60c86949fbf4013fcf244fabc7c775248e3
   json (3.1.0) sha256=3ce7ccf8fde58960177a3a756c31f292a4c1e1dedee884547096a5b0604e3bd8
   json-merge (7.1.10) sha256=f90ec2df9512ed67cd4b3d27af773f8126a0bb30f0838a87a3d401a397061a75
-  kettle-changelog (1.0.11) sha256=da85256ca20c62d9d93f1f2c4bb0088923ffbdec7ac8c32c8e29dccb477c7035
-  kettle-dev (3.1.13) sha256=82dfd4e03aac37f7221f03438817c6d59f33fb8b4c01f29d5ac5d4db4c237152
+  kettle-changelog (1.0.13) sha256=34be2385fd44032c7e0761d68aa26986984118ad00fdfe877ae445afef3953bd
+  kettle-dev (3.1.23)
   kettle-family (1.3.11) sha256=03b119f23299c6f212e6a36aefddbc85006a4d89c4bf53659c7cf001bca175d4
   kettle-gha-pins (0.3.18) sha256=7e1aab36c248bab6b55e6c9d79b9efb8233c14a5e33e0d8013a874c49030046a
   kettle-jem (7.1.30) sha256=3e98c8a9988ce1f4f0424edf02e1ef2982fbbec073faa7c03007a0fd0033b6a0
@@ -691,7 +691,7 @@ CHECKSUMS
   nokogiri (1.19.4-x86_64-darwin) sha256=7fd17057d3e1f00e9954a74b3cd76595d3d4a5ef233b7ed9599047c204f70551
   nokogiri (1.19.4-x86_64-linux-gnu) sha256=379fae440b28915e3f19d752ce2dcf8465ed2b2fbefd2a7ca0dd497bc981a06a
   nokogiri (1.19.4-x86_64-linux-musl) sha256=17dfb7c1fa194ae02fbf7c51a7afc8d278045ab3fdacfd86f91d02d7b274470b
-  nomono (1.1.7) sha256=1a5564ed21a17e4de9ef85f452ffbe6a59119730ca3fb3b1f6fb45b20b66373d
+  nomono (1.1.14) sha256=dd9465103202803a1b25046be9cb873b8ca8291647b59fab751306098b6131f6
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
