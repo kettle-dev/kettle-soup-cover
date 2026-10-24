@@ -112,7 +112,7 @@ Fund overlooked open source projects - bottom of stack, dev/test dependencies: f
   spec.add_dependency("simplecov-console", "~> 0.9", ">= 0.9.5") # TTY / Console output
   spec.add_dependency("simplecov_lcov_formatter", "~> 0.9", ">= 0.9.0") # GHA, Jenkins X, CircleCI, Travis CI, TeamCity, GCOV compatibility
   spec.add_dependency("simplecov-rcov", "~> 0.3", ">= 0.3.7") # Hudson compatibility
-  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.15")              # ruby >= 2.2.0
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.16")              # ruby >= 2.2.0
 
   # NOTE: It is preferable to list development dependencies in the gemspec due to increased
   #       visibility and discoverability.
