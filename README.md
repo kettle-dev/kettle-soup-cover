@@ -97,6 +97,7 @@ where this library is considered a package of [SOUP](https://en.wikipedia.org/wi
 
 Compatible with MRI Ruby 3.2.0+, JRuby, and TruffleRuby.
 CI workflows and Appraisals are generated for MRI Ruby 3.2.0+.
+The current MRI CI lane runs on Linux and macOS.
 This test floor is configured by `ruby.test_minimum` in `.kettle-jem.yml` and
 may be higher than the gem's runtime compatibility floor when legacy Rubies are
 not practical for the current toolchain.
@@ -120,23 +121,6 @@ The _amazing_ test matrix is powered by the kettle-dev stack.
 
 </details>
 
-### Runtime and Platform Support
-
-Support tiers describe what this project's CI actually exercises, not what may
-work in an untested environment:
-
-- **Parallel support**: CI runs the test suite with multiple workers available.
-- **Unsupported**: the engine/platform combination is not covered by CI and is
- not a project compatibility claim.
-
-| Ruby engine/version | Linux | macOS | Windows | Notes |
-|---------------------|-------|-------|---------|-------|
-| MRI 3.2-3.4 | Parallel support | Unsupported | Unsupported | Versioned Ruby workflows run on Linux. |
-| MRI current | Parallel support | Parallel support | Unsupported | Current Ruby workflow covers the declared OS platforms. |
-| MRI head | Parallel support | Unsupported | Unsupported | CI is allowed to fail while Ruby is in development. |
-| JRuby (all CI lanes) | Parallel support | Unsupported | Unsupported | Engine workflows run on Linux; macOS and Windows are not exercised by CI. |
-| TruffleRuby (all CI lanes) | Parallel support | Unsupported | Unsupported | Never shipped a Windows build (zero Windows assets across 66 releases scanned 2026-10-10); setup-ruby hard-fails ([source](https://github.com/ruby/setup-ruby/blob/master/README.md)) |
-
 ### Federated DVCS
 
 <details markdown="1">
@@ -152,29 +136,12 @@ work in an untested environment:
 
 ### Enterprise Support
 
-[![Tidelift](https://tidelift.com/badges/package/rubygems/kettle-soup-cover)](https://tidelift.com/subscription/pkg/rubygems-kettle-soup-cover?utm_source=rubygems-kettle-soup-cover&utm_medium=referral&utm_campaign=readme)
+For enterprise support from the maintainer, use [Upwork][👨🏼‍🏫expsup-upwork] or [CodeMentor][👨🏼‍🏫expsup-codementor].
 
-Available as part of the Tidelift Subscription.
-
-<details markdown="1">
- <summary>Need enterprise-level guarantees?</summary>
-
-The maintainers of this and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use.
-
-[![Get help from me on Tidelift][🏙️entsup-tidelift-img]][🏙️entsup-tidelift]
-
-- 💡Subscribe for support guarantees covering _all_ your FLOSS dependencies
-- 💡Tidelift is part of [Sonar][🏙️entsup-tidelift-sonar]
-- 💡Tidelift pays maintainers to maintain the software you depend on!<br/>📊`@`Pointy Haired Boss: An [enterprise support][🏙️entsup-tidelift] subscription is "[never gonna let you down][🧮kloc]", and *supports* open source maintainers
-
-Alternatively:
+Other support channels:
 
 - [![Ruby Users Forum][✉️ruby-forum-img]][✉️ruby-forum]
 - [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite]
-- [![Get help from me on Upwork][👨🏼‍🏫expsup-upwork-img]][👨🏼‍🏫expsup-upwork]
-- [![Get help from me on Codementor][👨🏼‍🏫expsup-codementor-img]][👨🏼‍🏫expsup-codementor]
-
-</details>
 
 ## ✨ Installation
 
@@ -727,9 +694,6 @@ Thanks for RTFM. ☺️
 [👨🏼‍🏫expsup-upwork-img]: https://img.shields.io/badge/UpWork-13544E?style=for-the-badge&logo=Upwork&logoColor=white
 [👨🏼‍🏫expsup-codementor]: https://www.codementor.io/peterboling?utm_source=github&utm_medium=button&utm_term=peterboling&utm_campaign=github
 [👨🏼‍🏫expsup-codementor-img]: https://img.shields.io/badge/CodeMentor-Get_Help-1abc9c?style=for-the-badge&logo=CodeMentor&logoColor=white
-[🏙️entsup-tidelift]: https://tidelift.com/subscription/pkg/rubygems-kettle-soup-cover?utm_source=rubygems-kettle-soup-cover&utm_medium=referral&utm_campaign=readme
-[🏙️entsup-tidelift-img]: https://img.shields.io/badge/Tidelift_and_Sonar-Enterprise_Support-FD3456?style=for-the-badge&logo=sonar&logoColor=white
-[🏙️entsup-tidelift-sonar]: https://blog.tidelift.com/tidelift-joins-sonar
 [💁🏼‍♂️peterboling]: http://www.peterboling.com
 [🚂railsbling]: http://www.railsbling.com
 [📜src-gl-img]: https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&logo=Gitlab&logoColor=orange
@@ -849,5 +813,5 @@ Thanks for RTFM. ☺️
 | Homepage | https://github.com/kettle-dev/kettle-soup-cover |
 | Source | https://github.com/kettle-dev/kettle-soup-cover |
 | License | `AGPL-3.0-only` |
-| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-soup-cover, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://thanks.dev/u/gh/pboling, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
