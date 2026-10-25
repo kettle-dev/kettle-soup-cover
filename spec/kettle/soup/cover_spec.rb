@@ -139,7 +139,16 @@ RSpec.describe Kettle::Soup::Cover do
     it "finds worker JSON reports" do
       paths = turbo_tests_json_paths
 
-      expect(paths.length).to eq(1)
+      diagnostics = {
+        project_root: project_root,
+        realpath: File.realpath(project_root),
+        searched: described_class.turbo_tests_coverage_dir(coverage_dir, project_root: project_root),
+        json_exists: File.exist?(json_path),
+        tree: Dir.glob("**/*", File::FNM_DOTMATCH, base: project_root),
+        tmpdir_env: ENV["TMPDIR"]
+      }
+
+      expect(paths.length).to eq(1), "no worker JSON found: #{diagnostics.inspect}"
       expect(Kettle::Dev::Paths.same?(paths.first, json_path)).to be(true)
     end
   end
