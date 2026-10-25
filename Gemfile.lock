@@ -161,6 +161,11 @@ GEM
       ast-crispr-markdown-markly (~> 7.1, >= 7.1.1)
       kettle-dev (~> 3.1, >= 3.1.25)
       version_gem (~> 1.1, >= 1.1.16)
+    kettle-deps-floor (0.1.1)
+      kettle-dev (~> 3.1, >= 3.1.25)
+      kettle-ndjson (~> 0.1, >= 0.1.20)
+      prism (>= 1.3)
+      version_gem (~> 1.1, >= 1.1.16)
     kettle-dev (3.1.25)
       emoji_regex (>= 15.0)
       kettle-gha-pins (~> 0.3, >= 0.3.19)
@@ -170,15 +175,17 @@ GEM
       ruby-progressbar (~> 1.13)
       tty-progressbar (~> 0.18)
       version_gem (~> 1.1, >= 1.1.16)
-    kettle-family (1.3.33)
+    kettle-family (1.3.34)
       ast-crispr (~> 7.1, >= 7.1.11)
       ast-crispr-toml (~> 7.1, >= 7.1.11)
       command_kit (~> 0.6)
       command_kit-completion (~> 0.1)
-      kettle-changelog (~> 1.0, >= 1.0.13)
-      kettle-dev (~> 3.1, >= 3.1.24)
+      kettle-changelog (~> 1.0, >= 1.0.14)
+      kettle-deps-floor (~> 0.1, >= 0.1.1)
+      kettle-dev (~> 3.1, >= 3.1.25)
       kettle-gha-pins (~> 0.3, >= 0.3.18)
       kettle-jem (~> 7.1, >= 7.1.28)
+      kettle-ndjson (~> 0.1, >= 0.1.20)
       kettle-test (~> 2.0, >= 2.0.27)
       psych-merge (~> 7.1, >= 7.1.4)
       toml-merge (~> 7.1, >= 7.1.11)
@@ -682,8 +689,9 @@ CHECKSUMS
   json (3.1.0) sha256=3ce7ccf8fde58960177a3a756c31f292a4c1e1dedee884547096a5b0604e3bd8
   json-merge (7.1.16) sha256=ac02a11e2d2e066b18d32b1eb4d10df17cb9044c7b40c5c896fee446087a6f08
   kettle-changelog (1.0.14) sha256=26b9edafec1cd53180677164f756ef7350a3009a23e0059feaaff13e4e66be9f
+  kettle-deps-floor (0.1.1) sha256=c97d1fa926866ac15527dce62edbb5b41c74a693bf3c706ee8bd2194078ad28e
   kettle-dev (3.1.25) sha256=09419244117b0907302ae3dbfceee38cf6d2ac472933cc9d9136a403d0f684dc
-  kettle-family (1.3.33) sha256=481f2db92a7e5f53299a641de097b12251b14228aefbf8ded2fb72269962086d
+  kettle-family (1.3.34) sha256=4b67d201486f6e944220b2d843e76aa8fa228b970cd8cfe60ceeaeaa0121a5a2
   kettle-gha-pins (0.3.19) sha256=ac43784d685aaee019056d666d0c7a8d6d2d9d0b6cd9823c3897cfee27627035
   kettle-jem (7.1.40) sha256=8cdf8bb51f95021a020d00221018d29d4b14ae7b7b5c0db14da2c23568ce7952
   kettle-ndjson (0.1.22) sha256=e4be88c975897ed2f7dc07da948d9409d5c58f4880172197a17d28d8d7a4ab95
