@@ -83,8 +83,16 @@ ensure_soup_cover_modules!
 Kettle::Wash.validate!(Kettle::Soup::Cover::Constants, Kettle::Soup::Cover::Constants::WASHED_CONSTANTS)
 KETTLE_SOUP_COVER_WASHED_CONSTANTS = Kettle::Soup::Cover::Constants::WASHED_CONSTANTS
 
+# Constants are computed from ENV at load time. Examples that reload them under
+# stubbed ENV (reset_soup_cover_constants / delete_soup_cover_constants) would
+# otherwise leak those values into later examples once the stubs are undone,
+# making order-dependent failures (e.g. TURBO_TESTS_DIR left as "parallel").
+# The around hook below restores them from the real ENV after every such example.
+$soup_cover_constants_dirty = false # rubocop:disable Style/GlobalVars
+
 def reset_soup_cover_constants(&block)
   ensure_soup_cover_modules!
+  $soup_cover_constants_dirty = true # rubocop:disable Style/GlobalVars
   block&.call
   Kettle::Wash.reset_constants(owner: Kettle::Soup::Cover::Constants, **KETTLE_SOUP_COVER_WASHED_CONSTANTS)
   ensure_soup_cover_modules!
@@ -92,12 +100,23 @@ end
 
 def delete_soup_cover_constants(&block)
   ensure_soup_cover_modules!
+  $soup_cover_constants_dirty = true # rubocop:disable Style/GlobalVars
   Kettle::Wash.delete_constants(Kettle::Soup::Cover::Constants, KETTLE_SOUP_COVER_WASHED_CONSTANTS.fetch(:constants))
   block&.call
   nil
 end
 
 RSpec.configure do |config|
+  config.around do |example|
+    example.run
+  ensure
+    if $soup_cover_constants_dirty # rubocop:disable Style/GlobalVars
+      $soup_cover_constants_dirty = false # rubocop:disable Style/GlobalVars
+      Kettle::Wash.reset_constants(owner: Kettle::Soup::Cover::Constants, **KETTLE_SOUP_COVER_WASHED_CONSTANTS)
+      ensure_soup_cover_modules!
+    end
+  end
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 
