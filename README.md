@@ -597,6 +597,7 @@ See [LICENSE.md][📄license] for the official copyright notice.
 <summary>Copyright holders</summary>
 
 - Copyright (c) 2023-2026 Peter H. Boling
+- Copyright (c) 2026 Erik Berlin
 
 </details>
 

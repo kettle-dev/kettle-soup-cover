@@ -21,8 +21,26 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        102,
-        121
+        137,
+        156
+      ]
+    }
+  ],
+  "- dependencies (2)\n- documentation (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        33,
+        73
+      ]
+    }
+  ],
+  "- documentation (1)\n- workflows (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        34,
+        110
       ]
     }
   ],
@@ -39,9 +57,9 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        154,
-        181,
-        188
+        174,
+        201,
+        208
       ]
     }
   ],
@@ -49,8 +67,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        182,
-        189
+        202,
+        209
       ]
     }
   ],
@@ -58,8 +76,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        141,
-        155
+        161,
+        175
       ]
     }
   ],
@@ -67,8 +85,17 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        137,
-        145
+        157,
+        165
+      ]
+    }
+  ],
+  "Kettle::Wash.reset_constants(owner: Kettle::Soup::Cover::Constants, **KETTLE_SOUP_COVER_WASHED_CONSTANTS)\nensure_soup_cover_modules!": [
+    {
+      "file": "spec/spec_helper.rb",
+      "lines": [
+        98,
+        116
       ]
     }
   ],
@@ -76,8 +103,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        166,
-        173
+        186,
+        193
       ]
     }
   ],
@@ -85,8 +112,17 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        167,
-        174
+        187,
+        194
+      ]
+    }
+  ],
+  "ensure_soup_cover_modules!\n$soup_cover_constants_dirty = true # rubocop:disable Style/GlobalVars": [
+    {
+      "file": "spec/spec_helper.rb",
+      "lines": [
+        95,
+        103
       ]
     }
   ],
@@ -103,8 +139,8 @@
     {
       "file": "spec/spec_helper.rb",
       "lines": [
-        165,
-        172
+        185,
+        192
       ]
     }
   ]
