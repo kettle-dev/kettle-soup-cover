@@ -50,18 +50,50 @@ RSpec.describe Kettle::Soup::Cover do
     end
 
     context "when percentage mode is enabled" do
+      # A configuration of its own, so the examples never touch the minimums
+      # SimpleCov enforces on this very suite.
+      let(:configuration) do
+        Object.new.extend(SimpleCov::Configuration).tap do |configuration|
+          configuration.enable_coverage(:branch)
+        end
+      end
+
       before do
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", true)
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", false)
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_BRANCH", 76)
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_LINE", 92)
-        allow(configuration).to receive(:minimum_coverage)
       end
 
       it "applies the configured line and branch thresholds" do
         described_class::CoverageThresholds.configure!(configuration)
 
-        expect(configuration).to have_received(:minimum_coverage).with(branch: 76, line: 92)
+        expect(configuration.minimum_coverage).to eq(branch: 76, line: 92)
+      end
+
+      it "keeps configured minimums that are higher" do
+        configuration.minimum_coverage(line: 100, branch: 98)
+
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration.minimum_coverage).to eq(line: 100, branch: 98)
+      end
+
+      it "raises configured minimums that are lower" do
+        configuration.minimum_coverage(line: 10, branch: 90)
+
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration.minimum_coverage).to eq(line: 92, branch: 90)
+      end
+
+      it "keeps a configured method minimum" do
+        configuration.enable_coverage(:method)
+        configuration.minimum_coverage(line: 100, branch: 100, method: 100)
+
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration.minimum_coverage).to eq(line: 100, branch: 100, method: 100)
       end
     end
 
@@ -97,6 +129,96 @@ RSpec.describe Kettle::Soup::Cover do
         expect(configuration).not_to have_received(:enable_coverage)
         expect(configuration).not_to have_received(:minimum_coverage)
       end
+    end
+  end
+
+  # Runs in subprocesses so that collating never changes the SimpleCov
+  # configuration of this suite.
+  describe "CoverageThresholds in turbo_tests2 collation" do
+    let(:project_root) { Dir.mktmpdir }
+    let(:env) do
+      {
+        "CI" => "false",
+        "K_SOUP_COV_CLEAN_RESULTSET" => "false",
+        "K_SOUP_COV_DIR" => nil,
+        "K_SOUP_COV_DO" => "true",
+        "K_SOUP_COV_FORMATTERS" => "json",
+        "K_SOUP_COV_MIN_BRANCH" => "10",
+        "K_SOUP_COV_MIN_HARD" => "true",
+        "K_SOUP_COV_MIN_LINE" => "10",
+        "K_SOUP_COV_MIN_STRICT" => "false",
+        "K_SOUP_COV_MULTI_FORMATTERS" => "true",
+        "K_SOUP_COV_OPEN_BIN" => "",
+        "K_SOUP_COV_PREFIX" => nil,
+        "K_SOUP_COV_TURBO_TESTS" => "true",
+        "TEST_ENV_NUMBER" => ""
+      }
+    end
+
+    before do
+      FileUtils.mkdir_p(File.join(project_root, "lib"))
+      File.write(File.join(project_root, "lib", "widget.rb"), <<~RUBY)
+        module Widget
+          def self.used
+            1
+          end
+
+          def self.unused
+            2
+          end
+        end
+      RUBY
+      # Enables method coverage and requires 100% line, branch and method coverage.
+      File.write(File.join(project_root, ".simplecov"), %(SimpleCov.load_profile("strict")\n))
+    end
+
+    after { FileUtils.remove_entry(project_root) }
+
+    def run_ruby(script, **extra_env)
+      lib_dir = File.expand_path("../../../lib", __dir__)
+      Open3.capture3(env.merge(extra_env), RbConfig.ruby, "-I", lib_dir, "-e", script, chdir: project_root)
+    end
+
+    def run_worker(number, call_unused:)
+      script = <<~RUBY
+        require "kettle-soup-cover"
+        require "simplecov"
+        require "kettle/soup/cover/config"
+        SimpleCov.start
+        require_relative "lib/widget"
+        Widget.used
+        Widget.unused if #{call_unused}
+      RUBY
+
+      _stdout, stderr, status = run_ruby(script, "TEST_ENV_NUMBER" => number.to_s)
+      expect(status).to be_success, stderr
+    end
+
+    def collate
+      run_ruby(<<~RUBY)
+        require "kettle/soup/cover"
+        Kettle::Soup::Cover.collate_turbo_tests_coverage!
+      RUBY
+    end
+
+    it "keeps the project's own minimums, method included" do
+      run_worker(1, call_unused: false)
+      run_worker(2, call_unused: false)
+
+      _stdout, stderr, status = collate
+
+      expect(status.exitstatus).to eq(2)
+      expect(stderr).to include("Method coverage (50.00%) is below the expected minimum coverage (100.00%)")
+      expect(stderr).to include("Line coverage (80.00%) is below the expected minimum coverage (100.00%)")
+    end
+
+    it "passes when every method is covered" do
+      run_worker(1, call_unused: false)
+      run_worker(2, call_unused: true)
+
+      _stdout, stderr, status = collate
+
+      expect(status).to be_success, stderr
     end
   end
 
@@ -355,7 +477,9 @@ RSpec.describe Kettle::Soup::Cover do
         allow(SimpleCov).to receive(:primary_coverage)
         allow(SimpleCov).to receive(:skip)
         allow(SimpleCov).to receive(:coverage_dir)
-        allow(SimpleCov).to receive(:minimum_coverage)
+        # The reader answers the minimums configured before collation (by the
+        # project's .simplecov), the writer stores the merged minimums.
+        allow(SimpleCov).to receive(:minimum_coverage) { |*args| args.empty? ? {} : args.first }
         allow(SimpleCov).to receive(:external_at_exit=)
       end
 

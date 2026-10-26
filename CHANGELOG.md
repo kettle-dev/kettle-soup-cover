@@ -28,6 +28,16 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- With `K_SOUP_COV_MIN_HARD=true` and `K_SOUP_COV_MIN_STRICT` unset or false,
+  the SimpleCov config and the turbo_tests2 collation now merge
+  `K_SOUP_COV_MIN_LINE` and `K_SOUP_COV_MIN_BRANCH` into the minimums a
+  project already configured (for example with SimpleCov's `strict` profile
+  in `.simplecov`) instead of replacing them. The higher value wins for each
+  criterion, and criteria kettle-soup-cover does not manage, such as method
+  coverage, are kept. Before, a project's method minimum was silently dropped
+  and its line and branch minimums could be lowered, with no way to restore
+  them after collation.
+
 ### Security
 
 ## [3.0.14] - 2026-10-25
