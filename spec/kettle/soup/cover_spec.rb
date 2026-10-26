@@ -28,6 +28,61 @@ RSpec.describe Kettle::Soup::Cover do
     end
   end
 
+  describe "CoverageThresholds.configure!" do
+    let(:configuration) { double("SimpleCov configuration") }
+
+    context "when strict coverage is enabled" do
+      before do
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", true)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", true)
+        allow(SimpleCov.profiles).to receive(:fetch_proc).with(:strict).and_return(
+          proc do
+            enable_coverage(:method)
+            minimum_coverage(line: 100, branch: 100, method: 100)
+          end
+        )
+        allow(configuration).to receive(:enable_coverage)
+        allow(configuration).to receive(:minimum_coverage)
+      end
+
+      it "applies SimpleCov's strict profile" do
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration).to have_received(:enable_coverage).with(:method)
+        expect(configuration).to have_received(:minimum_coverage).with(line: 100, branch: 100, method: 100)
+      end
+    end
+
+    context "when percentage mode is enabled" do
+      before do
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", true)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", false)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_BRANCH", 76)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_LINE", 92)
+        allow(configuration).to receive(:minimum_coverage)
+      end
+
+      it "applies the configured line and branch thresholds" do
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration).to have_received(:minimum_coverage).with(branch: 76, line: 92)
+      end
+    end
+
+    context "when hard coverage is disabled" do
+      before do
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", false)
+        allow(configuration).to receive(:minimum_coverage)
+      end
+
+      it "does not apply any coverage thresholds" do
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration).not_to have_received(:minimum_coverage)
+      end
+    end
+  end
+
   describe "::clean_resultset!" do
     subject(:clean_resultset!) { described_class.clean_resultset! }
 

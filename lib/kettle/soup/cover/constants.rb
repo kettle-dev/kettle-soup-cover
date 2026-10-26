@@ -76,6 +76,7 @@ module Kettle
         end
         MIN_COVERAGE_BRANCH = ENV_GET.call("MIN_BRANCH", "80").to_i
         MIN_COVERAGE_LINE = ENV_GET.call("MIN_LINE", "80").to_i
+        MIN_COVERAGE_STRICT = ENV_GET.call("MIN_STRICT", Constants::FALSE).casecmp?(Constants::TRUE)
         MULTI_FORMATTERS_DEFAULT = if IS_CI
           Constants::TRUE
         else
@@ -147,6 +148,7 @@ module Kettle
             MERGE_TIMEOUT
             MIN_COVERAGE_BRANCH
             MIN_COVERAGE_LINE
+            MIN_COVERAGE_STRICT
             MIN_COVERAGE_HARD
             MIN_COVERAGE_HARD_REQUESTED
             MULTI_FORMATTERS_DEFAULT

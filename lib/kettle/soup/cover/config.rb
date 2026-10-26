@@ -20,6 +20,8 @@ require_relative "constants" unless defined?(Kettle::Soup::Cover::Constants)
 require_relative "loaders" unless defined?(Kettle::Soup::Cover::Loaders)
 require_relative "formatters" unless defined?(Kettle::Soup::Cover) && Kettle::Soup::Cover.respond_to?(:configure_formatters!)
 
+require_relative "coverage_thresholds" unless defined?(Kettle::Soup::Cover::CoverageThresholds)
+
 SimpleCov.configure do
   cover("lib/**/*.rb")
 
@@ -54,12 +56,7 @@ SimpleCov.configure do
   # - If explicitly set to false (K_SOUP_COV_MIN_HARD=false), never enforce minimum coverage
   # - If explicitly set to true (K_SOUP_COV_MIN_HARD=true), always enforce minimum coverage
   # - If not set, defaults to IS_CI (enforce in CI, don't enforce locally)
-  if Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD
-    minimum_coverage(
-      branch: Kettle::Soup::Cover::Constants::MIN_COVERAGE_BRANCH,
-      line: Kettle::Soup::Cover::Constants::MIN_COVERAGE_LINE
-    )
-  end
+  Kettle::Soup::Cover::CoverageThresholds.configure!(self)
 end
 
 # Clean up stale resultset entries from prior runs before SimpleCov.start.

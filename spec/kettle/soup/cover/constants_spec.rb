@@ -150,6 +150,39 @@ RSpec.describe Kettle::Soup::Cover::Constants do
     end
   end
 
+  describe "MIN_COVERAGE_STRICT" do
+    before do
+      reset_soup_cover_constants do
+        stub_env("K_SOUP_COV_MIN_STRICT" => min_strict)
+        stub_env("TEST_ENV_NUMBER" => "")
+      end
+    end
+
+    context "when unset" do
+      let(:min_strict) { nil }
+
+      it "defaults to false" do
+        expect(constants::MIN_COVERAGE_STRICT).to be(false)
+      end
+    end
+
+    context "when true" do
+      let(:min_strict) { "true" }
+
+      it "enables strict coverage" do
+        expect(constants::MIN_COVERAGE_STRICT).to be(true)
+      end
+    end
+
+    context "when false" do
+      let(:min_strict) { "false" }
+
+      it "keeps percentage mode" do
+        expect(constants::MIN_COVERAGE_STRICT).to be(false)
+      end
+    end
+  end
+
   describe "MIN_COVERAGE_HARD" do
     before do
       reset_soup_cover_constants do
