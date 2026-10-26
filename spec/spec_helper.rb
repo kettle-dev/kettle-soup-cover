@@ -58,6 +58,7 @@ if defined?(Kettle::Soup::Cover)
   end
 end
 load File.join(path, "..", "lib", "kettle", "soup", "cover", "formatters.rb")
+load File.join(path, "..", "lib", "kettle", "soup", "cover", "coverage_thresholds.rb")
 
 # rubocop:disable RSpec/RemoveConst
 if Kettle.const_defined?(:Soup, false) && Kettle::Soup.const_defined?(:Cover, false)
