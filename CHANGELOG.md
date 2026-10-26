@@ -20,6 +20,10 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- `K_SOUP_COV_MIN_STRICT=true` opts into strict coverage criteria, enabling branch and
+  method coverage (and eval coverage where supported) and requiring 100% line, branch,
+  and method coverage when hard minimum enforcement is on.
+
 ### Changed
 
 ### Deprecated
@@ -27,6 +31,10 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Removed
 
 ### Fixed
+
+- Strict branch, method, and supported eval metrics stay enabled in turbo_tests2 workers
+  even though hard threshold enforcement is disabled there, allowing final collation to
+  enforce the 100% line, branch, and method minimums.
 
 - With `K_SOUP_COV_MIN_HARD=true` and `K_SOUP_COV_MIN_STRICT` unset or false,
   the SimpleCov config and the turbo_tests2 collation now merge
