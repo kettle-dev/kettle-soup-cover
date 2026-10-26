@@ -65,15 +65,36 @@ RSpec.describe Kettle::Soup::Cover do
       end
     end
 
-    context "when hard coverage is disabled" do
+    context "when strict coverage is enabled but hard coverage is disabled" do
       before do
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", false)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", true)
+        allow(configuration).to receive(:enable_coverage)
+        allow(configuration).to receive(:coverage_for_eval_supported?).and_return(false)
         allow(configuration).to receive(:minimum_coverage)
       end
 
-      it "does not apply any coverage thresholds" do
+      it "enables strict coverage metrics without enforcing thresholds in workers" do
         described_class::CoverageThresholds.configure!(configuration)
 
+        expect(configuration).to have_received(:enable_coverage).with(:branch)
+        expect(configuration).to have_received(:enable_coverage).with(:method)
+        expect(configuration).not_to have_received(:minimum_coverage)
+      end
+    end
+
+    context "when hard coverage is disabled in percentage mode" do
+      before do
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", false)
+        stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", false)
+        allow(configuration).to receive(:enable_coverage)
+        allow(configuration).to receive(:minimum_coverage)
+      end
+
+      it "does not enable strict metrics or apply thresholds" do
+        described_class::CoverageThresholds.configure!(configuration)
+
+        expect(configuration).not_to have_received(:enable_coverage)
         expect(configuration).not_to have_received(:minimum_coverage)
       end
     end
