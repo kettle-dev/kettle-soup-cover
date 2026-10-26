@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.15] - 2026-10-25
+
+- TAG: [v3.0.15][3.0.15t]
+- COVERAGE: 99.67% -- 303/304 lines in 13 files
+- BRANCH COVERAGE: 91.11% -- 82/90 branches in 13 files
+- 20.99% documented
+
+### Added
+
 - `K_SOUP_COV_MIN_STRICT=true` opts into strict coverage criteria, enabling branch and
   method coverage (and eval coverage where supported) and requiring 100% line, branch,
   and method coverage when hard minimum enforcement is on.
@@ -33,10 +52,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (2)
   - documentation (1)
   - workflows (1)
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -53,8 +68,6 @@ Please file a bug if you notice a violation of semantic versioning.
   coverage, are kept. Before, a project's method minimum was silently dropped
   and its line and branch minimums could be lowered, with no way to restore
   them after collation.
-
-### Security
 
 ## [3.0.14] - 2026-10-25
 
@@ -853,7 +866,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.14...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.15...HEAD
+[3.0.15]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.14...v3.0.15
+[3.0.15t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.15
 [3.0.14]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.13...v3.0.14
 [3.0.14t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.14
 [3.0.13]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.12...v3.0.13
