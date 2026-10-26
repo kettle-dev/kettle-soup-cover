@@ -29,6 +29,7 @@ require "stringio"
 require_relative "cover/constants"
 require_relative "cover/loaders"
 require_relative "cover/formatters"
+require_relative "cover/coverage_thresholds"
 require_relative "cover/version"
 
 module Kettle
@@ -105,12 +106,7 @@ module Kettle
 
             Kettle::Soup::Cover.configure_formatters!
 
-            if Constants::MIN_COVERAGE_HARD
-              minimum_coverage(
-                branch: Constants::MIN_COVERAGE_BRANCH,
-                line: Constants::MIN_COVERAGE_LINE
-              )
-            end
+            Kettle::Soup::Cover::CoverageThresholds.configure!(self)
           end
         end
 
