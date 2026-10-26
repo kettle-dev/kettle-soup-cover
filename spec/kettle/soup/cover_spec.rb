@@ -35,19 +35,15 @@ RSpec.describe Kettle::Soup::Cover do
       before do
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_HARD", true)
         stub_const("Kettle::Soup::Cover::Constants::MIN_COVERAGE_STRICT", true)
-        allow(SimpleCov.profiles).to receive(:fetch_proc).with(:strict).and_return(
-          proc do
-            enable_coverage(:method)
-            minimum_coverage(line: 100, branch: 100, method: 100)
-          end
-        )
         allow(configuration).to receive(:enable_coverage)
+        allow(configuration).to receive(:coverage_for_eval_supported?).and_return(false)
         allow(configuration).to receive(:minimum_coverage)
       end
 
       it "applies SimpleCov's strict profile" do
         described_class::CoverageThresholds.configure!(configuration)
 
+        expect(configuration).to have_received(:enable_coverage).with(:branch)
         expect(configuration).to have_received(:enable_coverage).with(:method)
         expect(configuration).to have_received(:minimum_coverage).with(line: 100, branch: 100, method: 100)
       end
