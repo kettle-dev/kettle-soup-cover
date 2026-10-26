@@ -185,7 +185,7 @@ RSpec.describe Kettle::Soup::Cover do
         require "simplecov"
         require "kettle/soup/cover/config"
         SimpleCov.start
-        require_relative "lib/widget"
+        require File.expand_path("lib/widget", Dir.pwd)
         Widget.used
         Widget.unused if #{call_unused}
       RUBY
@@ -201,14 +201,16 @@ RSpec.describe Kettle::Soup::Cover do
       RUBY
     end
 
-    it "keeps the project's own minimums, method included" do
+    it "keeps the project's own minimums, including method coverage when supported" do
       run_worker(1, call_unused: false)
       run_worker(2, call_unused: false)
 
       _stdout, stderr, status = collate
 
       expect(status.exitstatus).to eq(2)
-      expect(stderr).to include("Method coverage (50.00%) is below the expected minimum coverage (100.00%)")
+      if SimpleCov.respond_to?(:method_coverage_supported?) && SimpleCov.method_coverage_supported?
+        expect(stderr).to include("Method coverage (50.00%) is below the expected minimum coverage (100.00%)")
+      end
       expect(stderr).to include("Line coverage (80.00%) is below the expected minimum coverage (100.00%)")
     end
 
