@@ -27,10 +27,33 @@ module Kettle
           if Constants::MIN_COVERAGE_STRICT
             configuration.minimum_coverage(line: 100, branch: 100, method: 100)
           else
+            # SimpleCov's `minimum_coverage(hash)` replaces the whole minimums
+            # Hash, so merge into the minimums already configured (for example
+            # by the project's .simplecov) instead of dropping or lowering them.
             configuration.minimum_coverage(
-              branch: Constants::MIN_COVERAGE_BRANCH,
-              line: Constants::MIN_COVERAGE_LINE
+              merge_minimum_coverage(
+                configuration.minimum_coverage,
+                branch: Constants::MIN_COVERAGE_BRANCH,
+                line: Constants::MIN_COVERAGE_LINE
+              )
             )
+          end
+        end
+
+        # Merges minimums into minimums that are already configured.
+        #
+        # For each criterion the higher of the two values wins, so a minimum
+        # the project set itself is never lowered. Criteria only `existing`
+        # has, such as method coverage, are kept as they are.
+        #
+        # @param existing [Hash{Symbol => Numeric}] the current minimums, as
+        #   answered by SimpleCov's `minimum_coverage` reader (empty when
+        #   nothing is configured)
+        # @param minimums [Hash{Symbol => Numeric}] the minimums to merge in
+        # @return [Hash{Symbol => Numeric}] a new Hash (`existing` is left unmodified)
+        def merge_minimum_coverage(existing, minimums)
+          existing.merge(minimums) do |_criterion, current, minimum|
+            [current, minimum].compact.max
           end
         end
       end
