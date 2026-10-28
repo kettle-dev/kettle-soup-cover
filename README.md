@@ -95,12 +95,12 @@ where this library is considered a package of [SOUP](https://en.wikipedia.org/wi
 
 ### Compatibility
 
-Compatible with MRI Ruby 3.2.0+, JRuby, and TruffleRuby.
+The gem's declared runtime compatibility floor is MRI Ruby 3.2.0+, with concordant releases of JRuby and TruffleRuby.
 CI workflows and Appraisals are generated for MRI Ruby 3.2.0+.
 The current MRI CI lane runs on Linux and macOS.
-This test floor is configured by `ruby.test_minimum` in `.kettle-jem.yml` and
-may be higher than the gem's runtime compatibility floor when legacy Rubies are
-not practical for the current toolchain.
+The test floor is configured by `ruby.test_minimum` in `.kettle-jem.yml`.
+When it is higher than the runtime floor, older runtime-compatible Rubies are
+not covered by the generated CI or Appraisal matrix.
 
 <a href="https://github.com/kettle-dev"><img alt="kettle-dev Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-dev/avatar-128px.svg" width="14%" align="right"/></a>
 

@@ -17,12 +17,30 @@
       ]
     }
   ],
+  "- [kc] kettle-jem/template: updated 4 project files:\n- code and tests (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        29,
+        130
+      ]
+    }
+  ],
+  "- code and tests (1)\n- documentation (1)": [
+    {
+      "file": "CHANGELOG.md",
+      "lines": [
+        30,
+        114
+      ]
+    }
+  ],
   "- configuration (1)\n- dependencies (1)": [
     {
       "file": "CHANGELOG.md",
       "lines": [
-        137,
-        156
+        160,
+        179
       ]
     }
   ],
@@ -30,8 +48,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        33,
-        73
+        62,
+        96
       ]
     }
   ],
@@ -39,8 +57,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        34,
-        110
+        63,
+        133
       ]
     }
   ],
