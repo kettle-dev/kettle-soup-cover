@@ -243,8 +243,8 @@ GEM
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (>= 3.1.12)
       version_gem (~> 1.1, >= 1.1.17)
-    kettle-wash (0.1.13)
-      version_gem (~> 1.1, >= 1.1.16)
+    kettle-wash (0.1.14)
+      version_gem (~> 1.1, >= 1.1.17)
     kramdown (2.5.2)
       rexml (>= 3.4.4)
     kramdown-parser-gfm (1.1.0)
@@ -699,7 +699,7 @@ CHECKSUMS
   kettle-rb (0.1.21) sha256=da48380788b274340f954b21b203073a72622869d8db9111ab34e52e7f902c04
   kettle-soup-cover (3.0.16)
   kettle-test (2.0.29) sha256=a34c81a27cae3fcac86a7783d230a6ee538e0b573aa4a3212beef3cc83773159
-  kettle-wash (0.1.13) sha256=adcaba085e51fb143ec0a178c586a472309264b9f3d108718584eca6515bb117
+  kettle-wash (0.1.14) sha256=b3ae515c1068f3eb4e41cdaf00a9c94defaf0584980be415871d8619b37fcafc
   kramdown (2.5.2) sha256=1ba542204c66b6f9111ff00dcc26075b95b220b07f2905d8261740c82f7f02fa
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
