@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.16] - 2026-10-28
+
+- TAG: [v3.0.16][3.0.16t]
+- COVERAGE: 99.67% -- 303/304 lines in 13 files
+- BRANCH COVERAGE: 91.11% -- 82/90 branches in 13 files
+- 20.99% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 5 project files:
   - configuration (1)
   - dependencies (4)
@@ -31,14 +48,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - documentation (1)
   - other (1)
   - workflows (1)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [3.0.15] - 2026-10-25
 
@@ -876,7 +885,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.15...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.16...HEAD
+[3.0.16]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.15...v3.0.16
+[3.0.16t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.16
 [3.0.15]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.14...v3.0.15
 [3.0.15t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.15
 [3.0.14]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.13...v3.0.14
