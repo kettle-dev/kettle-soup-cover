@@ -74,8 +74,8 @@ module Kettle
 
           list
         end
-        MIN_COVERAGE_BRANCH = ENV_GET.call("MIN_BRANCH", "80").to_i
-        MIN_COVERAGE_LINE = ENV_GET.call("MIN_LINE", "80").to_i
+        MIN_COVERAGE_BRANCH = ENV_GET.call("MIN_BRANCH", "80").to_f
+        MIN_COVERAGE_LINE = ENV_GET.call("MIN_LINE", "80").to_f
         MIN_COVERAGE_STRICT = ENV_GET.call("MIN_STRICT", Constants::FALSE).casecmp?(Constants::TRUE)
         MULTI_FORMATTERS_DEFAULT = if IS_CI
           Constants::TRUE

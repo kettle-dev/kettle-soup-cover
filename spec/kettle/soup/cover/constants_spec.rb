@@ -377,4 +377,33 @@ RSpec.describe Kettle::Soup::Cover::Constants do
       end
     end
   end
+
+  describe "minimum coverage thresholds" do
+    before do
+      reset_soup_cover_constants do
+        stub_env("K_SOUP_COV_MIN_LINE" => min_line)
+        stub_env("K_SOUP_COV_MIN_BRANCH" => min_branch)
+      end
+    end
+
+    context "with fractional percentages (a ratcheting floor equal to measured coverage)" do
+      let(:min_line) { "61.78" }
+      let(:min_branch) { "49.10" }
+
+      it "keeps the fraction instead of truncating it to an integer" do
+        expect(constants::MIN_COVERAGE_LINE).to eq(61.78)
+        expect(constants::MIN_COVERAGE_BRANCH).to eq(49.1)
+      end
+    end
+
+    context "with integer percentages" do
+      let(:min_line) { "92" }
+      let(:min_branch) { "76" }
+
+      it "still reads them" do
+        expect(constants::MIN_COVERAGE_LINE).to eq(92)
+        expect(constants::MIN_COVERAGE_BRANCH).to eq(76)
+      end
+    end
+  end
 end

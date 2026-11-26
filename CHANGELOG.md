@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- K_SOUP_COV_MIN_LINE and K_SOUP_COV_MIN_BRANCH accept decimal percentages (for example 61.78); they were truncated with to_i, so a floor set to measured coverage silently dropped the fraction
+
 ### Security
 
 ## [3.0.16] - 2026-10-28
