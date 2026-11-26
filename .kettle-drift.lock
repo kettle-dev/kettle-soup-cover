@@ -21,8 +21,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        29,
-        130
+        57,
+        150
       ]
     }
   ],
@@ -30,8 +30,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        30,
-        114
+        58,
+        134
       ]
     }
   ],
@@ -39,8 +39,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        160,
-        179
+        180,
+        199
       ]
     }
   ],
@@ -48,8 +48,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        62,
-        96
+        82,
+        116
       ]
     }
   ],
@@ -57,8 +57,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        63,
-        133
+        83,
+        153
       ]
     }
   ],
@@ -153,12 +153,30 @@
       ]
     }
   ],
+  "out != \"\" { print > out }\n' \"$bundle\"": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        95,
+        124
+      ]
+    }
+  ],
   "reset_soup_cover_constants\nRake.application[\"coverage\"].reenable": [
     {
       "file": "spec/spec_helper.rb",
       "lines": [
         185,
         192
+      ]
+    }
+  ],
+  "subject=\"$(openssl x509 -in \"$file\" -noout -subject 2>/dev/null || true)\"\nif [ -n \"$subject\" ] && matches \"$subject\"; then": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        103,
+        127
       ]
     }
   ]
