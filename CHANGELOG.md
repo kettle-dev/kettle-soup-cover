@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [3.0.17] - 2026-11-25
+
+- TAG: [v3.0.17][3.0.17t]
+- COVERAGE: 99.67% -- 303/304 lines in 13 files
+- BRANCH COVERAGE: 91.11% -- 82/90 branches in 13 files
+- 20.99% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 16 project files since the last release:
   - dependencies (16)
 
@@ -31,15 +48,9 @@ Please file a bug if you notice a violation of semantic versioning.
   - other (3)
   - workflows (18)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - K_SOUP_COV_MIN_LINE and K_SOUP_COV_MIN_BRANCH accept decimal percentages (for example 61.78); they were truncated with to_i, so a floor set to measured coverage silently dropped the fraction
-
-### Security
 
 ## [3.0.16] - 2026-10-28
 
@@ -896,7 +907,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.16...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.17...HEAD
+[3.0.17]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.16...v3.0.17
+[3.0.17t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.17
 [3.0.16]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.15...v3.0.16
 [3.0.16t]: https://github.com/kettle-dev/kettle-soup-cover/releases/tag/v3.0.16
 [3.0.15]: https://github.com/kettle-dev/kettle-soup-cover/compare/v3.0.14...v3.0.15
