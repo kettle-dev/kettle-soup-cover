@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    kettle-soup-cover (3.0.17)
+    kettle-soup-cover (3.0.18)
       kettle-wash (~> 0.1, >= 0.1.14)
       simplecov (>= 1.0)
       simplecov-cobertura (>= 4.0)
@@ -290,7 +290,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.7-x86_64-linux-musl)
       racc (~> 1.4)
-    nomono (1.1.18)
+    nomono (1.1.19)
       version_gem (~> 1.1, >= 1.1.17)
     openssl (4.0.2)
     ostruct (0.6.3)
@@ -638,7 +638,7 @@ DEPENDENCIES
   kramdown (~> 2.6, >= 2.6.1)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
-  nomono (~> 1.1, >= 1.1.18)
+  nomono (~> 1.1, >= 1.1.19)
   ostruct (~> 0.6, >= 0.6.1)
   rake (~> 13.4, >= 13.4.2)
   rbs (>= 4.2.0)
@@ -726,7 +726,7 @@ CHECKSUMS
   kettle-jem (7.1.44) sha256=ceedd0f7c9d60e3c3073c02bbf2a2d433359d9c07e8268eb5a84bb1293cc1b47
   kettle-ndjson (0.1.24) sha256=138b8710a29960e89233e0f5339ac5f2f2bcf6b95e69566b9baaf572f78ef736
   kettle-rb (0.1.21) sha256=da48380788b274340f954b21b203073a72622869d8db9111ab34e52e7f902c04
-  kettle-soup-cover (3.0.17)
+  kettle-soup-cover (3.0.18)
   kettle-test (2.0.30) sha256=9865770add5c9e93b83ab780fc9443a7a4a3fd27a258790e1f40021668170f1f
   kettle-wash (0.1.14) sha256=b3ae515c1068f3eb4e41cdaf00a9c94defaf0584980be415871d8619b37fcafc
   kramdown (2.6.1) sha256=fbef3479b69c875aacb118dde77a40d6cc3a91e2c1d505a4c3f3f9e92d142641
@@ -749,7 +749,7 @@ CHECKSUMS
   nokogiri (1.19.7-x86_64-darwin) sha256=508e81e8c5f84aaa240dce981bf1c43faae60808726f0ce7024ee92effc5cafe
   nokogiri (1.19.7-x86_64-linux-gnu) sha256=25865ccb462f714e712fdf8906fde07849cb6704a808e3d629d75baa5af5dd3b
   nokogiri (1.19.7-x86_64-linux-musl) sha256=464d1f3dfb0d53cf54c0c6a7e23e8e91cf68ec3cafc2b27dc4a7682f2d9bf546
-  nomono (1.1.18) sha256=e685e9519143bebabfbcbca3cb32dfbe377a33a3118347240516eb300e4c7385
+  nomono (1.1.19) sha256=bbfe8ed35e7caad79791221981a7918882fd37d4b487d61dc5308052856d312e
   openssl (4.0.2) sha256=1037ad2868ae58df9ad917891c0c0f9815a1172f6846d4bcdd508e4c2ee747c2
   ostruct (0.6.3) sha256=95a2ed4a4bd1d190784e666b47b2d3f078e4a9efda2fccf18f84ddc6538ed912
   parallel (1.28.0) sha256=33e6de1484baf2524792d178b0913fc8eb94c628d6cfe45599ad4458c638c970
