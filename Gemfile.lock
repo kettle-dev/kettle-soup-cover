@@ -231,9 +231,9 @@ GEM
       tree_haver (~> 7.1, >= 7.1.8)
       version_gem (~> 1.1, >= 1.1.17)
       yaml-merge (~> 7.1, >= 7.1.8)
-    kettle-ndjson (0.1.24)
+    kettle-ndjson (0.1.25)
       version_gem (~> 1.1, >= 1.1.17)
-    kettle-rb (0.1.21)
+    kettle-rb (0.1.22)
     kettle-test (2.0.30)
       appraisal2 (~> 3.0, >= 3.0.6)
       backports (~> 3.0)
@@ -247,7 +247,7 @@ GEM
       timecop-rspec (~> 1.0, >= 1.0.3)
       turbo_tests2 (>= 4.0.2)
       version_gem (~> 1.1, >= 1.1.17)
-    kettle-wash (0.1.14)
+    kettle-wash (0.1.15)
       version_gem (~> 1.1, >= 1.1.17)
     kramdown (2.6.1)
       rexml (>= 3.4.4)
@@ -530,7 +530,7 @@ GEM
       delegate (~> 0.1)
       rspec (~> 3.0)
       timecop (>= 0.7, < 1)
-    token-resolver (2.0.16)
+    token-resolver (2.0.17)
       parslet (~> 2.0)
       version_gem (~> 1.1, >= 1.1.17)
     toml-merge (7.1.20)
@@ -724,11 +724,11 @@ CHECKSUMS
   kettle-family (1.3.52) sha256=4ff4a928a1a86fa23acbc190e9204962ca9013d31e11caae1e428eadf04d8a49
   kettle-gha-pins (0.3.21) sha256=c0f08ef9fb6065cb1f1b77c44fdb117c7152255aef4ecd385b027312e874e508
   kettle-jem (7.1.44) sha256=ceedd0f7c9d60e3c3073c02bbf2a2d433359d9c07e8268eb5a84bb1293cc1b47
-  kettle-ndjson (0.1.24) sha256=138b8710a29960e89233e0f5339ac5f2f2bcf6b95e69566b9baaf572f78ef736
-  kettle-rb (0.1.21) sha256=da48380788b274340f954b21b203073a72622869d8db9111ab34e52e7f902c04
+  kettle-ndjson (0.1.25) sha256=a5dd239c1f4e1a5ddcf80ff9b09d6b6dd24d3df51461cfb0bca0b28080dbdff4
+  kettle-rb (0.1.22) sha256=ee456dfbddae0b32b0afc738d0634d4095119933f58aa017195f6c68c2b62bb9
   kettle-soup-cover (3.0.18)
   kettle-test (2.0.30) sha256=9865770add5c9e93b83ab780fc9443a7a4a3fd27a258790e1f40021668170f1f
-  kettle-wash (0.1.14) sha256=b3ae515c1068f3eb4e41cdaf00a9c94defaf0584980be415871d8619b37fcafc
+  kettle-wash (0.1.15) sha256=01d4fec9403b80cdab6f9018ec1b0e4839768561276e5f8e0535371f75c4e13f
   kramdown (2.6.1) sha256=fbef3479b69c875aacb118dde77a40d6cc3a91e2c1d505a4c3f3f9e92d142641
   kramdown-parser-gfm (1.1.0) sha256=fb39745516427d2988543bf01fc4cf0ab1149476382393e0e9c48592f6581729
   language_server-protocol (3.17.0.6) sha256=5ef2c0c138f8267e1bc631d3328347d354f96724b0af22f2c79516120443b7f0
@@ -832,7 +832,7 @@ CHECKSUMS
   thor (1.5.0) sha256=e3a9e55fe857e44859ce104a84675ab6e8cd59c650a49106a05f55f136425e73
   timecop (0.9.11) sha256=41284dc6e5041f2184f781ace766f942108c842f8d8c1386a26e6343decc7542
   timecop-rspec (1.0.3) sha256=005f14841bb606dcaefb060e321b5388e2e59537742bee8b3a9a9a40e598fab9
-  token-resolver (2.0.16) sha256=418b5881cd23beab719179a8f7ceeca7816e918ff9b1d462dd32eddc38c4ed8e
+  token-resolver (2.0.17) sha256=63cc44400294406052eebb9c9f886fe05c667be5bf36235a9b8d26a36581dba7
   toml-merge (7.1.20) sha256=c0948e2e8e53bc899cec6e68ae402d217b3de3049f643fa5686f499b5f977114
   toml-rb (4.2.2) sha256=b41cf36117bafab84c72017697ab49fe49a065e2bcfa6dffb704389fb7b0a60a
   tree_haver (7.1.20) sha256=726d82de36ef4425c503e10c1b489df220f64a5922cf8139a772aeba17f30232
